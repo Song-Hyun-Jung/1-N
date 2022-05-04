@@ -121,3 +121,6 @@ $RECYCLE.BIN/
 *.lnk
 
 # End of https://www.toptal.com/developers/gitignore/api/eclipse,java,windows
+
+!SSD/target/classes/META-INF/maven/com.example/SSD/pom.properties
+!SSD/target/classes/META-INF/MANIFEST.MF
