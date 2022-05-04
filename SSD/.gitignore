@@ -1,6 +1,6 @@
 
-# Created by https://www.toptal.com/developers/gitignore/api/eclipse,java,windows
-# Edit at https://www.toptal.com/developers/gitignore?templates=eclipse,java,windows
+# Created by https://www.toptal.com/developers/gitignore/api/eclipse,windows,java,maven
+# Edit at https://www.toptal.com/developers/gitignore?templates=eclipse,windows,java,maven
 
 ### Eclipse ###
 .metadata
@@ -94,6 +94,25 @@ local.properties
 hs_err_pid*
 replay_pid*
 
+### Maven ###
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+.mvn/timing.properties
+# https://github.com/takari/maven-wrapper#usage-without-binary-jar
+.mvn/wrapper/maven-wrapper.jar
+
+# Eclipse m2e generated files
+# Eclipse Core
+.project
+# JDT-specific (Eclipse Java Development Tools)
+.classpath
+
 ### Windows ###
 # Windows thumbnail cache files
 Thumbs.db
@@ -120,7 +139,5 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
-# End of https://www.toptal.com/developers/gitignore/api/eclipse,java,windows
-
-!SSD/target/classes/META-INF/maven/com.example/SSD/pom.properties
+# End of https://www.toptal.com/developers/gitignore/api/eclipse,windows,java,maven
 !SSD/target/classes/META-INF/MANIFEST.MF
