@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.demo.dao.mybatis.mapper.UserInfoMapper">
+  <cache />
+  
+  <!--  이메일검증, 닉네임 검증 확인 -->
+	
+	<sql id="UserColumns">
+		userId AS userId,
+		payment AS payment,
+		address AS address,
+		phone AS phone, 
+		password AS password,
+		nickname AS nickname,
+		name AS name,
+		email AS email 
+	</sql>
+
+  <select id="getUserByUserId" parameterType="int" resultType="User">
+    SELECT <include refid="UserColumns"/>
+             FROM USER
+    WHERE USERID = #{userId}
+  </select>
+  
+  <select id="getUserByUserNickname" parameterType="String" resultType="User">
+    SELECT <include refid="UserColumns"/>
+             FROM USER
+    WHERE NICKNAME = #{nickname}
+  </select>
+  
+  <select id="getUserByUserEmail" parameterType="String" resultType="User">
+    SELECT <include refid="UserColumns"/>
+             FROM USER
+    WHERE EMAIL = #{email}
+  </select>
+
+  <update id="updateUser" parameterType="User">
+    UPDATE USER SET
+      NICKNAME = #{nickName},
+      PASSWORD = #{passWord},
+      ADDRESS = #{address},
+      PHONE = #{phone},
+      PAYMENT = #{payment}
+     
+    WHERE USERID = #{userId}
+  </update>
+
+
+	 <insert id="insertUser" parameterType="User">
+	<selectKey keyProperty="userId" resultType="int" order="BEFORE">
+				SELECT userId_Seq.nextval AS userId FROM DUAL
+	</selectKey>
+	    INSERT INTO User
+	      (USERID, PAYMENT, ADDRESS, PHONE, PASSWORD, NICKNAME, NAME, EMAIL)
+	    VALUES
+	      (#{userId}, #{payment}, #{address}, #{phone}, #{password}, #{nickname}, #{name}, #{email})
+	  </insert>
+	
+	<select id="getPurchaseItemList" parameterType="int" resultType="shoppingItem">
+	    SELECT s.itemid, s.shoppingCategoryId, s.image, s.memo, s.soldQuantity, s.totalQuantity, s.description, s.totalprice, s.price, s.name
+	             FROM ORDER o, SHOPPINGITEM s
+	    WHERE o.USERID = #{userId} and o.itemid = s.itemid
+	  </select>
+	
+	<select id="getCartItemList" parameterType="int" resultType="shoppingItem">
+	    SELECT s.itemid, s.shoppingCategoryId, s.image, s.memo, s.soldQuantity, s.totalQuantity, s.description, s.totalprice, s.price, s.name
+	             FROM CART c, SHOPPINGITEM s
+	    WHERE c.USERID = #{userId} AND c.itemid = s.itemid
+	  </select>
+	
+	<select id="getMyDeliveryPost" parameterType="int" resultType="deliveryPost">
+	    SELECT *
+	             FROM DELIVERYPOST
+	    WHERE USERID = #{userId}
+	  </select>
+	
+	<select id="getMySellPost" parameterType="int" resultType="sellpost">
+	    SELECT *
+	             FROM SELLPOST
+	    WHERE USERID = #{userId}
+	  </select>
+	
+	  
+  
+</mapper>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.demo.dao.mybatis.mapper.CartMapper">
+  <cache />
+  
+	<insert id="insertCart" parameterType="Cart">
+	<selectKey keyProperty="cartId" resultType="int" order="BEFORE">
+				SELECT cartId_Seq.nextval AS userId FROM DUAL
+	</selectKey>
+	    INSERT INTO CART
+	      (CARTID, USERID, ITEMID, QUANTITY)
+	    VALUES 
+	      (#{cartId}, #{userId}, #{itemId}, #{quantity}
+	  </insert>
+	
+	<delete id="deleteCart" parameterType="int">
+		DELETE FROM CART
+		WHERE CARTID=#{cartId}
+	</delete>
+	
+	
+  <select id="getCart" parameterType="int" resultType="Cart">
+    SELECT *
+             FROM CART
+    WHERE CARTID = #{cartId}
+  </select>
+  
+  
+   <!-- userInfoMapper의 getCartItemList와 다른건가요???? join 안하고 정말 cart만 가져오게 바꾸긴 했음 -->
+	<select id="getCartByUserId" parameterType="int" resultType="Cart">
+	    SELECT * FROM CART
+	    WHERE c.USERID = #{userId} 
+	</select>
+  
+	
+	  
+ </mapper>
