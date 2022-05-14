@@ -6,14 +6,11 @@ import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Repository;
 
 import com.example.demo.dao.CartDAO;
-import com.example.demo.dao.DeliveryPost;
-import com.example.demo.dao.SellPost;
-import com.example.demo.dao.ShoppingItem;
 import com.example.demo.dao.mybatis.mapper.CartMapper;
 import com.example.demo.domain.Cart;
 
 @Repository
-public class MybatisUserCartDAO implements CartDAO{
+public class MybatisCartDAO implements CartDAO{
 	
 	@Autowired
 	private CartMapper cartMapper;
