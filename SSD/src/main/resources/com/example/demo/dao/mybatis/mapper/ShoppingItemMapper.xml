@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.jpetstore.dao.mybatis.mapper.ShoppingItemMapper">
+	<cache />
+  
+	<select id="getItemsByCategoryId" parameterType="int" resultType="ShoppingItem">
+    	SELECT *
+    	FROM SHOPPINGITEM
+    	WHERE shoppingcategoryId= #{shoppingcategoryId}
+    </select>
+  
+	<select id="getItemSortByHighPrice" resultType="ShoppingItem">
+    	SELECT *
+    	FROM SHOPPINGITEM
+    	ORDER BY price DESC
+    </select>
+
+	<select id="getItemSortByLowPrice" resultType="ShoppingItem">
+    	SELECT *
+    	FROM SHOPPINGITEM
+    	ORDER BY price ASC
+    </select>
+
+    <select id="getItemSortBySoldQuantity" resultType="ShoppingItem">
+    	SELECT *
+    	FROM SHOPPINGITEM
+   		ORDER BY soldQuantity DESC
+  	</select>
+  	
+  	<select id="getTop3Item" resultType="ShoppingItem">
+    	SELECT *
+    	FROM (SELECT * FROM SHOPPINGITEM
+    	ORDER BY soldQuantity DESC) 
+    	WHERE ROWNUM &lt; 3
+  	</select>
+  	
+  	<select id="getItem"  parameterType="int" resultType="ShoppingItem">
+    	SELECT *
+   	 	FROM SHOPPINGITEM
+    	WHERE ITEMID = #{itemId}
+  	</select>
+  	
+  	<select id="itemSearch" parameterType="String" resultType="ShoppingItem">
+    	SELECT * 
+    	FROM SHOPPINGITEM
+    	WHERE keyword LIKE '%'||#{name}||'%' 
+  	</select>
+  	
+	<update id="updateQuantity">
+    	UPDATE SHOPPINGITEM 
+    	SET soldQuantity = soldQuantity + #{quantity}
+    	WHERE ITEMID = #{itemId}
+  	</update>
+  	
+</mapper>

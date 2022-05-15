@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.jpetstore.dao.mybatis.mapper.OrderInfoMapper">
+	<cache />
+
+  	<insert id="insertOrder">
+	<selectKey keyProperty="orderId" resultType="int" order="BEFORE">
+		SELECT orderId_Seq.nextval AS userId FROM DUAL
+	</selectKey>
+    	INSERT INTO ORDERS (ORDERID, ITEMID, USERID, QUANTITY, ORDERDATE)
+    	VALUES(#{orderId}, #{itemid}, #{userid}, #{quantity}, #{date_col, jdbcType=TIMESTAMP})
+    </insert>
+
+	<select id="getOrdersByUserId" parameterType="int" resultType="OrderInfo">
+    	SELECT *
+    	FROM ORDERINFO
+		WHERE USERID = #{userId}
+  	</select>
+  	
+  	<select id="getOrdersByItemId" parameterType="int" resultType="OrderInfo">
+    	SELECT *
+    	FROM ORDERINFO
+		WHERE ITEMID = #{itemId}
+  	</select>
+	
+	<select id="getOrder" parameterType="int" resultType="OrderInfo">
+    	SELECT *
+    	FROM ORDERINFO
+		WHERE ORDERID = #{orderId}
+  	</select>
+  	
+</mapper>
