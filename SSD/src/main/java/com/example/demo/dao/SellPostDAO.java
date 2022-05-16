@@ -9,7 +9,9 @@ public interface SellPostDAO {
 	
 	void insertSellPost(SellPost post) throws DataAccessException; 
 	
-	void updateSellPost(SellPost post) throws DataAccessException; List<SellPost> getAllSellPost() throws DataAccessException; 
+	void updateSellPost(SellPost post) throws DataAccessException; 
+	
+	List<SellPost> getAllSellPost() throws DataAccessException; 
 	
 	List<SellComment> getAllSellComments(int postId) throws DataAccessException; 
 	
