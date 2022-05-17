@@ -3,6 +3,7 @@ package com.example.demo.dao;
 import java.util.List; 
 import org.springframework.dao.DataAccessException;
 
+import com.example.demo.domain.DeliveryComment;
 import com.example.demo.domain.DeliveryPost; 
 
 public interface DeliveryPostDAO { 

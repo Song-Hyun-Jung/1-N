@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Repository;
 
-import com.example.demo.dao.DeliveryComment;
+import com.example.demo.domain.DeliveryComment;
 import com.example.demo.dao.mybatis.mapper.DeliveryPostMapper;
 import com.example.demo.domain.DeliveryPost;
 
@@ -35,7 +35,7 @@ public class MyBatisDeliveryPostDAO {
 	}
 	
 	void updateParticipantList(int userId, int postId) throws DataAccessException{	//userId는 댓글 작성자 userId 
-		deliveryPostMapper.updateDeliveryPost(userId, postId);
+		deliveryPostMapper.updateParticipantList(userId, postId);
 	}
 	
 	DeliveryPost getDeliveryPost(int postId) throws DataAccessException{

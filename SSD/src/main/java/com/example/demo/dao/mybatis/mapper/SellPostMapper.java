@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.springframework.dao.DataAccessException;
 
-import com.example.demo.dao.SellComment;
+import com.example.demo.domain.SellComment;
 import com.example.demo.domain.SellPost;
 
 public interface SellPostMapper {

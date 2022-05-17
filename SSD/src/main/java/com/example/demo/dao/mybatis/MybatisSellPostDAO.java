@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Repository;
 
-import com.example.demo.dao.SellComment;
+import com.example.demo.domain.SellComment;
 import com.example.demo.dao.mybatis.mapper.SellPostMapper;
 import com.example.demo.domain.SellPost;
 

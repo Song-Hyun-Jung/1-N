@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.springframework.dao.DataAccessException;
 
-import com.example.demo.dao.DeliveryComment;
+import com.example.demo.domain.DeliveryComment;
 import com.example.demo.domain.DeliveryPost;
 
 public interface DeliveryPostMapper {

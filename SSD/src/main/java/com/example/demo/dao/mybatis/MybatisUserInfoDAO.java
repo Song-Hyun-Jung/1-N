@@ -5,9 +5,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Repository;
 
-import com.example.demo.dao.DeliveryPost;
-import com.example.demo.dao.SellPost;
-import com.example.demo.dao.ShoppingItem;
+import com.example.demo.domain.DeliveryPost;
+import com.example.demo.domain.SellPost;
+import com.example.demo.domain.ShoppingCategory;
+import com.example.demo.domain.ShoppingItem;
 import com.example.demo.dao.UserInfoDAO;
 import com.example.demo.domain.UserInfo;
 import com.example.demo.dao.mybatis.mapper.UserInfoMapper;
