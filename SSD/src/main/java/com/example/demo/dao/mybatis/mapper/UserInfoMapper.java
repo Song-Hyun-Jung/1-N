@@ -11,25 +11,31 @@ import com.example.demo.domain.SellPost;
 import com.example.demo.domain.UserInfo;
 
 public interface UserInfoMapper {
+	
 	 UserInfo getUserByUserId(int userId);
-
 
 	 UserInfo getUserByEmail(String email);
 
 	 UserInfo getUserByNickname(String nickname);
 
+	 //UserInfo 객체 매개변수
 	 void insertUser(UserInfo user);
 	 
+	 //userId 매개변수
 	 void updateUser(int userId);
 
 	//List<String> getUsernameList() throws DataAccessException {} //????
 
+	//사용자 userId 받아서 order에서 userId에 해당하는 shoppingItem 가져오기 
 	List<ShoppingItem> getPurchaseItemList(int userId);
 
+	//사용자 userId 받아서 cart에서 userId에 해당하는 shoppingItem 가져오기 
 	List<ShoppingItem> getCartItemList(int userId);
 
+	//사용자 userId 받아서 deliveryPost에서 작성자가 userId인 글들 가져오기
 	List<DeliveryPost> getMyDeliveryPostList(int userId);
 	
+	//사용자 userId 받아서 sellPost에서 작성자가 userId인 글들 가져오기
 	List<SellPost> getMySellPostList(int userId);
 
 }
