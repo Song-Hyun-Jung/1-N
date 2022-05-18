@@ -3,14 +3,6 @@
 <mapper namespace="com.example.demo.dao.mybatis.mapper.DeliveryCategoryMapper">
 
   <cache />
-  
-  <!-- getPostByDeliveryCategory가 여기에 있는게 맞나요?? postMapper에 존재할텐데 -->
-  <!-- <select id="getPostByDeliveryCategory" parameterType=”int” resultType="DeliveryPost">
-    SELECT *
-    FROM DELIVERYPOST
-    WHERE deliveryCategoryId= #{deliveryCategoryId}
-  </select>
-  -->
 
  <select id="getDeliveryCategoryName" parameterType="int" resultType="String">
     SELECT NAME

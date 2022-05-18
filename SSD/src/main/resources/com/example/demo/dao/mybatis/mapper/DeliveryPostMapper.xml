@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.dao.mybatis.mapper.DeliveryPostMapper">
+	<cache />
+
+	<select id="getAllDeliveryPost" resultType="DeliveryPost"> 
+		SELECT * 
+		FROM DELIVERYPOST 
+		ORDER BY postId DESC 
+	</select>
+	
+	<select id="selectDeliveryPostByPostId" parameterType="int" resultType="DeliveryPost"> 
+		SELECT * 
+		FROM DELIVERYPOST 
+		WHERE postId=#{postId} 
+	</select> 
+	
+	<insert id="insertDeliveryPost" parameterType="DeliveryPost"> 
+		<selectKey keyProperty="postId" resultType="int" order="BEFORE"> 
+			SELECT deliveryPostId _Seq.nextval AS postId FROM DUAL 
+		</selectKey> 
+		INSERT INTO DELIVERYPOST (postId, deliveryCategoryId, userId, title, writtenDate, content, complete, participantList, foodName, address) 
+		VALUES (#{postId}, #{deliveryCategoryId}, #{userId}, #{title}, #{writtenDate}, #{content}, #{complete}, #{participantList}, #{foodName}, #{address}) 
+	</insert> 
+	
+	<update id="updateDeliveryPost" parameterType="DeliveryPost"> 
+		UPDATE DELIVERYPOST 
+		SET title=#{title} 
+		content= #{content} 
+		complete=#{complete} 
+		WHERE postId = #{postId} 
+	</update> 
+	
+	<update id="updateParticipantsLists" parameterType="hashmap"> 
+		UPDATE DELIVERYPOST 
+		SET participantsList=#{participantList} 
+		WHERE postId = #{postId} 
+	</update>
+	
+	<select id="getPostByDeliveryCategory" parameterType="int" resultType="DeliveryPost">
+    	SELECT *
+    	FROM DELIVERYPOST
+    	WHERE deliveryCategoryId= #{deliveryCategoryId}
+  	</select> 
+	
+	<resultMap id="collectionResultMap" type="DeliveryPost"> 
+		<id column="postId" jdbcType="BIGINT" property="postId" /> 
+		<result column="deliveryCategoryId" jdbcType="BIGINT" property="deliveryCategoryId" /> 
+		<result column="userId" jdbcType="BIGINT" property="userId" /> 
+		<result column="complete" jdbcType="VARCHAR" property="complete" /> 
+		<result column="foodName" jdbcType="VARCHAR" property="foodName" /> 
+		<result column="title" jdbcType="VARCHAR" property="title" /> 
+		<result column="writtenDate" jdbcType="TIMESTAMP" property="writtenDate" /> 
+		<result column="content" jdbcType="VARCHAR" property="content" /> 
+		<result column="participantList" jdbcType="VARCHAR" property="participantList" /> 
+		<collection property="comments" ofType="DeliveryComment"> 
+			<id property="commentId" column="commentId" /> 
+			<result property="userId" column="commentuserId" /> 
+			<result property="comment" column="comment" />
+			<result property="choice" column="choice" /> 
+		</collection> 
+	</resultMap>
+
+</mapper>
+	

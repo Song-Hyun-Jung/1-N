@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.dao.mybatis.mapper.SellPostMapper">
+	<cache />
+
+	<select id="getAllSellPost" resultType="SellPost"> 
+		SELECT * 
+		FROM SELLPOST 
+		ORDER BY postId DESC 
+	</select> 
+	
+	<select id="selectSellPostByPostId" parameterType="int" resultType="SellPost"> 
+		SELECT *
+		FROM SELLPOST 
+		WHERE postId=#{postId} 
+	</select> 
+	
+	<insert id="insertSellPost" parameterType="SellPost"> 
+		<selectKey keyProperty="postId" resultType="int" order="BEFORE"> 
+			SELECT postId_no_Seq.nextval AS postId FROM DUAL 
+		</selectKey> 
+		INSERT INTO SELLPOST (postId, sellCategoryId, userId, title, writtenDate, content, complete) 
+		VALUES (#{postId}, #{sellCategoryId}, #{userId}, #{title}, #{writtenDate}, #{content}, #{complete}) 
+	</insert> 
+	
+	<update id="updateSellPost" parameterType="SellPost"> 
+		UPDATE COMMENTS 
+		SET title=#{title} 
+		content= #{content} 
+		complete=#{complete} 
+		WHERE postId = #{postId} 
+	</update>
+	
+	<select id="getPostBySellCategory" parameterType="int" resultType="SellPost">
+	    SELECT *
+	    FROM SELLPOST
+	    WHERE sellCategoryId= #{sellCategorytId}
+  	</select>
+	
+	<resultMap id="collectionResultMap" type="SellPost"> 
+		<id column="postId" jdbcType="BIGINT" property="postId" /> 
+		<result column="sellCategoryId" jdbcType="BIGINT" property="sellCategoryId" /> 
+		<result column="userId" jdbcType="BIGINT" property="userId" /> 
+		<result column="complete" jdbcType="VARCHAR" property="complete" /> 
+		<result column="title" jdbcType="VARCHAR" property="title" /> 
+		<result column="writtenDate" jdbcType="TIMESTAMP" property="writtenDate" /> 
+		<result column="content" jdbcType="VARCHAR" property="content" /> 
+		<result column="participantList" jdbcType="VARCHAR" property="participantList" /> 
+		<collection property="comments" ofType="DeliveryComment"> 
+			<id property="commentId" column="commentId" /> 
+			<result property="userId" column="commentuserId" /> 
+			<result property="comment" column="comment" /> 
+			<result property="choice" column="choice" /> 
+		</collection> 
+	</resultMap> 
+	
+</mapper>
+		
