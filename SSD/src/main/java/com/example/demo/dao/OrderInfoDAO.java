@@ -7,15 +7,15 @@ import org.springframework.dao.DataAccessException;
 import com.example.demo.domain.OrderInfo;
 
 public interface OrderInfoDAO {
-//	ÁÖ¹®À» ³Ö´Â´Ù
+//	ì£¼ë¬¸ì„ ë„£ëŠ”ë‹¤
 	void insertOrder(OrderInfo order) throws DataAccessException;
 	
-//	userId·Î orderInfo List
+//	userIdë¡œ orderInfo List
 	List<OrderInfo> getOrdersByUserId(int userId) throws DataAccessException;
 	
-//	itemId·Î orderInfo List
+//	itemIdë¡œ orderInfo List
 	List<OrderInfo> getOrdersByItemId(int itemId) throws DataAccessException;
 
-//	OrderId·Î OrderInfo°´Ã¼
+//	OrderIdë¡œ OrderInfoê°ì²´
 	OrderInfo getOrder(int orderId) throws DataAccessException;
 }

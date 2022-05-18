@@ -8,31 +8,31 @@ import com.example.demo.domain.OrderInfo;
 import com.example.demo.domain.ShoppingItem;
 
 public interface ShoppingItemDAO {
-//	Ä«Å×°í¸®Id·Î ÇØ´ç Ä«Å×°í¸®ÀÇ ¾ÆÀÌÅÛ List
+//	ì¹´í…Œê³ ë¦¬Idë¡œ í•´ë‹¹ ì¹´í…Œê³ ë¦¬ì˜ ì•„ì´í…œ List
 	List<ShoppingItem> getItemsByCategoryId(int shoppingCategoryId) throws DataAccessException;
 	
-//	Ä«Å×°í¸®Id·Î ÇØ´ç Ä«Å×°í¸®ÀÇ ¾ÆÀÌÅÛ List ³ôÀº °¡°İ¼øÀ¸·Î 
+//	ì¹´í…Œê³ ë¦¬Idë¡œ í•´ë‹¹ ì¹´í…Œê³ ë¦¬ì˜ ì•„ì´í…œ List ë†’ì€ ê°€ê²©ìˆœìœ¼ë¡œ 
 	List<ShoppingItem> getItemSortByHighPrice(int shoppingCategoryId) throws DataAccessException;
 	
-//	Ä«Å×°í¸®Id·Î ÇØ´ç Ä«Å×°í¸®ÀÇ ¾ÆÀÌÅÛ List ³·Àº °¡°İ¼øÀ¸·Î 
+//	ì¹´í…Œê³ ë¦¬Idë¡œ í•´ë‹¹ ì¹´í…Œê³ ë¦¬ì˜ ì•„ì´í…œ List ë‚®ì€ ê°€ê²©ìˆœìœ¼ë¡œ 
 	List<ShoppingItem> getItemSortByLowPrice(int shoppingCategoryId) throws DataAccessException;
 	
-//	Ä«Å×°í¸®Id·Î ÇØ´ç Ä«Å×°í¸®ÀÇ ¾ÆÀÌÅÛ List ÆÇ¸Å·®¼øÀ¸·Î 
+//	ì¹´í…Œê³ ë¦¬Idë¡œ í•´ë‹¹ ì¹´í…Œê³ ë¦¬ì˜ ì•„ì´í…œ List íŒë§¤ëŸ‰ìˆœìœ¼ë¡œ 
 	List<ShoppingItem> getItemSortBySoldQuantity(int shoppingCategoryId) throws DataAccessException;
 	
-//	ÁÖ¹®·® ¸¹Àº top3 ¾ÆÀÌÅÛ List
+//	ì£¼ë¬¸ëŸ‰ ë§ì€ top3 ì•„ì´í…œ List
 	List<ShoppingItem> getTop3Item() throws DataAccessException;
 	
-//	¾ÆÀÌÅÛId·Î ¾ÆÀÌÅÛ°´Ã¼
+//	ì•„ì´í…œIdë¡œ ì•„ì´í…œê°ì²´
 	ShoppingItem getItem(int shoppingItemId) throws DataAccessException;
 	
-//	°Ë»ö¾î·Î ¾ÆÀÌÅÛList
+//	ê²€ìƒ‰ì–´ë¡œ ì•„ì´í…œList
 	List<ShoppingItem> itemSearch(String keyword) throws DataAccessException;
 	
-//	±³¼ö´Ô ÄÚµå
+//	êµìˆ˜ë‹˜ ì½”ë“œ
 //	ShoppingItem.soldQuantity += OrderInfo.quantity
 	public void updateQuantity(OrderInfo order) throws DataAccessException;
 
-//	ShoppingItem.soldQuantity < ShoppingItem.totalQuantity¸é Âü
+//	ShoppingItem.soldQuantity < ShoppingItem.totalQuantityë©´ ì°¸
 	boolean isItemInStock(int shoppingItemId) throws DataAccessException;
 }

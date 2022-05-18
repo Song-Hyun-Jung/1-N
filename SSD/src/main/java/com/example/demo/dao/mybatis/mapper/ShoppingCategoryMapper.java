@@ -8,12 +8,12 @@ import com.example.demo.domain.ShoppingCategory;
 
 @Mapper
 public interface ShoppingCategoryMapper {
-//	Ä«Å×°í¸®Id·Î ÇØ´ç Ä«Å×°í¸® ÀÌ¸§
+//	ì¹´í…Œê³ ë¦¬Idë¡œ í•´ë‹¹ ì¹´í…Œê³ ë¦¬ ì´ë¦„
 	String getNameByCategoryId(int shoppingCategoryId);
 	
-//	Ä«Å×°í¸®Id·Î ÇØ´ç Ä«Å×°í¸® ¼³¸í
+//	ì¹´í…Œê³ ë¦¬Idë¡œ í•´ë‹¹ ì¹´í…Œê³ ë¦¬ ì„¤ëª…
 	String getDescriptionByCategoryId(int shoppingCategoryId);
 	
-//	¸ğµç Ä«Å×°í¸® List
+//	ëª¨ë“  ì¹´í…Œê³ ë¦¬ List
 	List<ShoppingCategory> getAllCategory();
 }
