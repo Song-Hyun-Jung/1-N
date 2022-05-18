@@ -3,15 +3,6 @@
 <mapper namespace="com.example.demo.dao.mybatis.mapper.SellCategoryMapper">
 
   <cache />
-  
-  <!-- getPostBySellCategory가 여기에 있는게 맞나요?? postMapper에 존재할텐데 -->
-  <!-- 
-  <select id="getPostBySellCategory" parameterType="int" resultType="SellPost">
-    SELECT *
-    FROM SELLPOST
-    WHERE sellCategoryId= #{sellCategorytId}
-  </select>
-  -->
 
  <select id="getSellCategoryName" parameterType="int" resultType="String">
     SELECT NAME
