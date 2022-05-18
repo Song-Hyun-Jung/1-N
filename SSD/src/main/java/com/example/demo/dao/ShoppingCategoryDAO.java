@@ -7,12 +7,12 @@ import com.example.demo.domain.ShoppingCategory;
 import org.springframework.dao.DataAccessException;
 
 public interface ShoppingCategoryDAO {
-//	Ä«Å×°í¸®Id·Î ÇØ´ç Ä«Å×°í¸® ÀÌ¸§
+//	ì¹´í…Œê³ ë¦¬Idë¡œ í•´ë‹¹ ì¹´í…Œê³ ë¦¬ ì´ë¦„
 	String getNameByCategoryId(int shoppingCategoryId) throws DataAccessException;
 	
-//	Ä«Å×°í¸®Id·Î ÇØ´ç Ä«Å×°í¸® ¼³¸í
+//	ì¹´í…Œê³ ë¦¬Idë¡œ í•´ë‹¹ ì¹´í…Œê³ ë¦¬ ì„¤ëª…
 	String getDescriptionByCategoryId(int shoppingCategoryId) throws DataAccessException;
 	
-//	¸ğµç Ä«Å×°í¸® List
+//	ëª¨ë“  ì¹´í…Œê³ ë¦¬ List
 	List<ShoppingCategory> getAllCategory() throws DataAccessException;
 }

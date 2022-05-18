@@ -8,15 +8,15 @@ import com.example.demo.domain.OrderInfo;
 
 @Mapper
 public interface OrderInfoMapper {
-//	ÁÖ¹® ³Ö´Â´Ù
+//	ì£¼ë¬¸ì„ ë„£ëŠ”ë‹¤
 	void insertOrder(OrderInfo order);
 	
-//	userId·Î orderInfo List
+//	userIdë¡œ orderInfo List
 	List<OrderInfo> getOrdersByUserId(int userId);
 	
-//	itemId·Î orderInfo List
+//	itemIdë¡œ orderInfo List
 	List<OrderInfo> getOrdersByItemId(int itemId);
 
-//	OrderId·Î OrderInfo°´Ã¼
+//	OrderIdë¡œ OrderInfoê°ì²´
 	OrderInfo getOrder(int orderId);
 }
