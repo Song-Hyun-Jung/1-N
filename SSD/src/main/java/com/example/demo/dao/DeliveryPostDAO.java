@@ -15,7 +15,7 @@ public interface DeliveryPostDAO {
 	
 	List<DeliveryComment> getAllDeliveryComments(int postId) throws DataAccessException; 
 	
-	void updateParticipantList(int userId, int postId) throws DataAccessException; //userId는 댓글 작성자 userId 
+	//void updateParticipantList(int userId, int postId) throws DataAccessException; //userId는 댓글 작성자 userId 
 	
 	DeliveryPost getDeliveryPost(int postId) throws DataAccessException; 
 	

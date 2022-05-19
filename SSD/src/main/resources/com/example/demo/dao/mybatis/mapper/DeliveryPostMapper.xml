@@ -31,16 +31,17 @@
 		WHERE postId = #{postId} 
 	</update> 
 	
-	<update id="updateParticipantsLists" parameterType="hashmap"> 
+	<!-- 수정필요 문자열을 받아야함   
+	<update id="updateParticipantList" parameterType="hashmap"> 
 		UPDATE DELIVERYPOST 
-		SET participantsList=#{participantList} 
-		WHERE postId = #{postId} 
+		SET participantList=#{userId} 
+		WHERE postId = #{postId}
 	</update>
-	
+	-->
 	<select id="getPostByDeliveryCategory" parameterType="int" resultType="DeliveryPost">
     	SELECT *
     	FROM DELIVERYPOST
-    	WHERE deliveryCategoryId= #{deliveryCategoryId}
+    	WHERE deliveryCategoryId= #{deliveryCategoryId} 
   	</select> 
 	
 	<resultMap id="collectionResultMap" type="DeliveryPost"> 
@@ -53,7 +54,7 @@
 		<result column="writtenDate" jdbcType="TIMESTAMP" property="writtenDate" /> 
 		<result column="content" jdbcType="VARCHAR" property="content" /> 
 		<result column="participantList" jdbcType="VARCHAR" property="participantList" /> 
-		<collection property="comments" ofType="DeliveryComment"> 
+		<collection property="comments" javaType="DeliveryComment"> 
 			<id property="commentId" column="commentId" /> 
 			<result property="userId" column="commentuserId" /> 
 			<result property="comment" column="comment" />
