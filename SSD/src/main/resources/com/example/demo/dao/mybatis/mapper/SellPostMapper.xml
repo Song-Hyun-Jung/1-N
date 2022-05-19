@@ -46,7 +46,7 @@
 		<result column="writtenDate" jdbcType="TIMESTAMP" property="writtenDate" /> 
 		<result column="content" jdbcType="VARCHAR" property="content" /> 
 		<result column="participantList" jdbcType="VARCHAR" property="participantList" /> 
-		<collection property="comments" ofType="DeliveryComment"> 
+		<collection property="comments" javaType="DeliveryComment"> 
 			<id property="commentId" column="commentId" /> 
 			<result property="userId" column="commentuserId" /> 
 			<result property="comment" column="comment" /> 
