@@ -2,6 +2,7 @@ package com.example.demo.dao.mybatis.mapper;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Mapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 
@@ -10,6 +11,7 @@ import com.example.demo.domain.DeliveryPost;
 import com.example.demo.domain.SellPost;
 import com.example.demo.domain.UserInfo;
 
+@Mapper
 public interface UserInfoMapper {
 	
 	 UserInfo getUserByUserId(int userId);
