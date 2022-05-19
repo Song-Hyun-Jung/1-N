@@ -2,6 +2,8 @@ package com.example.demo.domain;
 
 import java.io.Serializable;
 
+
+@SuppressWarnings("serial")
 public class UserInfo implements Serializable{
 	private int userId; //시퀀스
 	private String email; //로그인 id로 사용

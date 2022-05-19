@@ -17,26 +17,27 @@
 		email AS email 
 	</sql>
 
-  <select id="getUserByUserId" parameterType="int" resultType="User">
+  <select id="getUserByUserId" parameterType="int" resultType="UserInfo">
     SELECT <include refid="UserColumns"/>
-             FROM USER
+             FROM USERINFO
     WHERE USERID = #{userId}
   </select>
   
-  <select id="getUserByUserNickname" parameterType="String" resultType="User">
+  <select id="getUserByUserNickname" parameterType="String" resultType="UserInfo">
     SELECT <include refid="UserColumns"/>
-             FROM USER
+             FROM USERINFO
     WHERE NICKNAME = #{nickname}
   </select>
   
-  <select id="getUserByUserEmail" parameterType="String" resultType="User">
+  <select id="getUserByUserEmail" parameterType="String" resultType="UserInfo">
     SELECT <include refid="UserColumns"/>
-             FROM USER
+             FROM USERINFO
     WHERE EMAIL = #{email}
   </select>
 
-  <update id="updateUser" parameterType="User">
-    UPDATE USER SET
+  <update id="updateUser" parameterType="UserInfo">
+    UPDATE USERINFO
+    SET
       NICKNAME = #{nickName},
       PASSWORD = #{passWord},
       ADDRESS = #{address},
@@ -47,14 +48,14 @@
   </update>
 
 
-	 <insert id="insertUser" parameterType="User">
-	<selectKey keyProperty="userId" resultType="int" order="BEFORE">
-				SELECT userId_Seq.nextval AS userId FROM DUAL
-	</selectKey>
-	    INSERT INTO User
-	      (USERID, PAYMENT, ADDRESS, PHONE, PASSWORD, NICKNAME, NAME, EMAIL)
-	    VALUES
-	      (#{userId}, #{payment}, #{address}, #{phone}, #{password}, #{nickname}, #{name}, #{email})
+	 <insert id="insertUser" parameterType="UserInfo">
+		<selectKey keyProperty="userId" resultType="int" order="BEFORE">
+					SELECT userId_Seq.nextval AS userId FROM DUAL
+		</selectKey>
+		    INSERT INTO USERINFO
+		      (USERID, PAYMENT, ADDRESS, PHONE, PASSWORD, NICKNAME, NAME, EMAIL)
+		    VALUES
+		      (#{userId}, #{payment}, #{address}, #{phone}, #{password}, #{nickname}, #{name}, #{email})
 	  </insert>
 	
 	<select id="getPurchaseItemList" parameterType="int" resultType="shoppingItem">
