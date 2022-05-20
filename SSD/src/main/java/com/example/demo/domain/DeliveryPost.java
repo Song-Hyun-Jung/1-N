@@ -12,7 +12,8 @@ public class DeliveryPost {
 	private String address;
 	private String foodName;
 	private boolean complete;		//완료 여부
-	private String participantList;	//참여자 닉네임 리스트
+	private ArrayList<UserInfo> participantList;	//참여자 리스트
+	private String participantListNickname;		//참여자 닉네임 문자열
 	
 	public int getPostId() {return postId;}
 	public void setPostId(int postId) {this.postId = postId;}
@@ -38,9 +39,21 @@ public class DeliveryPost {
 	public boolean isComplete() {return complete;}
 	public void setComplete(boolean complete) {this.complete = complete;}
 	
-	/*
 	public ArrayList<UserInfo> getParticipantList() {return participantList;}
 	public void setParticipantList(ArrayList<UserInfo> participantList) {this.participantList = participantList;}
-	 */
+	
+	
+	
+	public String getParticipantListNickname() {
+		String nicknames = "";
+		for(UserInfo u : participantList) {
+			nicknames += u.getNickname();			
+		}
+		return nicknames;
+	}
+	public void setParticipantListNickname(String participantListNickname) { this.participantListNickname = participantListNickname;}
+
+	
+	
 	
 }

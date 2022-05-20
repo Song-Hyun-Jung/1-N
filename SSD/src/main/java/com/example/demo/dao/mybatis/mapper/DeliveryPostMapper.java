@@ -19,9 +19,8 @@ public interface DeliveryPostMapper {
 	
 	List<DeliveryComment> getAllDeliveryComments(int postId); 
 	
-	//void updateParticipantList(int userId, int postId); //userId는 댓글 작성자 userId 
+	void updateParticipantList(int userId, int postId); //userId는 댓글 작성자 userId 
 
-	
 	DeliveryPost getDeliveryPost(int postId); 
 	
 	List<DeliveryPost> getDeliveryPostByCategoryId(int deliveryCategoryId);

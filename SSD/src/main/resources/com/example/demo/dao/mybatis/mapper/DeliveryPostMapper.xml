@@ -20,7 +20,7 @@
 			SELECT deliveryPostId _Seq.nextval AS postId FROM DUAL 
 		</selectKey> 
 		INSERT INTO DELIVERYPOST (postId, deliveryCategoryId, userId, title, writtenDate, content, complete, participantList, foodName, address) 
-		VALUES (#{postId}, #{deliveryCategoryId}, #{userId}, #{title}, #{writtenDate}, #{content}, #{complete}, #{participantList}, #{foodName}, #{address}) 
+		VALUES (#{postId}, #{deliveryCategoryId}, #{userId}, #{title}, #{writtenDate}, #{content}, #{complete}, #{participantListNickname}, #{foodName}, #{address}) 
 	</insert> 
 	
 	<update id="updateDeliveryPost" parameterType="DeliveryPost"> 
@@ -31,13 +31,12 @@
 		WHERE postId = #{postId} 
 	</update> 
 	
-	<!-- 수정필요 문자열을 받아야함   
-	<update id="updateParticipantList" parameterType="hashmap"> 
+	<update id="updateParticipantList" parameterType="DeliveryPost"> 
 		UPDATE DELIVERYPOST 
-		SET participantList=#{userId} 
+		SET participantList=#{participantListNickname} 
 		WHERE postId = #{postId}
 	</update>
-	-->
+	
 	<select id="getPostByDeliveryCategory" parameterType="int" resultType="DeliveryPost">
     	SELECT *
     	FROM DELIVERYPOST
@@ -53,7 +52,7 @@
 		<result column="title" jdbcType="VARCHAR" property="title" /> 
 		<result column="writtenDate" jdbcType="TIMESTAMP" property="writtenDate" /> 
 		<result column="content" jdbcType="VARCHAR" property="content" /> 
-		<result column="participantList" jdbcType="VARCHAR" property="participantList" /> 
+		<result column="participantList" jdbcType="VARCHAR" property="participantListNickname" /> 
 		<collection property="comments" javaType="DeliveryComment"> 
 			<id property="commentId" column="commentId" /> 
 			<result property="userId" column="commentuserId" /> 

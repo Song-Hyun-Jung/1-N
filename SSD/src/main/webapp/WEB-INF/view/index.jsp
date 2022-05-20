@@ -2,7 +2,6 @@
 <html>
 <head>
 	<title>Welcome</title>
-	<!-- pull 테스트 -->
 </head>
 <body>
 	<div><a href="hello.do">http://.../helloSpringIdol/hello.do</a></div><br>
