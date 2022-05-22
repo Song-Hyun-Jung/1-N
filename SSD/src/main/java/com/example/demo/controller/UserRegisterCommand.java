@@ -2,7 +2,7 @@ package com.example.demo.controller;
 
 public class UserRegisterCommand {
 
-	//회원가입
+	//회원가입 command 객체
 	private String email; //로그인 id로 사용
 	private String name;
 	private String nickname;

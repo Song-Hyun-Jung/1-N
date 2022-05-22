@@ -1,6 +1,8 @@
 package com.example.demo.controller;
 
 public class LoginCommand {
+	//로그인 command 객체
+	
 	private String email;
 	private String password;
 	
