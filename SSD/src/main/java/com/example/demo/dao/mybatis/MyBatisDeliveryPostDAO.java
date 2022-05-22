@@ -11,7 +11,6 @@ import com.example.demo.dao.mybatis.mapper.DeliveryPostMapper;
 import com.example.demo.domain.DeliveryPost;
 
 
-
 @Repository
 public class MyBatisDeliveryPostDAO {
 	
@@ -34,12 +33,9 @@ public class MyBatisDeliveryPostDAO {
 		return deliveryPostMapper.getAllDeliveryComments(postId);
 	}
 	
-	/*
 	void updateParticipantList(int userId, int postId) throws DataAccessException{	//userId는 댓글 작성자 userId 
 		deliveryPostMapper.updateParticipantList(userId, postId);
 	}
-	*/
-	
 	
 	DeliveryPost getDeliveryPost(int postId) throws DataAccessException{
 		return deliveryPostMapper.getDeliveryPost(postId);
