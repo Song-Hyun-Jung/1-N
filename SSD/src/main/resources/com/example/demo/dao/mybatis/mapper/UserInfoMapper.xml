@@ -38,13 +38,14 @@
   <update id="updateUser" parameterType="UserInfo">
     UPDATE USERINFO
     SET
-      NICKNAME = #{nickName},
-      PASSWORD = #{passWord},
+      NICKNAME = #{nickname},
+      PASSWORD = #{password},
       ADDRESS = #{address},
       PHONE = #{phone},
       PAYMENT = #{payment}
      
-    WHERE USERID = #{userId}
+    WHERE EMAIL = #{email}
+    <!-- WHERE USERID = #{userid} -->
   </update>
 
 
@@ -60,7 +61,7 @@
 	
 	<select id="getPurchaseItemList" parameterType="int" resultType="shoppingItem">
 	    SELECT s.itemid, s.shoppingCategoryId, s.image, s.memo, s.soldQuantity, s.totalQuantity, s.description, s.totalprice, s.price, s.name
-	             FROM ORDER o, SHOPPINGITEM s
+	             FROM ORDERINFO o, SHOPPINGITEM s
 	    WHERE o.USERID = #{userId} and o.itemid = s.itemid
 	  </select>
 	

@@ -8,6 +8,7 @@ public class UpdateUserCommand {
 	private String phone;
 	private String address; //주문 주소
 	private String payment; //결제 정보
+	private String email;
 	
 	public String getNickname() { return nickname; }
 	public void setNickname(String nickname) { this.nickname = nickname; }
@@ -23,6 +24,10 @@ public class UpdateUserCommand {
 	
 	public String getPayment() { return payment; }
 	public void setPayment(String payment) { this.payment = payment; }
+	
+	public String getEmail() { return email; }
+	public void setEmail(String email) { this.email = email; }
+	
 	
 
 }

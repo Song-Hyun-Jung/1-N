@@ -9,6 +9,7 @@ import com.example.demo.domain.DeliveryPost;
 import com.example.demo.domain.SellPost;
 import com.example.demo.domain.ShoppingCategory;
 import com.example.demo.domain.ShoppingItem;
+import com.example.demo.controller.UpdateUserCommand;
 import com.example.demo.dao.UserInfoDAO;
 import com.example.demo.domain.UserInfo;
 import com.example.demo.dao.mybatis.mapper.UserInfoMapper;
@@ -25,19 +26,23 @@ public class MybatisUserInfoDAO implements UserInfoDAO{
 	}
 
 	public UserInfo getUserByEmail(String email) throws DataAccessException{
-		return userInfoMapper.getUserByEmail(email);
+		return userInfoMapper.getUserByUserEmail(email);
 	}
 
 	public UserInfo getUserByNickname(String nickname) throws DataAccessException {
-		return userInfoMapper.getUserByNickname(nickname);
+		return userInfoMapper.getUserByUserNickname(nickname);
 	}
 
 	public void insertUser(UserInfo user) throws DataAccessException{
 		userInfoMapper.insertUser(user);
 	}
 	 
-	public void updateUser(int userId) throws DataAccessException{
-		userInfoMapper.updateUser(userId);
+	/*public int updateUser(UserInfo userInfo) throws DataAccessException{
+		return userInfoMapper.updateUser(userInfo);
+	}
+	*/
+	public int updateUser(UpdateUserCommand updateUserCommand) throws DataAccessException{
+		return userInfoMapper.updateUser(updateUserCommand);
 	}
 
 	//List<String> getUsernameList() throws DataAccessException {} //????
