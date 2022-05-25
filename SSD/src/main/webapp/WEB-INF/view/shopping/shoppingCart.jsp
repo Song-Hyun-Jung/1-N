@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -26,7 +26,7 @@
                 <div class="btn-group">
                   <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
                 </div>
-                <small class="text-muted">°¡°Ý</small>
+                <small class="text-muted">ê°€ê²©</small>
               </div>
             </div>
           </div>
@@ -41,7 +41,7 @@
                 <div class="btn-group">
                   <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
                 </div>
-                <small class="text-muted">°¡°Ý</small>
+                <small class="text-muted">ê°€ê²©</small>
               </div>
             </div>
           </div>
@@ -56,7 +56,7 @@
                 <div class="btn-group">
                   <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
                 </div>
-                <small class="text-muted">°¡°Ý</small>
+                <small class="text-muted">ê°€ê²©</small>
               </div>
             </div>
           </div>
@@ -76,7 +76,7 @@
                 <div class="btn-group">
                   <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
                 </div>
-                <small class="text-muted">°¡°Ý</small>
+                <small class="text-muted">ê°€ê²©</small>
               </div>
             </div>
           </div>
@@ -91,7 +91,7 @@
                 <div class="btn-group">
                   <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
                 </div>
-                <small class="text-muted">°¡°Ý</small>
+                <small class="text-muted">ê°€ê²©</small>
               </div>
             </div>
           </div>
@@ -106,7 +106,7 @@
                 <div class="btn-group">
                   <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
                 </div>
-                <small class="text-muted">°¡°Ý</small>
+                <small class="text-muted">ê°€ê²©</small>
               </div>
             </div>
           </div>
@@ -126,7 +126,7 @@
                 <div class="btn-group">
                   <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
                 </div>
-                <small class="text-muted">°¡°Ý</small>
+                <small class="text-muted">ê°€ê²©</small>
               </div>
             </div>
           </div>
@@ -141,7 +141,7 @@
                 <div class="btn-group">
                   <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
                 </div>
-                <small class="text-muted">°¡°Ý</small>
+                <small class="text-muted">ê°€ê²©</small>
               </div>
             </div>
           </div>
@@ -156,7 +156,7 @@
                 <div class="btn-group">
                   <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
                 </div>
-                <small class="text-muted">°¡°Ý</small>
+                <small class="text-muted">ê°€ê²©</small>
               </div>
             </div>
           </div>
@@ -176,7 +176,7 @@
                 <div class="btn-group">
                   <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
                 </div>
-                <small class="text-muted">°¡°Ý</small>
+                <small class="text-muted">ê°€ê²©</small>
               </div>
             </div>
           </div>
@@ -191,7 +191,7 @@
                 <div class="btn-group">
                   <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
                 </div>
-                <small class="text-muted">°¡°Ý</small>
+                <small class="text-muted">ê°€ê²©</small>
               </div>
             </div>
           </div>
@@ -206,7 +206,7 @@
                 <div class="btn-group">
                   <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
                 </div>
-                <small class="text-muted">°¡°Ý</small>
+                <small class="text-muted">ê°€ê²©</small>
               </div>
             </div>
           </div>

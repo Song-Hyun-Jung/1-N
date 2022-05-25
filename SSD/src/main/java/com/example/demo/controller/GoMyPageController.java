@@ -35,7 +35,7 @@ public class GoMyPageController {
 	@RequestMapping("/shop/mypageView.do")
 	public ModelAndView myPageView(HttpServletRequest request, HttpSession session, @ModelAttribute("updateUserCommand") UpdateUserCommand updateUserCommand) throws Exception{
 		session.setAttribute("loginUserEmail", "som@gmail.com");
-		String userEmail = (String)session.getAttribute("loginUserEmail");
+		String userEmail = (String)session.getAttribute("loginUserEmail"); //userInfo 객체 받는거 loginMember로 수정할것
 		
 		UserInfo userInfo = userService.getUserByEmail(userEmail);
 		session.setAttribute("userInfo", userInfo);
@@ -48,6 +48,4 @@ public class GoMyPageController {
 	}
 	
 	
-
-
 }

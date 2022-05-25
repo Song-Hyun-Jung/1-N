@@ -1,12 +1,12 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
-<title>¸¶ÀÌÆäÀÌÁö</title>
+<meta charset="UTF-8">
+<title>ë§ˆì´íŽ˜ì´ì§€</title>
 <style>
 	 table {
 	 	width:550px; height:300px;
@@ -36,62 +36,62 @@
 <body>
 
 <div align="left" style="padding-left:380px;">
- <h2>¸¶ÀÌÆäÀÌÁö</h2>
+ <h2>ë§ˆì´íŽ˜ì´ì§€</h2>
  </div>
  <div align="center" >
   <table id="bigTable">
-    <tr><td colspan="2" style="text-align: right; padding-right:50px" > <h4>${userInfo.nickname}´Ô</h4> </td>
+    <tr><td colspan="2" style="text-align: right; padding-right:50px" > <h4>${userInfo.nickname}ë‹˜</h4> </td>
     </tr>
   	<tr>
 	  	  <td style="text-align: center;">
-	  	  <!-- È¸¿øÁ¤º¸ ¼öÁ¤ form -->
+	  	  <!-- íšŒì›ì •ë³´ ìˆ˜ì • form -->
 	  	  	<form:form modelAttribute="updateUserCommand" method="POST" action="/shop/mypageUpdate.do">
 	  	    <table style="text-align: center; border: 1px solid #dddddd">
 				<tr>
-					<td style="background-color: #eeeeee; text-align: center; width:120px;" class="smallTd">ÀÌ¸ÞÀÏ</td>
+					<td style="background-color: #eeeeee; text-align: center; width:120px;" class="smallTd">ì´ë©”ì¼</td>
 					<td style="width:200px;" class="smallTd">${userInfo.email}</td>
-					<td class="smallTd">*¼öÁ¤ ºÒ°¡</td>
+					<td class="smallTd">*ìˆ˜ì • ë¶ˆê°€</td>
 				</tr>
 				<tr>
-					<td style="background-color: #eeeeee; text-align: center; width:120px;" class="smallTd">ÀÌ¸§</td>
+					<td style="background-color: #eeeeee; text-align: center; width:120px;" class="smallTd">ì´ë¦„</td>
 					<td style="width:200px;" class="smallTd">${userInfo.name}</td>
-					<td class="smallTd">*¼öÁ¤ ºÒ°¡</td>
+					<td class="smallTd">*ìˆ˜ì • ë¶ˆê°€</td>
 				</tr>
 				<tr>
-					<td style="background-color: #eeeeee; text-align: center; width:120px;" class="smallTd">ºñ¹Ð¹øÈ£</td>
+					<td style="background-color: #eeeeee; text-align: center; width:120px;" class="smallTd">ë¹„ë°€ë²ˆí˜¸</td>
 					<td style="width:200px;" class="smallTd">${userInfo.password}</td>
 					<td class="smallTd"><form:input path="password" type="text" size="28" style="border:0 solid black" /></td>
 				</tr>
 				<tr>
-					<td style="background-color: #eeeeee; text-align: center; width:120px;" class="smallTd">´Ð³×ÀÓ</td>
+					<td style="background-color: #eeeeee; text-align: center; width:120px;" class="smallTd">ë‹‰ë„¤ìž„</td>
 					<td style="width:200px;" class="smallTd">${userInfo.nickname}</td>
 					<td class="smallTd"><form:input path="nickname" type="text" size="28" style="border:0 solid black" /></td>
 				</tr>
 				<tr>
-					<td style="background-color: #eeeeee; text-align: center; width:120px;" class="smallTd">ÀüÈ­¹øÈ£</td>
+					<td style="background-color: #eeeeee; text-align: center; width:120px;" class="smallTd">ì „í™”ë²ˆí˜¸</td>
 					<td style="width:200px;" class="smallTd">${userInfo.phone}</td>
 					<td class="smallTd"><form:input path="phone" type="text" size="28" style="border:0 solid black" /></td>
 				</tr>
 				<tr>
-					<td style="background-color: #eeeeee; text-align: center; width:120px;" class="smallTd">ÁÖ¼Ò</td>
+					<td style="background-color: #eeeeee; text-align: center; width:120px;" class="smallTd">ì£¼ì†Œ</td>
 					<td style="width:200px;" class="smallTd">${userInfo.address}</td>
 					<td class="smallTd"><form:input path="address" type="text" size="28" style="border:0 solid black" /></td>
 				</tr>
 				<tr>
-					<td style="background-color: #eeeeee; text-align: center; width:120px;" class="smallTd">°áÁ¦Á¤º¸</td>
+					<td style="background-color: #eeeeee; text-align: center; width:120px;" class="smallTd">ê²°ì œì •ë³´</td>
 					<td style="width:200px;" class="smallTd">${userInfo.payment}</td>
 					<td class="smallTd"><form:input path="payment" type="text" size="28" style="border:0 solid black" /></td>
 				</tr>				
 			</table>
 			<br>
-			<input type="submit" value="È¸¿ø Á¤º¸ ¼öÁ¤">
+			<input type="submit" value="íšŒì› ì •ë³´ ìˆ˜ì •">
 			</form:form>
 	  	  </td>
 	  	   <td  style="width:100px; padding: 50px;">
-		  	  <h4 class="card2"><a href="/shop/mypagePurchase.do">±¸¸ÅÇÑ »óÇ° ¸ñ·Ï</a></h4>
-		  	  <h4 class="card2"><a href="/shop/mypageCart.do">Âò ¸ñ·Ï</a></h4>
-		  	  <h4 class="card2"><a href="/shop/mypageDelivery.do">ÀÛ¼ºÇÑ ¹è´Þ Ä¿¹Â´ÏÆ¼ ±Û</a></h4>
-		  	  <h4 class="card2"><a href="/shop/mypageSell.do">ÀÛ¼ºÇÑ ÀÌ¿ô Ä¿¹Â´ÏÆ¼ ±Û</a></h4>
+		  	  <h4 class="card2"><a href="/shop/mypagePurchase.do">êµ¬ë§¤í•œ ìƒí’ˆ ëª©ë¡</a></h4>
+		  	  <h4 class="card2"><a href="/shop/mypageCart.do">ì°œ ëª©ë¡</a></h4>
+		  	  <h4 class="card2"><a href="/shop/mypageDelivery.do">ìž‘ì„±í•œ ë°°ë‹¬ ì»¤ë®¤ë‹ˆí‹° ê¸€</a></h4>
+		  	  <h4 class="card2"><a href="/shop/mypageSell.do">ìž‘ì„±í•œ ì´ì›ƒ ì»¤ë®¤ë‹ˆí‹° ê¸€</a></h4>
 		  	</td>
   	  </tr>
 	  	 
