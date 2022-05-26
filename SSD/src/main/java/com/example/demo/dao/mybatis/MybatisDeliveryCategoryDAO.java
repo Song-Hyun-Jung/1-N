@@ -4,11 +4,13 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
+import org.springframework.stereotype.Repository;
 
 import com.example.demo.dao.DeliveryCategoryDAO;
 import com.example.demo.dao.mybatis.mapper.DeliveryCategoryMapper;
 import com.example.demo.domain.DeliveryCategory;
 
+@Repository
 public class MybatisDeliveryCategoryDAO implements DeliveryCategoryDAO{
 	@Autowired
 	private DeliveryCategoryMapper deliveryCategoryMapper;
