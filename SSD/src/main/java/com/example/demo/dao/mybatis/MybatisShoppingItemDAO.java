@@ -6,12 +6,14 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
+import org.springframework.stereotype.Repository;
 
 import com.example.demo.dao.ShoppingItemDAO;
 import com.example.demo.dao.mybatis.mapper.ShoppingItemMapper;
 import com.example.demo.domain.OrderInfo;
 import com.example.demo.domain.ShoppingItem;
 
+@Repository
 public class MybatisShoppingItemDAO implements ShoppingItemDAO {
 	@Autowired
 	private ShoppingItemMapper shoppingItemMapper;

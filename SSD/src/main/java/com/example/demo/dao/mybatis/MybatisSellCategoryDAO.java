@@ -4,11 +4,13 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
+import org.springframework.stereotype.Repository;
 
 import com.example.demo.dao.SellCategoryDAO;
 import com.example.demo.dao.mybatis.mapper.SellCategoryMapper;
 import com.example.demo.domain.SellCategory;
 
+@Repository
 public class MybatisSellCategoryDAO implements SellCategoryDAO{
 
 	@Autowired
