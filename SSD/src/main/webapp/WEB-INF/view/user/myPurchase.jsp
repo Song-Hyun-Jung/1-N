@@ -29,7 +29,7 @@
 		          <div class="card shadow-sm"> 
 		            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
 		            	<image href="/static/images/${myPurchaseItem.image}.jpg" width="100%" height="100%" />
-		            </svg>
+		            </svg> 
 		            <div class="card-body">
 		              <p class="card-text">구매 상품: ${myPurchaseItem.name}</p>
 		              <p>가격: ${myPurchaseItem.price}</p>
