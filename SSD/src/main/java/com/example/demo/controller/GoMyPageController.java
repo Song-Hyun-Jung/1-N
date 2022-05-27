@@ -38,8 +38,11 @@ public class GoMyPageController {
 		String userEmail = (String)session.getAttribute("loginUserEmail"); //userInfo 객체 받는거 loginMember로 수정할것
 		
 		UserInfo userInfo = userService.getUserByEmail(userEmail);
-		session.setAttribute("userInfo", userInfo);
+		session.setAttribute("loginMember", userInfo);
 		
+		//UserInfo userInfo = (UserInfo)session.getAtttribute("loginMember");
+		
+	
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("user/myPage");
 		mav.addObject("userInfo", userInfo);
