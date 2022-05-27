@@ -2,7 +2,7 @@
 <html lang="zxx">
 
 <head>
-    <meta charset="UTF-8">
+    <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
     <meta name="description" content="Ogani Template">
     <meta name="keywords" content="Ogani, unica, creative, html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,14 +13,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap" rel="stylesheet">
 
     <!-- Css Styles -->
-    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
-    <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
-    <link rel="stylesheet" href="css/elegant-icons.css" type="text/css">
-    <link rel="stylesheet" href="css/nice-select.css" type="text/css">
-    <link rel="stylesheet" href="css/jquery-ui.min.css" type="text/css">
-    <link rel="stylesheet" href="css/owl.carousel.min.css" type="text/css">
-    <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
-    <link rel="stylesheet" href="css/style.css" type="text/css">
+    <link rel="stylesheet" href="/style/shoppingDetail,shoppingPurchase/css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="/style/shoppingDetail,shoppingPurchase/css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="/style/shoppingDetail,shoppingPurchase/css/elegant-icons.css" type="text/css">
+    <link rel="stylesheet" href="/style/shoppingDetail,shoppingPurchase/css/nice-select.css" type="text/css">
+    <link rel="stylesheet" href="/style/shoppingDetail,shoppingPurchase/css/jquery-ui.min.css" type="text/css">
+    <link rel="stylesheet" href="/style/shoppingDetail,shoppingPurchase/css/owl.carousel.min.css" type="text/css">
+    <link rel="stylesheet" href="/style/shoppingDetail,shoppingPurchase/css/slicknav.min.css" type="text/css">
+    <link rel="stylesheet" href="/style/shoppingDetail,shoppingPurchase/css/style.css" type="text/css">
 </head>
 
 <body>
@@ -39,7 +39,7 @@
                 <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
                 <li><a href="#"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
             </ul>
-            <div class="header__cart__price">item: <span>$150.00</span></div>
+            <div class="header__cart__price">item: <span>$150</span></div>
         </div>
         <div class="humberger__menu__widget">
             <div class="header__top__right__language">
@@ -226,11 +226,11 @@
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <div class="breadcrumb__text">
-                        <h2>Vegetable’s Package</h2>
+                        <h2>Vegetableâs Package</h2>
                         <div class="breadcrumb__option">
                             <a href="./index.html">Home</a>
                             <a href="./index.html">Vegetables</a>
-                            <span>Vegetable’s Package</span>
+                            <span>Vegetableâs Package</span>
                         </div>
                     </div>
                 </div>
@@ -245,7 +245,7 @@
             <div class="row">
                 <div class="col-lg-6 col-md-6">
 	       <div class="product__details__text">
-                        <h3>상품명</h3>
+                        <h3>상품설명</h3>
                     </div>
                     <div class="product__details__pic">
                         <div class="product__details__pic__item">
@@ -262,8 +262,8 @@
                         <p>메모 및 유의사항</p>
                          <ul>
                             <li><b>원산지</b> <span>한국</span></li>
-                            <li><b>포장타입</b> <span>플라스틱</span></li>
-                            <li><b>무게</b> <span>0.5 kg</span></li>
+                            <li><b>포장타입</b> <span>플라스틱</span></li>
+                            <li><b>무게</b> <span>0.5 kg</span></li>
                         </ul>
 	           <br><br><br>
 	           <div class="product__details__quantity">
@@ -283,14 +283,14 @@
     <!-- Product Details Section End -->
 
     <!-- Js Plugins -->
-    <script src="js/jquery-3.3.1.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/jquery.nice-select.min.js"></script>
-    <script src="js/jquery-ui.min.js"></script>
-    <script src="js/jquery.slicknav.js"></script>
-    <script src="js/mixitup.min.js"></script>
-    <script src="js/owl.carousel.min.js"></script>
-    <script src="js/main.js"></script>
+    <script src="/style/shoppingDetail,shoppingPurchase/js/jquery-3.3.1.min.js"></script>
+    <script src="/style/shoppingDetail,shoppingPurchase/js/bootstrap.min.js"></script>
+    <script src="/style/shoppingDetail,shoppingPurchase/js/jquery.nice-select.min.js"></script>
+    <script src="/style/shoppingDetail,shoppingPurchase/js/jquery-ui.min.js"></script>
+    <script src="/style/shoppingDetail,shoppingPurchase/js/jquery.slicknav.js"></script>
+    <script src="/style/shoppingDetail,shoppingPurchase/js/mixitup.min.js"></script>
+    <script src="/style/shoppingDetail,shoppingPurchase/js/owl.carousel.min.js"></script>
+    <script src="/style/shoppingDetail,shoppingPurchase/js/main.js"></script>
 
 
 </body>

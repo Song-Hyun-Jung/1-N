@@ -4,11 +4,13 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
+import org.springframework.stereotype.Repository;
 
 import com.example.demo.dao.OrderInfoDAO;
 import com.example.demo.dao.mybatis.mapper.OrderInfoMapper;
 import com.example.demo.domain.OrderInfo;
 
+@Repository
 public class MybatisOrderInfoDAO implements OrderInfoDAO {
 	@Autowired
 	private OrderInfoMapper orderInfoMapper;
