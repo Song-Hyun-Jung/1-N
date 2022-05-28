@@ -96,7 +96,6 @@ public class SignController {
 	}
 	
 	
-	
 //	회원가입
 	@RequestMapping(value="/shop/register")
 	public ModelAndView joinDo(
@@ -109,6 +108,7 @@ public class SignController {
     		@RequestParam ("phone") String phone,
 			@RequestParam ("address") String address,
 			@RequestParam ("payment") String payment) {
+		System.out.println("회원가입 시도");
 		
 		ModelAndView mav = new ModelAndView();
 		
@@ -122,27 +122,3 @@ public class SignController {
 	    return mav;
 		}
 	}
-
-//	public ModelAndView handleRequest(HttpServletRequest request) throws Exception {
-//		
-//		ModelAndView mav = new ModelAndView();
-//		mav.setViewName("login");
-//		return mav;
-//		UserInfo user = tooMuchFacade.get
-//		Account account = petStore.getAccount(username, password);
-//		if (account == null) {
-//			return new ModelAndView("Error", "message", 
-//					"Invalid username or password.  Signon failed.");
-//		}
-//		else {
-//			UserSession userSession = new UserSession(account);
-//			PagedListHolder<Product> myList = new PagedListHolder<Product>(this.petStore.getProductListByCategory(account.getFavouriteCategoryId()));
-//			myList.setPageSize(4);
-//			userSession.setMyList(myList);
-//			model.addAttribute("userSession", userSession);
-//			if (forwardAction != null) 
-//				return new ModelAndView("redirect:" + forwardAction);
-//			else 
-//				return new ModelAndView("index");
-//		}
-//	}

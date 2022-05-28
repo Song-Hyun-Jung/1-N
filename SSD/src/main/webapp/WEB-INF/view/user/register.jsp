@@ -159,34 +159,34 @@
 		</div>
 		<div class="panel-body">
 		
-		<form name="registerForm" method="POST" onsubmit="return checkAll()" action="<c:url value='/shop/register' />">
+		<form name="registerForm" method="POST" onsubmit="return checkAll()" action="/shop/register">
 			<div class="col-md-12 col-sm-12" ></div>
 			<div class="form-group col-md-6 col-sm-6" style="padding-right:30px">
 	            <label for="email">이메일</label>
-	            <input type="email" class="form-control input-sm" id="email" placeholder="">
+	            <input type="email" class="form-control input-sm" id="email" name="email" placeholder="">
 	           
 	            <label for="name">이름</label>
-	            <input type="text" class="form-control input-sm" id="name" placeholder="">
+	            <input type="text" class="form-control input-sm" id="name" name="name" placeholder="">
 	           
 	            <label for="nickname">닉네임</label>
-	            <input type="text" class="form-control input-sm" id="nickname" placeholder="">
+	            <input type="text" class="form-control input-sm" id="nickname" name="nickname" placeholder="">
 	            
 	            <label for="password">비밀번호</label>
-	            <input type="password" class="form-control input-sm" id="password" placeholder="">
+	            <input type="password" class="form-control input-sm" id="password" name="password" placeholder="">
 	            
 	            <label for="passwordCheck">비밀번호 재확인</label>
-	            <input type="password" class="form-control input-sm" id="passwordCheck" placeholder="">
+	            <input type="password" class="form-control input-sm" id="passwordCheck" name="passwordCheck" placeholder="">
 	            
 	            <label for="phone">전화번호</label>
-	            <input type="text" class="form-control input-sm" id="phone" placeholder="">
+	            <input type="text" class="form-control input-sm" id="phone" name="phone" placeholder="">
 	   		</div>
 	    
 	   		<div class="form-group col-md-6 col-sm-6">
 			    <label for="address">주소</label>
-			    <textarea class="form-control input-sm" id="address" rows="4"></textarea>
+			    <textarea class="form-control input-sm" id="address" name="address" rows="4"></textarea>
 			      
 			    <label for="payment">결제정보</label>
-		        <textarea class="form-control input-sm" id="payment" rows="3"></textarea>
+		        <textarea class="form-control input-sm" id="payment" name="payment"  rows="3"></textarea>
 			</div>
 	  
 	   		<div class="col-md-12 col-sm-12"> </div>

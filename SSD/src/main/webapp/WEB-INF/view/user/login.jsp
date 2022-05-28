@@ -62,7 +62,10 @@
           </path>
           </svg>
           <img>
-          </span>join us
+          </span>join us/
+          </a>
+           <a class="u-active-none u-border-none u-btn u-button-link u-button-style u-hover-none u-none u-text-palette-1-dark-1 u-btn-1" href="/">
+          home
           </a>
         </p>
       </div></header> 
