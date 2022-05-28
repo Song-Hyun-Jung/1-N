@@ -9,7 +9,7 @@ import com.example.demo.domain.UserInfo;
 
 @Service
 @Transactional
-public class TooMachImpl implements TooMuchFacade{
+public class TooMuchImpl implements TooMuchFacade{
 	@Autowired
 	private UserInfoDAO userInfoDao;
 
