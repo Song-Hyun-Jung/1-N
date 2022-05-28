@@ -5,6 +5,8 @@ import java.util.List;
 import org.springframework.dao.DataAccessException;
 
 import com.example.demo.controller.UpdateUserCommand;
+import com.example.demo.domain.MyPurchaseResultMap;
+import com.example.demo.domain.SellPost;
 import com.example.demo.domain.ShoppingItem;
 import com.example.demo.domain.UserInfo;
 
@@ -14,6 +16,10 @@ public interface UserService {
 	
 	int updateUser(UpdateUserCommand updateUserCommand);
 
-	List<ShoppingItem> getPurchaseItemList(int userId);
+	List<MyPurchaseResultMap> getPurchaseItemList(int userId);
+	
+	List<ShoppingItem> getCartItemList(int userId);
+	
+	List<SellPost> getMySellPostList(int userId);
 
 }

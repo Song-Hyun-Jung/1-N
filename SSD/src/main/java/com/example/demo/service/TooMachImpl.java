@@ -19,12 +19,13 @@ public class TooMachImpl implements TooMuchFacade{
 		
 	}
 
+	/*
 	@Override
 	public void updateUser(int userId) {
 		// TODO Auto-generated method stub
 		userInfoDao.updateUser(userId);
 	}
-
+	 */
 	@Override
 	public UserInfo getUserByUserId(int userId) {
 		// TODO Auto-generated method stub

@@ -59,11 +59,15 @@
 		      (#{userId}, #{payment}, #{address}, #{phone}, #{password}, #{nickname}, #{name}, #{email})
 	  </insert>
 	
-	<select id="getPurchaseItemList" parameterType="int" resultType="shoppingItem">
-	    SELECT s.itemid, s.shoppingCategoryId, s.image, s.memo, s.soldQuantity, s.totalQuantity, s.description, s.totalprice, s.price, s.name
-	             FROM ORDERINFO o, SHOPPINGITEM s
+ 
+	<select id="getPurchaseItemList" parameterType="int" resultType="MyPurchaseResultMap">
+	    SELECT s.itemid, s.shoppingCategoryId, s.image, s.memo, s.soldQuantity, s.totalQuantity, 
+	    		s.description, s.totalprice, s.price, s.name, o.orderDate
+	    FROM ORDERINFO o, SHOPPINGITEM s
 	    WHERE o.USERID = #{userId} and o.itemid = s.itemid
+	    ORDER BY o.orderDate DESC
 	  </select>
+	
 	
 	<select id="getCartItemList" parameterType="int" resultType="shoppingItem">
 	    SELECT s.itemid, s.shoppingCategoryId, s.image, s.memo, s.soldQuantity, s.totalQuantity, s.description, s.totalprice, s.price, s.name
@@ -71,13 +75,13 @@
 	    WHERE c.USERID = #{userId} AND c.itemid = s.itemid
 	  </select>
 	
-	<select id="getMyDeliveryPost" parameterType="int" resultType="deliveryPost">
+	<select id="getMyDeliveryPostList" parameterType="int" resultType="deliveryPost">
 	    SELECT *
 	             FROM DELIVERYPOST
 	    WHERE USERID = #{userId}
 	  </select>
 	
-	<select id="getMySellPost" parameterType="int" resultType="sellpost">
+	<select id="getMySellPostList" parameterType="int" resultType="sellpost">
 	    SELECT *
 	             FROM SELLPOST
 	    WHERE USERID = #{userId}
