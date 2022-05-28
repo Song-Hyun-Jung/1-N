@@ -20,8 +20,6 @@ public class MainController {
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("main");
 		
-		System.out.println("MainController");
-		
 		HttpSession session = request.getSession();
 		UserInfo user = (UserInfo) session.getAttribute("loginMember");
 		if (user == null) {//로그인 상태가 아닌 경우
@@ -31,8 +29,8 @@ public class MainController {
 		else {
 			mav.addObject("ses", 1);//로그인 상태인 경우
 			System.out.println("MainController - 로그인성공");
-			mav.addObject("user_email", user.getEmail());
-			mav.addObject("user_nickName", user.getNickname());
+			mav.addObject("email", user.getEmail());
+			mav.addObject("nickName", user.getNickname());
 		}
 		return mav;
 	}

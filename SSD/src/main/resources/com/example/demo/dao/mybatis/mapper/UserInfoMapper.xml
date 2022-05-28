@@ -51,7 +51,7 @@
 
 	 <insert id="insertUser" parameterType="UserInfo">
 		<selectKey keyProperty="userId" resultType="int" order="BEFORE">
-					SELECT userId_Seq.nextval AS userId FROM DUAL
+					SELECT USERID_SEQ.nextval AS userId FROM DUAL
 		</selectKey>
 		    INSERT INTO USERINFO
 		      (USERID, PAYMENT, ADDRESS, PHONE, PASSWORD, NICKNAME, NAME, EMAIL)

@@ -14,6 +14,29 @@ public class UserInfo implements Serializable{
 	private String address; //주문 주소
 	private String payment; //결제 정보
 	
+	public UserInfo(String email, String name, String nickname, String password, String phone,
+			String address, String payment) {
+		super();
+		this.email = email;
+		this.name = name;
+		this.nickname = nickname;
+		this.password = password;
+		this.phone = phone;
+		this.address = address;
+		this.payment = payment;
+	}
+	public UserInfo(int userId, String email, String name, String nickname, String password, String phone,
+			String address, String payment) {
+		super();
+		this.userId = userId;
+		this.email = email;
+		this.name = name;
+		this.nickname = nickname;
+		this.password = password;
+		this.phone = phone;
+		this.address = address;
+		this.payment = payment;
+	}
 	//getter, setter 
 	public int getUserId() { return userId; }
 	public void setUserId(int userId) { this.userId = userId; }
