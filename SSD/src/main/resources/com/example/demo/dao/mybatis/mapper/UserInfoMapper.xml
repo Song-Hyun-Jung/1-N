@@ -75,13 +75,13 @@
 	    WHERE c.USERID = #{userId} AND c.itemid = s.itemid
 	  </select>
 	
-	<select id="getMyDeliveryPost" parameterType="int" resultType="deliveryPost">
+	<select id="getMyDeliveryPostList" parameterType="int" resultType="deliveryPost">
 	    SELECT *
 	             FROM DELIVERYPOST
 	    WHERE USERID = #{userId}
 	  </select>
 	
-	<select id="getMySellPost" parameterType="int" resultType="sellpost">
+	<select id="getMySellPostList" parameterType="int" resultType="sellpost">
 	    SELECT *
 	             FROM SELLPOST
 	    WHERE USERID = #{userId}
