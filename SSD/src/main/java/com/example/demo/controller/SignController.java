@@ -67,13 +67,13 @@ public class SignController {
 	        model.addAttribute("url", "/shop/login.do");
 	        return "alert/error";
 			
-		}else if(!(user.getPassword()).equals(password)){//로그인 성공 
+		}else if(!(user.getPassword()).equals(password)){//email에 대한 비밀번호가 틀린경우
 			System.out.println("여기2");
 			model.addAttribute("msg", "비밀번호가 올바르지 않습니다.");
 	        model.addAttribute("url", "/shop/login.do");
 	        return "alert/error";
 			
-		}else {//email에 대한 비밀번호가 틀린경우
+		}else {//로그인 성공 
 			System.out.println("여기3");
 			model.addAttribute("msg", user.getNickname() + "님 방문을 환영합니다");
 			// 로그인 세션 처리 
@@ -112,7 +112,23 @@ public class SignController {
 		
 		ModelAndView mav = new ModelAndView();
 		
-		UserInfo user = new UserInfo(email, name, nickname, password, phone, address, payment);
+		UserInfo checkUserEmail = userService.getUserByEmail(email);
+		UserInfo checkUserNickname = tooMuchFacade.getUserByNickname(nickname);
+		UserInfo user;
+		if(checkUserEmail != null) {//email 중복
+			model.addAttribute("msg", "중복된 email이 존재합니다.");
+	        model.addAttribute("url", "/shop/register.do");
+	        mav.setViewName("alert/error");
+			return mav;
+		}else if(checkUserNickname != null) {//닉네임 중복
+			model.addAttribute("msg", "중복된 닉네임이 존재합니다.");
+	        model.addAttribute("url", "/shop/register.do");
+	        mav.setViewName("alert/error");
+			return mav;
+			
+		}else {
+			user = new UserInfo(email, name, nickname, password, phone, address, payment);
+		}
 		
 		tooMuchFacade.insertUser(user);
 		System.out.println(user.getUserId());

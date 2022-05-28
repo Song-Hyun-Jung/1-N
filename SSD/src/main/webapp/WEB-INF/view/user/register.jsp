@@ -155,7 +155,7 @@
   <body>
 	<div class="panel panel-primary" style="margin:40px;">
 		<div class="panel-heading">
-	        <h3 class="panel-title">Registration Form</h3>
+	        <h3 class="panel-title">회원가입</h3>
 		</div>
 		<div class="panel-body">
 		
@@ -191,6 +191,7 @@
 	  
 	   		<div class="col-md-12 col-sm-12"> </div>
 			<div class="form-group col-md-6 col-sm-6 pull-right" align="right">
+				<button type="button" class="btn btn-primary" style="width:200px;height:50px; font-size:20px" onClick="location.href='/shop/login.do'">Login</button>
 				<input type="submit" class="btn btn-primary" value="회원가입" style="width:200px;height:50px; font-size:20px"/>
 			</div>
 		</form>
