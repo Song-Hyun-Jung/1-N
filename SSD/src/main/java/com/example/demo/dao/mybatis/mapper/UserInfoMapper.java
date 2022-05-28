@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 
 import com.example.demo.domain.ShoppingItem;
+import com.example.demo.controller.UpdateUserCommand;
 import com.example.demo.domain.DeliveryPost;
 import com.example.demo.domain.SellPost;
 import com.example.demo.domain.UserInfo;
@@ -16,15 +17,15 @@ public interface UserInfoMapper {
 	
 	 UserInfo getUserByUserId(int userId);
 
-	 UserInfo getUserByEmail(String email);
+	 UserInfo getUserByUserEmail(String email);
 
-	 UserInfo getUserByNickname(String nickname);
+	 UserInfo getUserByUserNickname(String nickname);
 
 	 //UserInfo 객체 매개변수
 	 void insertUser(UserInfo user);
 	 
-	 //userId 매개변수
-	 void updateUser(int userId);
+	 //userInfo 매개변수
+	 int updateUser(UpdateUserCommand updateUserCommand);
 
 	//List<String> getUsernameList() throws DataAccessException {} //????
 

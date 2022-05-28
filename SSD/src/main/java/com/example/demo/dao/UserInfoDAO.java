@@ -3,6 +3,7 @@ package com.example.demo.dao;
 import java.util.List;
 import org.springframework.dao.DataAccessException;
 
+import com.example.demo.controller.UpdateUserCommand;
 import com.example.demo.domain.DeliveryPost;
 import com.example.demo.domain.SellPost;
 import com.example.demo.domain.ShoppingItem;
@@ -23,7 +24,8 @@ public interface UserInfoDAO {
 	void insertUser(UserInfo user) throws DataAccessException;
 	
 	//user 정보 수정
-	void updateUser(int userId) throws DataAccessException;
+	//int updateUser(UserInfo userInfo) throws DataAccessException;
+	int updateUser(UpdateUserCommand updateUserCommand) throws DataAccessException;
 
 	//List<String> getUsernameList() throws DataAccessException; //???
 	
