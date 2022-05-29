@@ -5,9 +5,14 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
+import com.example.demo.domain.DeliveryPost;
 import com.example.demo.domain.ShoppingItem;
+import com.example.demo.domain.UserInfo;
+import com.example.demo.service.DeliveryService;
 import com.example.demo.service.ShoppingService_jinhee;
+import com.example.demo.service.UserService;
 
 @Controller
 public class ViewItemController {
@@ -26,5 +31,33 @@ public class ViewItemController {
 		ShoppingItem shoppingItem = this.shoppingService.getItem(shoppingItemId);
 		model.put("shoppingItem", shoppingItem);
 		return "/shopping/shoppingPurchase";
+	}
+	
+	
+	
+
+	
+	//배달음식 게시글 상세보기
+	@Autowired
+	private DeliveryService deliveryService;
+	@Autowired
+	private UserService userService;
+	
+	@RequestMapping("/shop/viewDeliveryPost.do")
+	public ModelAndView getDeliveryPost(
+			@RequestParam("deliveryPostId") int deliveryPostId) throws Exception{
+		DeliveryPost deliveryPost = deliveryService.getDeliveryPost(deliveryPostId); //post정보 가져오기
+		System.out.println("게시글 상세보기: " + deliveryPost.getPostId() + " " + deliveryPost.getTitle());
+		UserInfo writtenUser = userService.getUserByUserId(deliveryPost.getUserId());//작성자 닉네임 가져오기
+		System.out.println("게시글 작성자: " + writtenUser.getNickname());
+		String participants = deliveryPost.getParticipantList();
+		System.out.println("참여자: " + participants);
+		
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("deliveryPost", deliveryPost);
+		mav.addObject("writtenUser", writtenUser);
+		mav.addObject("participants", participants);
+		mav.setViewName("delivery/deliveryDetail");
+		return mav;
 	}
 }

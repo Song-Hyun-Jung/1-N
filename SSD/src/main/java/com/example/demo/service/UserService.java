@@ -15,6 +15,8 @@ public interface UserService {
 	
 	UserInfo getUserByEmail(String email);
 	
+	UserInfo getUserByUserId(int userId);
+	
 	int updateUser(UpdateUserCommand updateUserCommand);
 
 	List<MyPurchaseResultMap> getPurchaseItemList(int userId);

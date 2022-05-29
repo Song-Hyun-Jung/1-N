@@ -75,7 +75,9 @@
 					<c:forEach var="myDeliveryPost" items="${myDeliveryPostList}">
 					<tr>
 						<!-- 게시글 제목을 누르면 해당 글을 볼 수 있도록 링크 걸어야함 -->
-						<td>${myDeliveryPost.title}</td>
+						<td><a href="<c:url value='/shop/viewDeliveryPost.do'>
+																<c:param name="deliveryPostId" value="${myDeliveryPost.postId}" />
+													 </c:url>"> ${myDeliveryPost.title}</a></td>
 						<td>
 							<c:if test="${myDeliveryPost.complete == true}">완료</c:if>
 							<c:if test="${myDeliveryPost.complete == false}">미완료</c:if>
