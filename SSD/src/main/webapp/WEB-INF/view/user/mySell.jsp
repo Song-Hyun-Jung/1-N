@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page import="java.io.PrintWriter" %>
 <%@ page import="java.util.ArrayList" %>
 <!DOCTYPE html>
@@ -32,14 +34,16 @@
 				<span class="icon-bar"></span>
 			</button>
 			<!-- 상단 바에 제목이 나타나고 클릭하면 main 페이지로 이동한다 -->
-			<a class="navbar-brand" href="main.jsp">JSP 게시판 웹 사이트</a>
+			<a class="navbar-brand" href="main.jsp">회원간 거래</a>
 		</div>
 		<!-- 게시판 제목 이름 옆에 나타나는 메뉴 영역 -->
 		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+		<!--  
 			<ul class="nav navbar-nav">
 				<li><a href="main.jsp">메인</a></li>
 				<li class="active"><a href="bbs.jsp">게시판</a></li>
 			</ul>
+			-->
 			
 			<!-- 헤더 우측에 나타나는 드랍다운 영역 -->
 			<ul class="nav navbar-nav navbar-right">
@@ -47,6 +51,7 @@
 					<a href="#" class="dropdown-toggle"
 						data-toggle="dropdown" role="button" aria-haspopup="true"
 						aria-expanded="false">회원관리<span class="caret"></span></a>
+						<!-- 이부분 나중에 정렬할때 쓰면 좋을것같아요 -->
 					<!-- 드랍다운 아이템 영역 -->	
 					<ul class="dropdown-menu">
 						<li><a href="logoutAction.jsp">로그아웃</a></li>
@@ -62,25 +67,22 @@
 	<div class="container">
 		<div class="row">
 			<table class="table table-striped" style="text-align: center; border: 1px solid #dddddd">
-				<thead>
 					<tr>
-						<th style="background-color: #eeeeee; text-align: center;">번호</th>
-						<th style="background-color: #eeeeee; text-align: center;">제목</th>
-						<th style="background-color: #eeeeee; text-align: center;">작성자</th>
+						<th style="background-color: #eeeeee; text-align: center;">글 제목</th>
+						<th style="background-color: #eeeeee; text-align: center;">완료여부</th>
 						<th style="background-color: #eeeeee; text-align: center;">작성일</th>
 					</tr>
-				</thead>
-				<tbody>
-					
+					<c:forEach var="mySellPost" items="${mySellPostList}">
 					<tr>
-						<td></td>
-						<!-- 게시글 제목을 누르면 해당 글을 볼 수 있도록 링크를 걸어둔다 -->
-						<td>aa</td>
-						<td>bb</td>
-						<td>cc</td>
+						<!-- 게시글 제목을 누르면 해당 글을 볼 수 있도록 링크 걸어야함 -->
+						<td>${mySellPost.title}</td>
+						<td>
+							<c:if test="${mySellPost.complete == true}">완료</c:if>
+							<c:if test="${mySellPost.complete == false}">미완료</c:if>
+						</td>
+						<td><fmt:formatDate pattern="yyyy-MM-dd HH:mm:ss" value="${mySellPost.writtenDate}"/></td>		
 					</tr>
-				
-				</tbody>
+					</c:forEach>
 			</table>
 			
 			
