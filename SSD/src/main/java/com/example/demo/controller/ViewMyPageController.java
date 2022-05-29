@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.example.demo.domain.DeliveryPost;
 import com.example.demo.domain.MyPurchaseResultMap;
 import com.example.demo.domain.SellPost;
 import com.example.demo.domain.ShoppingItem;
@@ -69,8 +70,14 @@ public class ViewMyPageController {
 	}
 	
 	@RequestMapping("/shop/mypageDelivery.do")
-	public ModelAndView mypageDelivery() throws Exception{
+	public ModelAndView mypageDelivery(HttpServletRequest request, HttpSession session) throws Exception{
+		UserInfo userInfo = (UserInfo)session.getAttribute("loginMember");
+		List<DeliveryPost> myDeliveryPostList = userService.getMyDeliveryPostList(userInfo.getUserId());
 		ModelAndView mav = new ModelAndView();
+		mav.addObject("myDeliveryPostList", myDeliveryPostList);
+		for(DeliveryPost d : myDeliveryPostList) {
+			System.out.println("작성글: " + d.getTitle());
+		}
 		mav.setViewName("user/myDelivery");
 		return mav;
 	}

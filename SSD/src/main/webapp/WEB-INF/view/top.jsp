@@ -23,7 +23,7 @@
 	<c:if test="${ses == 1}">
 		<div class="col-md-11 text-end align-items-center">
 			<b class="px-2 link-dark">${nickName}님</b>
-			<button type="button" class="btn btn-outline-primary me-2"  onClick="location.href='/shop/myPageView.do'">My page</button>
+			<button type="button" class="btn btn-outline-primary me-2"  onClick="location.href='/shop/mypageView.do'">My page</button>
         	<button type="button" class="btn btn-primary"  onClick="location.href='/shop/logout.do'">Logout</button>
     	</div>
 	
