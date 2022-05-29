@@ -6,6 +6,7 @@ import java.util.Map;
 import org.springframework.dao.DataAccessException;
 
 import com.example.demo.controller.UpdateUserCommand;
+import com.example.demo.controller.UserRegisterCommand;
 import com.example.demo.domain.DeliveryPost;
 import com.example.demo.domain.MyPurchaseResultMap;
 import com.example.demo.domain.SellPost;
