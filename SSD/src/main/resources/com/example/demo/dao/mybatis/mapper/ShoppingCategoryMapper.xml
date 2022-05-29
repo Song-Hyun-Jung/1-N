@@ -4,16 +4,16 @@
 <mapper namespace="com.example.demo.dao.mybatis.mapper.ShoppingCategoryMapper">
 	<cache />
 
-  	<select id="getNamebyCategoryId" parameterType="int" resultType="String">
+  	<select id="getNameByCategoryId" parameterType="int" resultType="String">
     	SELECT NAME
     	FROM SHOPPINGCATEGORY
-		WHERE shoppingcategoryId = #{shoppingcategoryId}
+		WHERE shoppingcategoryId= #{shoppingcategoryId}
   	</select>
   	
   	<select id="getDescriptionByCategoryId" parameterType="int" resultType="String">
     	SELECT DESCRIPTION
     	FROM SHOPPINGCATEGORY
-		WHERE shoppingcategoryId = #{shoppingcategoryId}
+		WHERE shoppingcategoryId= #{shoppingcategoryId}
   	</select>
 
   	<select id="getAllCategory" resultType="ShoppingCategory">

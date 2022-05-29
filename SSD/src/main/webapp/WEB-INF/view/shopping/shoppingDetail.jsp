@@ -1,3 +1,6 @@
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+
 <!DOCTYPE html>
 <html lang="zxx">
 
@@ -250,20 +253,19 @@
                     <div class="product__details__pic">
                         <div class="product__details__pic__item">
                             <img class="product__details__pic__item--large"
-                                src="img/product/details/product-details-1.jpg" alt="">
+                                src="images/shoppingCategory_1.jpg" alt="">
                         </div>
                     </div>
 
                 </div>
                 <div class="col-lg-6 col-md-6">
                     <div class="product__details__text">
-                        <div class="product__details__price">확정시 개당 가격(전체 상품 개수/전체 가격)</div>
-	            <div class="product__details__price">남은 상품의 개수/전체 상품의 개수</div>
-                        <p>메모 및 유의사항</p>
+                        <div class="product__details__price">확정시 개당 가격(전체 가격 / 전체 가격) : ${shoppingItem.totalPrice}원 / ${shoppingItem.totalQuantity}개 = ${shoppingItem.price}원</div>
+	            <div class="product__details__price">남은 상품의 개수/전체 상품의 개수 : ${shoppingItem.remainedQuantity}개 / ${shoppingItem.totalQuantity}개</div>
                          <ul>
-                            <li><b>원산지</b> <span>한국</span></li>
-                            <li><b>포장타입</b> <span>플라스틱</span></li>
-                            <li><b>무게</b> <span>0.5 kg</span></li>
+                            <li><b>상품 이름</b> <span>${shoppingItem.name}</span></li>
+                            <li><b>상품 설명</b> <span>${shoppingItem.description}</span></li>
+                            <li><b>주의사항</b> <span>${shoppingItem.memo}</span></li>
                         </ul>
 	           <br><br><br>
 	           <div class="product__details__quantity">
