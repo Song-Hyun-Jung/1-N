@@ -58,10 +58,10 @@ public class ViewMyPageController {
 	@RequestMapping("/shop/mypageSell.do")
 	public ModelAndView mypageSell(HttpServletRequest request, HttpSession session) throws Exception{
 		UserInfo userInfo = (UserInfo)session.getAttribute("loginMember");
-		List<SellPost> mySellList = userService.getMySellPostList(userInfo.getUserId());
+		List<SellPost> mySellPostList = userService.getMySellPostList(userInfo.getUserId());
 		ModelAndView mav = new ModelAndView();
-		mav.addObject("mySellList", mySellList);
-		for(SellPost s : mySellList) {
+		mav.addObject("mySellPostList", mySellPostList);
+		for(SellPost s : mySellPostList) {
 			System.out.println("작성글: " + s.getTitle());
 		}
 		mav.setViewName("user/mySell");

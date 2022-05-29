@@ -10,21 +10,24 @@
     	WHERE shoppingcategoryId= #{shoppingcategoryId}
     </select>
   
-	<select id="getItemSortByHighPrice" resultType="ShoppingItem">
+	<select id="getItemSortByHighPrice" parameterType="int" resultType="ShoppingItem">
     	SELECT *
     	FROM SHOPPINGITEM
+    	WHERE shoppingcategoryId= #{shoppingcategoryId}
     	ORDER BY price DESC
     </select>
 
-	<select id="getItemSortByLowPrice" resultType="ShoppingItem">
+	<select id="getItemSortByLowPrice" parameterType="int" resultType="ShoppingItem">
     	SELECT *
     	FROM SHOPPINGITEM
+    	WHERE shoppingcategoryId= #{shoppingcategoryId}
     	ORDER BY price ASC
     </select>
 
-    <select id="getItemSortBySoldQuantity" resultType="ShoppingItem">
+    <select id="getItemSortBySoldQuantity" parameterType="int" resultType="ShoppingItem">
     	SELECT *
     	FROM SHOPPINGITEM
+    	WHERE shoppingcategoryId= #{shoppingcategoryId}
    		ORDER BY soldQuantity DESC
   	</select>
   	
@@ -44,7 +47,7 @@
   	<select id="itemSearch" parameterType="String" resultType="ShoppingItem">
     	SELECT * 
     	FROM SHOPPINGITEM
-    	WHERE keyword LIKE '%'||#{name}||'%' 
+    	WHERE name LIKE '%'||#{keyword}||'%' 
   	</select>
   	
 	<update id="updateQuantity">

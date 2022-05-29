@@ -79,12 +79,14 @@
 	    SELECT *
 	             FROM DELIVERYPOST
 	    WHERE USERID = #{userId}
+	    ORDER BY writtenDate DESC
 	  </select>
 	
 	<select id="getMySellPostList" parameterType="int" resultType="sellpost">
 	    SELECT *
 	             FROM SELLPOST
 	    WHERE USERID = #{userId}
+	    ORDER BY writtenDate DESC
 	  </select>
 	
 	  

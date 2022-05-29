@@ -10,9 +10,10 @@ public class ShoppingItem implements Serializable {
 	private int totalPrice;
 	private int soldQuantity;
 	private int totalQuantity;
+	private int remainedQuantity;
 	private String description;
 	private String memo;
-	private String image;	//¿ì¼± »çÁø StringÀ¸·Î ÇßÀ½
+	private String image;	//ï¿½ì¼± ï¿½ï¿½ï¿½ï¿½ Stringï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	private int shoppingCategoryId;
 	
 	public int getItemId() {
@@ -61,6 +62,10 @@ public class ShoppingItem implements Serializable {
 	
 	public void setTotalQuantity(int totalQuantity) {
 		this.totalQuantity = totalQuantity;
+	}
+	
+	public int getRemainedQuantity() {
+		return (totalQuantity - soldQuantity);
 	}
 	
 	public String getDescription() {
