@@ -1,5 +1,6 @@
 package com.example.demo.service;
 
+import com.example.demo.controller.UserRegisterCommand;
 import com.example.demo.domain.UserInfo;
 
 public interface TooMuchFacade {

@@ -8,8 +8,8 @@
     <meta name="description" content="">
     <meta name="page_type" content="np-template-header-footer-from-plugin">
     <title>login</title>
-    <link rel="stylesheet" href="/style/login/nicepage.css" media="screen">
-<link rel="stylesheet" href="/style/login/mainpage.css" media="screen">
+    <link rel="stylesheet" href="/static/style/login/nicepage.css" media="screen">
+	<link rel="stylesheet" href="/static/style/login/mainpage.css" media="screen">
 	
    <meta name="generator" content="Nicepage 3.29.1, nicepage.com">
     <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i">

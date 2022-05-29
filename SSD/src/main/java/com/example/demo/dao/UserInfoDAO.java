@@ -1,10 +1,14 @@
 package com.example.demo.dao;
 
 import java.util.List;
+import java.util.Map;
+
 import org.springframework.dao.DataAccessException;
 
 import com.example.demo.controller.UpdateUserCommand;
+import com.example.demo.controller.UserRegisterCommand;
 import com.example.demo.domain.DeliveryPost;
+import com.example.demo.domain.MyPurchaseResultMap;
 import com.example.demo.domain.SellPost;
 import com.example.demo.domain.ShoppingItem;
 import com.example.demo.domain.UserInfo;
@@ -30,7 +34,7 @@ public interface UserInfoDAO {
 	//List<String> getUsernameList() throws DataAccessException; //???
 	
 	//user 구매 목록 가져오기
-	List<ShoppingItem> getPurchaseItemList(int userId) throws DataAccessException;
+	List<MyPurchaseResultMap> getPurchaseItemList(int userId) throws DataAccessException;
 	
 	//user 찜 목록 가져오기
 	List<ShoppingItem> getCartItemList(int userId) throws DataAccessException;

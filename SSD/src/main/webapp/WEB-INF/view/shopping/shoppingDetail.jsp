@@ -13,14 +13,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap" rel="stylesheet">
 
     <!-- Css Styles -->
-    <link rel="stylesheet" href="/style/shoppingDetail,shoppingPurchase/css/bootstrap.min.css" type="text/css">
-    <link rel="stylesheet" href="/style/shoppingDetail,shoppingPurchase/css/font-awesome.min.css" type="text/css">
-    <link rel="stylesheet" href="/style/shoppingDetail,shoppingPurchase/css/elegant-icons.css" type="text/css">
-    <link rel="stylesheet" href="/style/shoppingDetail,shoppingPurchase/css/nice-select.css" type="text/css">
-    <link rel="stylesheet" href="/style/shoppingDetail,shoppingPurchase/css/jquery-ui.min.css" type="text/css">
-    <link rel="stylesheet" href="/style/shoppingDetail,shoppingPurchase/css/owl.carousel.min.css" type="text/css">
-    <link rel="stylesheet" href="/style/shoppingDetail,shoppingPurchase/css/slicknav.min.css" type="text/css">
-    <link rel="stylesheet" href="/style/shoppingDetail,shoppingPurchase/css/style.css" type="text/css">
+    <link rel="stylesheet" href="/static/style/shoppingDetail,shoppingPurchase/css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="/static/style/shoppingDetail,shoppingPurchase/css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="/static/style/shoppingDetail,shoppingPurchase/css/elegant-icons.css" type="text/css">
+    <link rel="stylesheet" href="/static/style/shoppingDetail,shoppingPurchase/css/nice-select.css" type="text/css">
+    <link rel="stylesheet" href="/static/style/shoppingDetail,shoppingPurchase/css/jquery-ui.min.css" type="text/css">
+    <link rel="stylesheet" href="/static/style/shoppingDetail,shoppingPurchase/css/owl.carousel.min.css" type="text/css">
+    <link rel="stylesheet" href="/static/style/shoppingDetail,shoppingPurchase/css/slicknav.min.css" type="text/css">
+    <link rel="stylesheet" href="/static/style/shoppingDetail,shoppingPurchase/css/style.css" type="text/css">
 </head>
 
 <body>
@@ -283,14 +283,14 @@
     <!-- Product Details Section End -->
 
     <!-- Js Plugins -->
-    <script src="/style/shoppingDetail,shoppingPurchase/js/jquery-3.3.1.min.js"></script>
-    <script src="/style/shoppingDetail,shoppingPurchase/js/bootstrap.min.js"></script>
-    <script src="/style/shoppingDetail,shoppingPurchase/js/jquery.nice-select.min.js"></script>
-    <script src="/style/shoppingDetail,shoppingPurchase/js/jquery-ui.min.js"></script>
-    <script src="/style/shoppingDetail,shoppingPurchase/js/jquery.slicknav.js"></script>
-    <script src="/style/shoppingDetail,shoppingPurchase/js/mixitup.min.js"></script>
-    <script src="/style/shoppingDetail,shoppingPurchase/js/owl.carousel.min.js"></script>
-    <script src="/style/shoppingDetail,shoppingPurchase/js/main.js"></script>
+    <script src="/static/style/shoppingDetail,shoppingPurchase/js/jquery-3.3.1.min.js"></script>
+    <script src="/static/style/shoppingDetail,shoppingPurchase/js/bootstrap.min.js"></script>
+    <script src="/static/style/shoppingDetail,shoppingPurchase/js/jquery.nice-select.min.js"></script>
+    <script src="/static/style/shoppingDetail,shoppingPurchase/js/jquery-ui.min.js"></script>
+    <script src="/static/style/shoppingDetail,shoppingPurchase/js/jquery.slicknav.js"></script>
+    <script src="/static/style/shoppingDetail,shoppingPurchase/js/mixitup.min.js"></script>
+    <script src="/static/style/shoppingDetail,shoppingPurchase/js/owl.carousel.min.js"></script>
+    <script src="/static/style/shoppingDetail,shoppingPurchase/js/main.js"></script>
 
 
 </body>

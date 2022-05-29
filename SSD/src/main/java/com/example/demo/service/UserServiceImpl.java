@@ -7,6 +7,8 @@ import org.springframework.stereotype.Service;
 
 import com.example.demo.controller.UpdateUserCommand;
 import com.example.demo.dao.UserInfoDAO;
+import com.example.demo.domain.MyPurchaseResultMap;
+import com.example.demo.domain.SellPost;
 import com.example.demo.domain.ShoppingItem;
 import com.example.demo.domain.UserInfo;
 
@@ -27,8 +29,17 @@ public class UserServiceImpl implements UserService{
 	}
 	
 	@Override
-	public List<ShoppingItem> getPurchaseItemList(int userId){
+	public List<MyPurchaseResultMap> getPurchaseItemList(int userId){
 		return userInfoDao.getPurchaseItemList(userId);
 	}
-
+	
+	@Override
+	public List<ShoppingItem> getCartItemList(int userId){
+		return userInfoDao.getCartItemList(userId);
+	}
+	
+	@Override
+	public List<SellPost> getMySellPostList(int userId){
+		return userInfoDao.getMySellPostList(userId);
+	}
 }

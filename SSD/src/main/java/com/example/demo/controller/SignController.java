@@ -19,7 +19,7 @@ import com.example.demo.service.UserService;
 
 @Controller
 public class SignController {
-
+	@Autowired
 	private TooMuchFacade tooMuchFacade;
 
 	@Autowired

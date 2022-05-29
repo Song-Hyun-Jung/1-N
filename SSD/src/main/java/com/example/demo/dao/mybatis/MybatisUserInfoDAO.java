@@ -1,11 +1,14 @@
 package com.example.demo.dao.mybatis;
 
 import java.util.List;
+import java.util.Map;
+import java.util.Date;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Repository;
 
 import com.example.demo.domain.DeliveryPost;
+import com.example.demo.domain.MyPurchaseResultMap;
 import com.example.demo.domain.SellPost;
 import com.example.demo.domain.ShoppingCategory;
 import com.example.demo.domain.ShoppingItem;
@@ -47,7 +50,7 @@ public class MybatisUserInfoDAO implements UserInfoDAO{
 
 	//List<String> getUsernameList() throws DataAccessException {} //????
 
-	public List<ShoppingItem> getPurchaseItemList(int userId) throws DataAccessException{ //개인 구매 상품들
+	public List<MyPurchaseResultMap> getPurchaseItemList(int userId) throws DataAccessException{ //개인 구매 상품들
 		return userInfoMapper.getPurchaseItemList(userId);
 	}
 
