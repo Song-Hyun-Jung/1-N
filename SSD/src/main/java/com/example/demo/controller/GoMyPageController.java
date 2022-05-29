@@ -34,15 +34,8 @@ public class GoMyPageController {
 	
 	@RequestMapping("/shop/mypageView.do")
 	public ModelAndView myPageView(HttpServletRequest request, HttpSession session, @ModelAttribute("updateUserCommand") UpdateUserCommand updateUserCommand) throws Exception{
-		session.setAttribute("loginUserEmail", "som@gmail.com");
-		String userEmail = (String)session.getAttribute("loginUserEmail"); //userInfo 객체 받는거 loginMember로 수정할것
-		
-		UserInfo userInfo = userService.getUserByEmail(userEmail);
-		session.setAttribute("loginMember", userInfo);
-		
-		//UserInfo userInfo = (UserInfo)session.getAtttribute("loginMember");
-		
-	
+		UserInfo userInfo = (UserInfo)session.getAttribute("loginMember");
+
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("user/myPage");
 		mav.addObject("userInfo", userInfo);
