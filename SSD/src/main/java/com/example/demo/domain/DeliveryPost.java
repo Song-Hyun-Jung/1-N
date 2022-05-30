@@ -1,9 +1,11 @@
 package com.example.demo.domain;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 
-public class DeliveryPost {
+@SuppressWarnings("serial")
+public class DeliveryPost implements Serializable{
 	private int postId;		//시퀀스로 생성
 	private int deliveryCategoryId;	
 	private int userId;

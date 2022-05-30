@@ -99,7 +99,7 @@
 	           			
 	           			 <div class="form-group  col-md-12 col-sm-12">
 			    	         <label for="participants">참여자</label>
-		   		        	 <input type="text" class="form-control no-gray" name="participants" value="${participants}" readonly />
+		   		        	 <input type="text" class="form-control no-gray" name="participants" value="${deliveryPost.participantList}" readonly />
 	           			</div>
 	           			
 	           		</div>
@@ -119,25 +119,30 @@
     <div class="d-flex justify-content-center row">
          <div class="col-md-8 col-md-offset-2">
          	<h4>댓글</h4>
+         	
+         	<c:forEach var="deliveryComment" items="${deliveryComments}">
          	<form name="reply">
 	            <div class="d-flex flex-column comment-section">
 	                <div class="bg-white p-2">
 	                    <div class="d-flex flex-row user-info">
 	                        <div class="d-flex flex-column justify-content-start ml-2">
-	                        	<span class="d-block font-weight-bold name">Marry Andrews</span>
-	                        	<span><button type="submit" class="btn btn-info btn-xs">선택</button></span>
+	                        	<span class="d-block font-weight-bold name">${deliveryComment.userId}</span>
+	                        	<c:if test="${loginUser.nickname eq writtenUser.nickname}"><span><button type="submit" class="btn btn-info btn-xs">선택</button></span></c:if>
 	                        </div>
 	                    
 	                    </div>
 	                    <div class="mt-2">
-	                    	<textarea class="form-control no-gray ml-1 shadow-none textarea" readonly>asdad</textarea>
+	                    	<textarea class="form-control no-gray ml-1 shadow-none textarea" readonly>${deliveryComment.comments}</textarea>
 	                    </div>
 	                </div>
                 </form>
                	<hr/>
+               	</c:forEach>
+               	
+               	
                	<form name="addReply">
 	                <div class="d-flex flex-row user-info">
-	                     <div class="d-flex flex-column justify-content-start ml-2"><span class="d-block font-weight-bold name">Marry Andrews</span></div>
+	                     <div class="d-flex flex-column justify-content-start ml-2"><span class="d-block font-weight-bold name">${loginUser.nickname}</span></div>
 	                </div>
 	                <div class="bg-light p-2">
 	                    <div class="d-flex flex-row align-items-start"><textarea class="form-control ml-1 shadow-none textarea"></textarea></div>
