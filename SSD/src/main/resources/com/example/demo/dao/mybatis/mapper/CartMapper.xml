@@ -12,7 +12,6 @@
 	      (CARTID, USERID, ITEMID)
 	    VALUES 
 	      (#{cartId}, #{userId}, #{itemId})
-	      <!-- (123, #{userId}, #{itemId})  -->
 	  </insert>
 	
 	<delete id="deleteCart" parameterType="int">
@@ -28,10 +27,9 @@
   </select>
   
   
-   <!-- userInfoMapper의 getCartItemList와 다른건가요???? join 안하고 정말 cart만 가져오게 바꾸긴 했음 -->
 	<select id="getCartByUserId" parameterType="int" resultType="Cart">
 	    SELECT * FROM CART
-	    WHERE c.USERID = #{userId} 
+	    WHERE USERID = #{userId} 
 	</select>
   
 	

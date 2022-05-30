@@ -20,6 +20,15 @@
     <link rel="stylesheet" href="/static/style/shoppingDetail,shoppingPurchase/css/owl.carousel.min.css" type="text/css">
     <link rel="stylesheet" href="/static/style/shoppingDetail,shoppingPurchase/css/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="/static/style/shoppingDetail,shoppingPurchase/css/style.css" type="text/css">
+    
+    
+	<script>
+		
+		function addCart(targetUri) {
+			form1.action = targetUri
+			form1.submit();
+		}
+	</script>
 </head>
 <body>
 
@@ -59,13 +68,13 @@
 	 
 </div>
 
-                        
+ <form name="form1" method="POST">                       
 <div class="album py-5 bg-light">
     <div class="container">
       <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
       
       <c:forEach var="item" items="${shoppingItemList}">
-      
+      <input type="hidden" name="itemId" value="${item.itemId}" />
         <div class="col">
           <div class="card shadow-sm">
           
@@ -81,7 +90,7 @@
               <div class="d-flex justify-content-between align-items-center">
                 <small class="text-muted">${item.price}</small>
                   <div class="btn-group"> 
-                  <button type="button" class="btn btn-sm btn-outline-secondary">장바구니에 넣기</button>
+                  <button type="button" class="btn btn-sm btn-outline-secondary" onClick="addCart('/shop/addItemToCart.do')">찜 목록에 넣기</button>
                   </div>
               </div>
             </div>
@@ -94,5 +103,6 @@
     </div>
    </div>
    </div>
+   </form>
 </body>
 </html>

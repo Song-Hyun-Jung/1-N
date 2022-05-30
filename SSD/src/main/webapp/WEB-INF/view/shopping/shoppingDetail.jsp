@@ -24,23 +24,6 @@
     <link rel="stylesheet" href="/static/style/shoppingDetail,shoppingPurchase/css/owl.carousel.min.css" type="text/css">
     <link rel="stylesheet" href="/static/style/shoppingDetail,shoppingPurchase/css/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="/static/style/shoppingDetail,shoppingPurchase/css/style.css" type="text/css">
- 
- <script>
-		function updateInfo(targetUri) {
-			orderForm.action = targetUri;
-			orderForm.submit();
-		}
-		
-		function cancel(targetUri) {
-			orderForm.action = targetUri
-			orderForm.submit();
-		}
-		
-		function confirm(targetUri) {
-			form1.action = targetUri
-			form1.submit();
-		}
-	</script>
 
 </head>
 
@@ -62,38 +45,34 @@
                     </div>
 
                 </div>
-                <div class="col-lg-6 col-md-6">
-                    <div class="product__details__text">
-                        <div class="product__details__price">확정시 개당 가격(전체 가격 / 전체 가격) : ${shoppingItem.totalPrice}원 / ${shoppingItem.totalQuantity}개 = ${shoppingItem.price}원</div>
-	            <div class="product__details__price">남은 상품의 개수/전체 상품의 개수 : ${shoppingItem.remainedQuantity}개 / ${shoppingItem.totalQuantity}개</div>
-                         <ul>
-                            <li><b>상품 이름</b> <span>${shoppingItem.name}</span></li>
-                            <li><b>상품 설명</b> <span>${shoppingItem.description}</span></li>
-                            <li><b>주의사항</b> <span>${shoppingItem.memo}</span></li>
-                        </ul>
-	           <br><br><br>
-	           <div class="product__details__quantity">
-                            <div class="quantity">
-                                <div class="pro-qty">
-                                    <input type="text" value="1">
-                                </div>
-                            </div>
-                        </div>
-	           <a href="#" class="heart-icon"><span class="icon_heart_alt"></span></a>&nbsp;
-	           
-                <a href="<c:url value='/shop/askPurchase.do'>
-	 			<c:param name='itemId' value='${shoppingItem.itemId}'/></c:url>">
-	 			<button type="submit" class="site-btn">공동구매신청버튼</button>&nbsp;
-	 			</a>
-	 			
-	 			<form name="form1">
-	 			<button type="button" class="button" onclick="confirm('<c:url value ='/shop/askPurchase.do'>
-				<c:param name='itemId' value='${shoppingItem.itemId}' />
-				</c:url> ')">구매 확정</button>
-				</form>
-                    
-                    </div>
-                </div>
+                
+	                <div class="col-lg-6 col-md-6">
+	                    <div class="product__details__text">
+	                        <div class="product__details__price">확정시 개당 가격(전체 가격 / 전체 가격) : ${shoppingItem.totalPrice}원 / ${shoppingItem.totalQuantity}개 = ${shoppingItem.price}원</div>
+		            		<div class="product__details__price">남은 상품의 개수/전체 상품의 개수 : ${shoppingItem.remainedQuantity}개 / ${shoppingItem.totalQuantity}개</div>
+	                         <ul>
+	                            <li><b>상품 이름</b> <span>${shoppingItem.name}</span></li>
+	                            <li><b>상품 설명</b> <span>${shoppingItem.description}</span></li>
+	                            <li><b>주의사항</b> <span>${shoppingItem.memo}</span></li>
+	                        </ul>
+		          			<br><br><br>
+		          			<form name= "goOrder" method="POST" action="/shop/askPurchase.do">
+		          			<input type="hidden" name="itemId" value="${shoppingItem.itemId}" />
+					           <div class="product__details__quantity">
+				                            <div class="quantity">
+				                                <div class="pro-qty">
+				                                    <input type="text" name="quantity" value="1">
+				                                </div>
+				                            </div>
+				               </div>
+		                
+					           <a href="/shop/addItemToCart.do?itemId=${shoppingItem.itemId }" class="heart-icon"><span class="icon_heart_alt"></span></a>&nbsp;	 			  
+				 			 <input type="submit" class="site-btn" value = "공동구매신청버튼" />
+							</form>
+	                    
+	                    </div>
+	                </div>
+               
             </div>
         </div>
     </section>

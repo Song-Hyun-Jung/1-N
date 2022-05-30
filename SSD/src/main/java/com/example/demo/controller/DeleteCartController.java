@@ -17,7 +17,6 @@ import com.example.demo.service.UserService;
 public class DeleteCartController { 
 	
 	@Autowired private ShoppingService shoppingService;
-	@Autowired private UserService userService;
 
 	@RequestMapping("/shop/deleteCart.do")
 	public String handleRequest(

@@ -9,8 +9,7 @@
 		SELECT orderId_Seq.nextval AS userId FROM DUAL
 	</selectKey>
     	INSERT INTO ORDERINFO (ORDERID, ITEMID, USERID, QUANTITY, ORDERDATE)
-    	VALUES(1, #{itemId}, #{userId}, #{quantity}, #{orderDate, jdbcType=TIMESTAMP})
-    	<!-- VALUES(#{orderId}, #{itemId}, #{userId}, #{quantity}, #{orderDate, jdbcType=TIMESTAMP}) -->
+    	VALUES(#{orderId}, #{itemId}, #{userId}, #{quantity}, #{orderDate, jdbcType=TIMESTAMP})
     </insert>
 
 	<select id="getOrdersByUserId" parameterType="int" resultType="OrderInfo">

@@ -75,6 +75,15 @@
       transition:all .3s ease-out 0s
       }
     </style>
+    
+    
+        <script>
+		
+		function addCart(targetUri) {
+			form1.action = targetUri
+			form1.submit();
+		}
+	</script>
 </head>
 <body>
 
@@ -95,12 +104,15 @@
 
 
 <main>
+<form name="form1">
 <div class="album py-5 bg-light">
     <div class="container">
 
       <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
       
+      
        <c:forEach var="item" items="${top3Item}">
+       <input type="hidden" name="itemId" value="${item.itemId}" />
         <div class="col">
           <div class="card shadow-sm">
           
@@ -115,7 +127,7 @@
               <p class="card-text">${item.name}</p>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary">장바구니에 넣기</button>
+                  <button type="button" class="btn btn-sm btn-outline-secondary" onClick="addCart('/shop/addItemToCart.do?itmeId=${item.itemId}')">찜 목록에 넣기</button>
                 </div>
                 <small class="text-muted">${item.price}</small>
               </div>
@@ -128,6 +140,7 @@
       </div>
     </div>
    </div>
+   </form>
  </main>
  <section class="category-list-area pt-130">
  <div class="container">

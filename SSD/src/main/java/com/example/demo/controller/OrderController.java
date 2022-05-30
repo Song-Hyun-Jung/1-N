@@ -49,7 +49,7 @@ public class OrderController {
 	
 	@RequestMapping("/shop/OrderMypageUpdate.do")
 	public String updateMyPageOrder( 
-			HttpServletRequest request, HttpSession session, @RequestParam("itemId") int itemId,
+			HttpServletRequest request, HttpSession session, @RequestParam("itemId") int itemId, @RequestParam("quantity") int quantity,
 			 @ModelAttribute("orderCommand") OrderCommand orderCommand) throws Exception {
 		
 		String userEmail = (String)session.getAttribute("loginUserEmail");	
@@ -61,7 +61,7 @@ public class OrderController {
 		
 		int updateSuccess = userService.updateUser(userC);
 		
-		return "redirect:/shop/askPurchase.do?itemId="+itemId;
+		return "redirect:/shop/askPurchase.do?itemId="+itemId+"&quantity="+quantity;
 	}
 
 	
@@ -71,8 +71,8 @@ public class OrderController {
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("shopping/shoppingDetail");
 		
-		ShoppingItem viewItem = shoppingService.getItem(itemId);
-		mav.addObject("viewItem", viewItem);	//shoppingDetail.jsp 어떻게 구현돼있는지 확인 후 수정, 구매하려다 취소한 item 정보
+		ShoppingItem shoppingItem = shoppingService.getItem(itemId);
+		mav.addObject("shoppingItem", shoppingItem);	//shoppingDetail.jsp 어떻게 구현돼있는지 확인 후 수정, 구매하려다 취소한 item 정보
 		
 		return mav;
 	}

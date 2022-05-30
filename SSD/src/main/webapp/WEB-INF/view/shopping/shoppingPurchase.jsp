@@ -53,6 +53,7 @@
                 <form method="POST" name = "orderForm">
                 	<input type="hidden" name="itemId" value="${purchaseItem.itemId}"/>
                 	<input type="hidden" name="userId" value="${userInfo.userId}"/>
+                	<input type="hidden" name="quantity" value="${param.quantity}"/>
                     <div class="row">
                         <div class="col-lg-8 col-md-6">
        		  				<div class="checkout__input">
@@ -64,7 +65,7 @@
                                 <input type="text" name="phone" value = "${userInfo.phone}" required />
                             </div>
                             <div class="checkout__input">
-                                <p>주소<span>*</span></p>
+                                <p>주소<span>*</span></p>
                                 <input type="text" name="address" value = "${userInfo.address}" required/>
                             </div>
                             <div class="checkout__input">
@@ -76,10 +77,9 @@
                             <div class="checkout__order">
                                 <div class="checkout__order__subtotal">상품 남은 개수<span>${purchaseItem.totalQuantity - purchaseItem.soldQuantity}</span></div>
                                 <!-- 0 이하 숫자 안 되게끔 처리 해야 함 -->
-                                <div class="checkout__order__products">구매할 상품 개수<span><input type="number" name="quantity" value="3" style="width:50px;"/></span></div>
-		       					<div class="checkout__order__subtotal">확정 시 개당 가격<span>${purchaseItem.price}</span></div>
-		       					<!-- 구매 수량 바꿀 때 총 가격 바뀌어야 하는데 어떻게? -->
-                                <div class="checkout__order__total">총 가격<span>${purchaseItem.price * 3}</span></div>
+                                <div class="checkout__order__products">구매할 상품 개수<span>${param.quantity}</span></div>
+		       					<div class="checkout__order__subtotal">확정 시 개당 가격<span>${purchaseItem.price}</span></div>
+                                <div class="checkout__order__total">총 가격<span>${purchaseItem.price * param.quantity}</span></div>
                                 <div class="checkout__input__checkbox">
                                 </div>
                                 <div class="checkout__input__checkbox">
@@ -91,17 +91,11 @@
                                 </div>
                              
                                 
-                                <button type="button" class="button" onclick="updateInfo('<c:url value ='/shop/OrderMypageUpdate.do'>
-																		<c:param name='itemId' value='${purchaseItem.itemId}' />
-																	</c:url> ')">정보 수정</button>
+                                <button type="button" class="button" onclick="updateInfo('<c:url value ='/shop/OrderMypageUpdate.do'></c:url> ')">정보 수정</button>
 																	
-								<button type="button" class="button" onclick="cancel('<c:url value ='/shop/cancel.do'>
-																		<c:param name='itemId' value='${purchaseItem.itemId}' />
-																	</c:url> ')">결제 취소</button>
+								<button type="button" class="button" onclick="cancel('<c:url value ='/shop/cancel.do'></c:url> ')">결제 취소</button>
 																	
-								<button type="button" class="button" onclick="confirm('<c:url value ='/shop/confirmPurchase.do'>
-																		<c:param name='itemId' value='${purchaseItem.itemId}' />
-																	</c:url> ')">구매 확정</button>
+								<button type="button" class="button" onclick="confirm('<c:url value ='/shop/confirmPurchase.do'></c:url> ')">구매 확정</button>
          
                             </div>
                         </div>

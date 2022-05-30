@@ -1,7 +1,7 @@
 package com.example.demo.controller;
 
 public class OrderCommand {
-	private int quantity;		//구매할 상품 개수
+	private String quantity;		//구매할 상품 개수
 	private int userId;		//구매자 id
 	private int itemId;		//구매할 상품 id
 	private String name;	//구매할 상품 이름
@@ -42,10 +42,10 @@ public class OrderCommand {
 	}
 
 	public int getQuantity() {
-		return quantity;
+		return Integer.parseInt(quantity);
 	}
 	
-	public void setQuantity(int quantity) {
+	public void setQuantity(String quantity) {
 		this.quantity = quantity;
 	}
 	
