@@ -8,14 +8,14 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.example.demo.domain.ShoppingCategory;
-import com.example.demo.service.ShoppingService_jinhee;
+import com.example.demo.service.ShoppingService;
 
 @Controller
 public class ViewCategoryController {
-	private ShoppingService_jinhee shoppingService;
+	private ShoppingService shoppingService;
 
 	@Autowired
-	public void setShoppingService(ShoppingService_jinhee shoppingService) {
+	public void setShoppingService(ShoppingService shoppingService) {
 		this.shoppingService = shoppingService;
 	}
 

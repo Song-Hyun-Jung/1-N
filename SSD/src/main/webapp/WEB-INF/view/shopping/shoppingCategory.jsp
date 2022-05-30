@@ -12,21 +12,22 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 <link href="/docs/5.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <link rel="stylesheet" href="/style/shoppingDetail,shoppingPurchase/css/bootstrap.min.css" type="text/css">
-    <link rel="stylesheet" href="/style/shoppingDetail,shoppingPurchase/css/font-awesome.min.css" type="text/css">
-    <link rel="stylesheet" href="/style/shoppingDetail,shoppingPurchase/css/elegant-icons.css" type="text/css">
-    <link rel="stylesheet" href="/style/shoppingDetail,shoppingPurchase/css/nice-select.css" type="text/css">
-    <link rel="stylesheet" href="/style/shoppingDetail,shoppingPurchase/css/jquery-ui.min.css" type="text/css">
-    <link rel="stylesheet" href="/style/shoppingDetail,shoppingPurchase/css/owl.carousel.min.css" type="text/css">
-    <link rel="stylesheet" href="/style/shoppingDetail,shoppingPurchase/css/slicknav.min.css" type="text/css">
-    <link rel="stylesheet" href="/style/shoppingDetail,shoppingPurchase/css/style.css" type="text/css">
+    <link rel="stylesheet" href="/static/style/shoppingDetail,shoppingPurchase/css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="/static/style/shoppingDetail,shoppingPurchase/css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="/static/style/shoppingDetail,shoppingPurchase/css/elegant-icons.css" type="text/css">
+    <link rel="stylesheet" href="/static/style/shoppingDetail,shoppingPurchase/css/nice-select.css" type="text/css">
+    <link rel="stylesheet" href="/static/style/shoppingDetail,shoppingPurchase/css/jquery-ui.min.css" type="text/css">
+    <link rel="stylesheet" href="/static/style/shoppingDetail,shoppingPurchase/css/owl.carousel.min.css" type="text/css">
+    <link rel="stylesheet" href="/static/style/shoppingDetail,shoppingPurchase/css/slicknav.min.css" type="text/css">
+    <link rel="stylesheet" href="/static/style/shoppingDetail,shoppingPurchase/css/style.css" type="text/css">
 </head>
 <body>
 
 <c:choose>
 
 <c:when test="${search eq 'true'}">
-<br><br><h2 align="center">쇼핑몰</h2><br><br>
+<br/><br/><br><a href='<c:url value="/shop/shoppingMain.do"/>'>
+            <h1 align="center">쇼핑몰</h1></a><br><br/>
 </c:when>
 
 <c:otherwise>
@@ -36,15 +37,7 @@
 
 </c:choose>
 
-<div class="hero__search" style="display: table; margin-left: auto; margin-right: auto; margin: 0px auto;">
-<div class="hero__search__form">
- <form action="<c:url value="/shop/searchItem.do"/>" method="post">
-  <input type="hidden" name="search" value="true"/>
-  <input type="text" name="keyword" placeholder="검색">
-  <button type="submit" class="site-btn">SEARCH</button>
- </form>
-</div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-	 
+<div class="hero__search" style="display: table; margin-left: auto; margin-right: auto; margin: 0px auto;">	 
 	 <c:choose>
 	 <c:when test="${search ne 'true'}">
 	 <a href="<c:url value='/shop/sortItemSell.do'>
@@ -78,7 +71,9 @@
           
           	<a href="<c:url value='/shop/viewItem.do'>
       		<c:param name='shoppingItemId' value='${item.itemId}'/></c:url>">
-            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>  
+            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/>
+            <image href="/static/images/${item.image}.jpg" width="100%" height="100%" />
+            </svg>  
             </a>
             
             <div class="card-body">

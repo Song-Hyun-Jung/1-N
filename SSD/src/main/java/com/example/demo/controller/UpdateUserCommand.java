@@ -10,6 +10,19 @@ public class UpdateUserCommand {
 	private String payment; //결제 정보
 	private String email;
 	
+	public UpdateUserCommand() {}
+	
+	public UpdateUserCommand(String nickname, String password, String phone, String address, String payment,
+			String email) {
+		super();
+		this.nickname = nickname;
+		this.password = password;
+		this.phone = phone;
+		this.address = address;
+		this.payment = payment;
+		this.email = email;
+	}
+	
 	public String getNickname() { return nickname; }
 	public void setNickname(String nickname) { this.nickname = nickname; }
 	

@@ -1,3 +1,4 @@
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="zxx">
 
@@ -12,276 +13,96 @@
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap" rel="stylesheet">
 
-    <!-- Css Styles -->
-    <link rel="stylesheet" href="/style/shoppingDetail,shoppingPurchase/css/bootstrap.min.css" type="text/css">
-    <link rel="stylesheet" href="/style/shoppingDetail,shoppingPurchase/css/font-awesome.min.css" type="text/css">
-    <link rel="stylesheet" href="/style/shoppingDetail,shoppingPurchase/css/elegant-icons.css" type="text/css">
-    <link rel="stylesheet" href="/style/shoppingDetail,shoppingPurchase/css/nice-select.css" type="text/css">
-    <link rel="stylesheet" href="/style/shoppingDetail,shoppingPurchase/css/jquery-ui.min.css" type="text/css">
-    <link rel="stylesheet" href="/style/shoppingDetail,shoppingPurchase/css/owl.carousel.min.css" type="text/css">
-    <link rel="stylesheet" href="/style/shoppingDetail,shoppingPurchase/css/slicknav.min.css" type="text/css">
-    <link rel="stylesheet" href="/style/shoppingDetail,shoppingPurchase/css/style.css" type="text/css">
+    <!--   Css Styles -->
+    <link rel="stylesheet" href="/static/style/shoppingDetail,shoppingPurchase/css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="/static/style/shoppingDetail,shoppingPurchase/css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="/static/style/shoppingDetail,shoppingPurchase/css/elegant-icons.css" type="text/css">
+    <link rel="stylesheet" href="/static/style/shoppingDetail,shoppingPurchase/css/nice-select.css" type="text/css">
+    <link rel="stylesheet" href="/static/style/shoppingDetail,shoppingPurchase/css/jquery-ui.min.css" type="text/css">
+    <link rel="stylesheet" href="/static/style/shoppingDetail,shoppingPurchase/css/owl.carousel.min.css" type="text/css">
+    <link rel="stylesheet" href="/static/style/shoppingDetail,shoppingPurchase/css/slicknav.min.css" type="text/css">
+    <link rel="stylesheet" href="/static/style/shoppingDetail,shoppingPurchase/css/style.css" type="text/css">
+   
+    <script>
+		function updateInfo(targetUri) {
+			orderForm.action = targetUri;
+			orderForm.submit();
+		}
+		
+		function cancel(targetUri) {
+			orderForm.action = targetUri
+			orderForm.submit();
+		}
+		
+		function confirm(targetUri) {
+			orderForm.action = targetUri
+			orderForm.submit();
+		}
+	</script>
+    
+    
 </head>
 
 <body>
-    <!-- Page Preloder -->
-    <div id="preloder">
-        <div class="loader"></div>
-    </div>
-
-    <!-- Humberger Begin -->
-    <div class="humberger__menu__overlay"></div>
-    <div class="humberger__menu__wrapper">
-        <div class="humberger__menu__logo">
-            <a href="#"><img src="img/logo.png" alt=""></a>
-        </div>
-        <div class="humberger__menu__cart">
-            <ul>
-                <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
-                <li><a href="#"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
-            </ul>
-            <div class="header__cart__price">item: <span>$150.00</span></div>
-        </div>
-        <div class="humberger__menu__widget">
-            <div class="header__top__right__language">
-                <img src="img/language.png" alt="">
-                <div>English</div>
-                <span class="arrow_carrot-down"></span>
-                <ul>
-                    <li><a href="#">Spanis</a></li>
-                    <li><a href="#">English</a></li>
-                </ul>
-            </div>
-            <div class="header__top__right__auth">
-                <a href="#"><i class="fa fa-user"></i> Login</a>
-            </div>
-        </div>
-        <nav class="humberger__menu__nav mobile-menu">
-            <ul>
-                <li class="active"><a href="./index.html">Home</a></li>
-                <li><a href="./shop-grid.html">Shop</a></li>
-                <li><a href="#">Pages</a>
-                    <ul class="header__menu__dropdown">
-                        <li><a href="./shop-details.html">Shop Details</a></li>
-                        <li><a href="./shoping-cart.html">Shoping Cart</a></li>
-                        <li><a href="./checkout.html">Check Out</a></li>
-                        <li><a href="./blog-details.html">Blog Details</a></li>
-                    </ul>
-                </li>
-                <li><a href="./blog.html">Blog</a></li>
-                <li><a href="./contact.html">Contact</a></li>
-            </ul>
-        </nav>
-        <div id="mobile-menu-wrap"></div>
-        <div class="header__top__right__social">
-            <a href="#"><i class="fa fa-facebook"></i></a>
-            <a href="#"><i class="fa fa-twitter"></i></a>
-            <a href="#"><i class="fa fa-linkedin"></i></a>
-            <a href="#"><i class="fa fa-pinterest-p"></i></a>
-        </div>
-        <div class="humberger__menu__contact">
-            <ul>
-                <li><i class="fa fa-envelope"></i> hello@colorlib.com</li>
-                <li>Free Shipping for all Order of $99</li>
-            </ul>
-        </div>
-    </div>
-    <!-- Humberger End -->
-
-    <!-- Header Section Begin -->
-    <header class="header">
-        <div class="header__top">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-6">
-                        <div class="header__top__left">
-                            <ul>
-                                <li><i class="fa fa-envelope"></i> hello@colorlib.com</li>
-                                <li>Free Shipping for all Order of $99</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="header__top__right">
-                            <div class="header__top__right__social">
-                                <a href="#"><i class="fa fa-facebook"></i></a>
-                                <a href="#"><i class="fa fa-twitter"></i></a>
-                                <a href="#"><i class="fa fa-linkedin"></i></a>
-                                <a href="#"><i class="fa fa-pinterest-p"></i></a>
-                            </div>
-                            <div class="header__top__right__language">
-                                <img src="img/language.png" alt="">
-                                <div>English</div>
-                                <span class="arrow_carrot-down"></span>
-                                <ul>
-                                    <li><a href="#">Spanis</a></li>
-                                    <li><a href="#">English</a></li>
-                                </ul>
-                            </div>
-                            <div class="header__top__right__auth">
-                                <a href="#"><i class="fa fa-user"></i> Login</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-3">
-                    <div class="header__logo">
-                        <a href="./index.html"><img src="img/logo.png" alt=""></a>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <nav class="header__menu">
-                        <ul>
-                            <li><a href="./index.html">Home</a></li>
-                            <li class="active"><a href="./shop-grid.html">Shop</a></li>
-                            <li><a href="#">Pages</a>
-                                <ul class="header__menu__dropdown">
-                                    <li><a href="./shop-details.html">Shop Details</a></li>
-                                    <li><a href="./shoping-cart.html">Shoping Cart</a></li>
-                                    <li><a href="./checkout.html">Check Out</a></li>
-                                    <li><a href="./blog-details.html">Blog Details</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="./blog.html">Blog</a></li>
-                            <li><a href="./contact.html">Contact</a></li>
-                        </ul>
-                    </nav>
-                </div>
-                <div class="col-lg-3">
-                    <div class="header__cart">
-                        <ul>
-                            <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
-                            <li><a href="#"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
-                        </ul>
-                        <div class="header__cart__price">item: <span>$150.00</span></div>
-                    </div>
-                </div>
-            </div>
-            <div class="humberger__open">
-                <i class="fa fa-bars"></i>
-            </div>
-        </div>
-    </header>
-    <!-- Header Section End -->
-
-    <!-- Hero Section Begin -->
-    <section class="hero hero-normal">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-3">
-                    <div class="hero__categories">
-                        <div class="hero__categories__all">
-                            <i class="fa fa-bars"></i>
-                            <span>All departments</span>
-                        </div>
-                        <ul>
-                            <li><a href="#">Fresh Meat</a></li>
-                            <li><a href="#">Vegetables</a></li>
-                            <li><a href="#">Fruit & Nut Gifts</a></li>
-                            <li><a href="#">Fresh Berries</a></li>
-                            <li><a href="#">Ocean Foods</a></li>
-                            <li><a href="#">Butter & Eggs</a></li>
-                            <li><a href="#">Fastfood</a></li>
-                            <li><a href="#">Fresh Onion</a></li>
-                            <li><a href="#">Papayaya & Crisps</a></li>
-                            <li><a href="#">Oatmeal</a></li>
-                            <li><a href="#">Fresh Bananas</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-lg-9">
-                    <div class="hero__search">
-                        <div class="hero__search__form">
-                            <form action="#">
-                                <div class="hero__search__categories">
-                                    All Categories
-                                    <span class="arrow_carrot-down"></span>
-                                </div>
-                                <input type="text" placeholder="What do yo u need?">
-                                <button type="submit" class="site-btn">SEARCH</button>
-                            </form>
-                        </div>
-                        <div class="hero__search__phone">
-                            <div class="hero__search__phone__icon">
-                                <i class="fa fa-phone"></i>
-                            </div>
-                            <div class="hero__search__phone__text">
-                                <h5>+65 11.188.888</h5>
-                                <span>support 24/7 time</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Hero Section End -->
-
-    <!-- Breadcrumb Section Begin -->
-    <section class="breadcrumb-section set-bg" data-setbg="img/breadcrumb.jpg">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <div class="breadcrumb__text">
-                        <h2>Checkout</h2>
-                        <div class="breadcrumb__option">
-                            <a href="./index.html">Home</a>
-                            <span>Checkout</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Breadcrumb Section End -->
-
     <!-- Checkout Section Begin -->
-    <section class="checkout spad">
+
+     <section class="checkout spad">
         <div class="container">
             <div class="checkout__form">
-                <h4>구매자정보</h4>
-                <form action="#">
+                <h4>구매자 정보</h4>
+                <form method="POST" name = "orderForm">
+                	<input type="hidden" name="itemId" value="${purchaseItem.itemId}"/>
+                	<input type="hidden" name="userId" value="${userInfo.userId}"/>
                     <div class="row">
                         <div class="col-lg-8 col-md-6">
-       		  <div class="checkout__input">
-                                <p>이름<span>*</span></p>
-                                <input type="text" value = "구매자 이름" readonly />
+       		  				<div class="checkout__input">
+                                <p>이름<span>*</span><span>(수정 불가)</span></p>
+                                <input type="text" name="name" value = "${userInfo.name}" required readonly />
                             </div>
                             <div class="checkout__input">
                                 <p>전화번호<span>*</span></p>
-                                <input type="text" value = "구매자 전화번호" readonly />
+                                <input type="text" name="phone" value = "${userInfo.phone}" required />
                             </div>
                             <div class="checkout__input">
                                 <p>주소<span>*</span></p>
-                                <input type="text" value = "구매자 주소" readonly />
+                                <input type="text" name="address" value = "${userInfo.address}" required/>
                             </div>
                             <div class="checkout__input">
                                 <p>결제정보<span>*</span></p>
-                                <input type="text" value = "구매자 결제 정보" readonly />
+                                <input type="text" name="payment" value = "${userInfo.payment}" required />
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-6">
                             <div class="checkout__order">
-                                <div class="checkout__order__subtotal">상품 남은 개수<span>100개</span></div>
-                                <div class="checkout__order__products">구매할 상품 개수<span>1개</span></div>
-		       <div class="checkout__order__subtotal">확정 시 개당 가격<span>100원</span></div>
-                                <div class="checkout__order__total">가격<span>100원</span></div>
+                                <div class="checkout__order__subtotal">상품 남은 개수<span>${purchaseItem.totalQuantity - purchaseItem.soldQuantity}</span></div>
+                                <!-- 0 이하 숫자 안 되게끔 처리 해야 함 -->
+                                <div class="checkout__order__products">구매할 상품 개수<span><input type="number" name="quantity" value="3" style="width:50px;"/></span></div>
+		       					<div class="checkout__order__subtotal">확정 시 개당 가격<span>${purchaseItem.price}</span></div>
+		       					<!-- 구매 수량 바꿀 때 총 가격 바뀌어야 하는데 어떻게? -->
+                                <div class="checkout__order__total">총 가격<span>${purchaseItem.price * 3}</span></div>
                                 <div class="checkout__input__checkbox">
                                 </div>
                                 <div class="checkout__input__checkbox">
                                     <label for="paypal">
                                         구매에 동의합니다.
-                                        <input type="checkbox" id="paypal">
+                                        <input type="checkbox" id="paypal" required />
                                         <span class="checkmark"></span>
                                     </label>
                                 </div>
-                                <button type="submit" class="site-btn">정보 수정</button>
-                                <button type="submit" class="site-btn">결제 취소 및 뒤로 가기</button>
-                                <button type="submit" class="site-btn">구매 확정</button>
+                             
+                                
+                                <button type="button" class="button" onclick="updateInfo('<c:url value ='/shop/OrderMypageUpdate.do'>
+																		<c:param name='itemId' value='${purchaseItem.itemId}' />
+																	</c:url> ')">정보 수정</button>
+																	
+								<button type="button" class="button" onclick="cancel('<c:url value ='/shop/cancel.do'>
+																		<c:param name='itemId' value='${purchaseItem.itemId}' />
+																	</c:url> ')">결제 취소</button>
+																	
+								<button type="button" class="button" onclick="confirm('<c:url value ='/shop/confirmPurchase.do'>
+																		<c:param name='itemId' value='${purchaseItem.itemId}' />
+																	</c:url> ')">구매 확정</button>
+         
                             </div>
                         </div>
                     </div>
@@ -292,14 +113,14 @@
     <!-- Checkout Section End -->
 
     <!-- Js Plugins -->
-    <script src="/style/shoppingDetail,shoppingPurchase/js/jquery-3.3.1.min.js"></script>
-    <script src="/style/shoppingDetail,shoppingPurchase/js/bootstrap.min.js"></script>
-    <script src="/style/shoppingDetail,shoppingPurchase/js/jquery.nice-select.min.js"></script>
-    <script src="/style/shoppingDetail,shoppingPurchase/js/jquery-ui.min.js"></script>
-    <script src="/style/shoppingDetail,shoppingPurchase/js/jquery.slicknav.js"></script>
-    <script src="/style/shoppingDetail,shoppingPurchase/js/mixitup.min.js"></script>
-    <script src="/style/shoppingDetail,shoppingPurchase/js/owl.carousel.min.js"></script>
-    <script src="/style/shoppingDetail,shoppingPurchase/js/main.js"></script>
+    <script src="/static/style/shoppingDetail,shoppingPurchase/js/jquery-3.3.1.min.js"></script>
+    <script src="/static/style/shoppingDetail,shoppingPurchase/js/bootstrap.min.js"></script>
+    <script src="/static/style/shoppingDetail,shoppingPurchase/js/jquery.nice-select.min.js"></script>
+    <script src="/static/style/shoppingDetail,shoppingPurchase/js/jquery-ui.min.js"></script>
+    <script src="/static/style/shoppingDetail,shoppingPurchase/js/jquery.slicknav.js"></script>
+    <script src="/static/style/shoppingDetail,shoppingPurchase/js/mixitup.min.js"></script>
+    <script src="/static/style/shoppingDetail,shoppingPurchase/js/owl.carousel.min.js"></script>
+    <script src="/static/style/shoppingDetail,shoppingPurchase/js/main.js"></script>
 
  
 

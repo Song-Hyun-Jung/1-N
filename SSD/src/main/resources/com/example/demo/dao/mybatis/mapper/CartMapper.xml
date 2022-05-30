@@ -6,12 +6,13 @@
   
 	<insert id="insertCart" parameterType="Cart">
 	<selectKey keyProperty="cartId" resultType="int" order="BEFORE">
-				SELECT cartId_Seq.nextval AS userId FROM DUAL
+				SELECT cart_Seq.nextval AS cartId FROM DUAL
 	</selectKey>
 	    INSERT INTO CART
-	      (CARTID, USERID, ITEMID, QUANTITY)
+	      (CARTID, USERID, ITEMID)
 	    VALUES 
-	      (#{cartId}, #{userId}, #{itemId}, #{quantity}
+	      (#{cartId}, #{userId}, #{itemId})
+	      <!-- (123, #{userId}, #{itemId})  -->
 	  </insert>
 	
 	<delete id="deleteCart" parameterType="int">
