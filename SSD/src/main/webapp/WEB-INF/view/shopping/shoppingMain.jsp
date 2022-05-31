@@ -104,7 +104,7 @@
 
 
 <main>
-<form name="form1">
+<form name="form1" method="POST">
 <div class="album py-5 bg-light">
     <div class="container">
 
@@ -126,10 +126,10 @@
             <div class="card-body">
               <p class="card-text">${item.name}</p>
               <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary" onClick="addCart('/shop/addItemToCart.do?itmeId=${item.itemId}')">찜 목록에 넣기</button>
-                </div>
                 <small class="text-muted">${item.price}</small>
+                  <div class="btn-group"> 
+                  <button type="submit" class="btn btn-sm btn-outline-secondary" onClick="addCart('/shop/addItemToCart.do?itemId=${item.itemId}')">찜 목록에 넣기</button>
+                  </div>
               </div>
             </div>
             
@@ -161,6 +161,5 @@
 </div>
 </div>
 </section>
- 
 </body>
 </html>

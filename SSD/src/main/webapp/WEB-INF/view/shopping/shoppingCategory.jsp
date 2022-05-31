@@ -32,18 +32,14 @@
 </head>
 <body>
 
+<br/><br/><br/>
+<a href='<c:url value="/shop/shoppingMain.do"/>'><h1 align="center">쇼핑몰</h1></a><br><br/>
+            
 <c:choose>
-
-<c:when test="${search eq 'true'}">
-<br/><br/><br><a href='<c:url value="/shop/shoppingMain.do"/>'>
-            <h1 align="center">쇼핑몰</h1></a><br><br/>
-</c:when>
-
-<c:otherwise>
-<br><br><h2 align="center">${shoppingCategoryName}</h2><br><br>
+<c:when test="${search ne 'true'}">
+<h2 align="center">${shoppingCategoryName}</h2><br><br>
 <h3 align="center">${shoppingCategoryDescription}</h3><br><br><br>
-</c:otherwise>
-
+</c:when>
 </c:choose>
 
 <div class="hero__search" style="display: table; margin-left: auto; margin-right: auto; margin: 0px auto;">	 
@@ -90,7 +86,7 @@
               <div class="d-flex justify-content-between align-items-center">
                 <small class="text-muted">${item.price}</small>
                   <div class="btn-group"> 
-                  <button type="button" class="btn btn-sm btn-outline-secondary" onClick="addCart('/shop/addItemToCart.do')">찜 목록에 넣기</button>
+                  <button type="button" class="btn btn-sm btn-outline-secondary" onClick="addCart('/shop/addItemToCart.do?itemId=${item.itemId}')">찜 목록에 넣기</button>
                   </div>
               </div>
             </div>
