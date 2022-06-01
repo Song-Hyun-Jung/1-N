@@ -1,5 +1,6 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <!DOCTYPE html>
 <html lang="zxx">
@@ -61,13 +62,18 @@
 					           <div class="product__details__quantity">
 				                            <div class="quantity">
 				                                <div class="pro-qty">
-				                                    <input type="text" name="quantity" value="1">
+				                                	<c:if test="${shoppingItem.remainedQuantity < 1}"> <input type="text" name="quantity" value="0"></c:if>
+				                                    <c:if test="${shoppingItem.remainedQuantity >= 1}"> <input type="text" name="quantity" value="1"></c:if>
+				                                   
 				                                </div>
 				                            </div>
 				               </div>
 		                
 					           <a href="/shop/addItemToCart.do?itemId=${shoppingItem.itemId }" class="heart-icon"><span class="icon_heart_alt"></span></a>&nbsp;	 			  
-				 			 <input type="submit" class="site-btn" value = "공동구매신청버튼" />
+				 			 
+				 			 
+				 			 <c:if test="${shoppingItem.remainedQuantity < 1}"><input type="button" class="site-btn">품절</button></c:if>
+							 <c:if test="${shoppingItem.remainedQuantity >= 1}"><input type="submit" class="site-btn" value = "공동구매신청버튼" /></c:if>
 							</form>
 	                    
 	                    </div>

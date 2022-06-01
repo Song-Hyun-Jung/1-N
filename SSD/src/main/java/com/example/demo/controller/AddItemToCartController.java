@@ -28,9 +28,7 @@ public class AddItemToCartController {
 	public String handleRequest( 
 			HttpSession session, @RequestParam("itemId") int itemId) throws Exception {
 		
-		UserInfo loginMember = userService.getUserByEmail("som@gmail.com");		//test
-		session.setAttribute("loginMember", loginMember);		//test용으로 세션 설정
-		UserInfo userInfo = (UserInfo)session.getAttribute("loginMember");
+		UserInfo userInfo = (UserInfo)session.getAttribute("loginMember");	//session에서 현재 로그인한 userInfo객체 얻어옴
 		
 		List<Cart> cartItemList = shoppingService.getCartByUserId(userInfo.getUserId());		//user의 cartList 가져옴
 
@@ -46,10 +44,11 @@ public class AddItemToCartController {
 		if(same == 0) {		//cart에 같은 아이템 없는 경우에만 추가
 			Cart newCart = new Cart(userInfo.getUserId(), itemId);	//cart 생성
 			shoppingService.insertCart(newCart);
+			return "redirect:/shop/mypageCart.do";
 		}
 		
+		return "redirect:/shop/mypageCart.do?same=1";		//cart에 이미 있는 아이템을 넣은 경우
 		
-		return "redirect:/shop/mypageCart.do";
 	}
 
 }

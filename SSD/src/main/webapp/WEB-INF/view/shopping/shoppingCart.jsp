@@ -23,7 +23,8 @@
 			cart.action = targetUri
 			cart.submit();
 		}
-	</script>
+		
+</script>
 
 
 </head>
@@ -37,14 +38,17 @@
 			<c:forEach var="myCartItem" items="${myCartItemList}">
 		        <div class="col" style="padding-right:50px">
 		          <div class="card shadow-sm"> 
-		            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
-		            	<image href="/static/images/${myCartItem.image}.jpg" width="100%" height="100%" />
-		            </svg>
+		          	 <a href="<c:url value='/shop/viewItem.do'>
+      					<c:param name='shoppingItemId' value='${myCartItem.itemId}'/></c:url>">
+			            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
+			            	<image href="/static/images/${myCartItem.image}.jpg" width="100%" height="100%" />
+			            </svg>
+		            </a>
 		            <div class="card-body">
 		              <p class="card-text">찜한 상품: ${myCartItem.name}</p>
 		              <p>가격: ${myCartItem.price}</p>
 		              <p><button type="button" class="button" onclick="deleteCart('<c:url value ='/shop/deleteCart.do'>
-																		<c:param name='cartId' value='${cartId}' />
+																		<c:param name='cartId' value='${myCartItem.cartId}' />
 																	</c:url> ')">찜 삭제</button></p>
 		            </div>
 		          </div>

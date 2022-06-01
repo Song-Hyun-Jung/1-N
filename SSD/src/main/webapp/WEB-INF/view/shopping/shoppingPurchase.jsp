@@ -1,4 +1,6 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <!DOCTYPE html>
 <html lang="zxx">
 
@@ -23,6 +25,11 @@
     <link rel="stylesheet" href="/static/style/shoppingDetail,shoppingPurchase/css/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="/static/style/shoppingDetail,shoppingPurchase/css/style.css" type="text/css">
    
+   <style>
+   	#button1 {width: 60px;}
+   	#quantity {width: 50px;}
+   </style>
+   
     <script>
 		function updateInfo(targetUri) {
 			orderForm.action = targetUri;
@@ -38,6 +45,11 @@
 			orderForm.action = targetUri
 			orderForm.submit();
 		}
+		
+		function updateQuantity(targetUri) {
+			orderForm.action = targetUri
+			orderForm.submit();
+		}
 	</script>
     
     
@@ -50,10 +62,12 @@
         <div class="container">
             <div class="checkout__form">
                 <h4>구매자 정보</h4>
+                <spring:hasBindErrors name="orderCommand" />
+                <form:errors path="orderCommand" />
                 <form method="POST" name = "orderForm">
                 	<input type="hidden" name="itemId" value="${purchaseItem.itemId}"/>
                 	<input type="hidden" name="userId" value="${userInfo.userId}"/>
-                	<input type="hidden" name="quantity" value="${param.quantity}"/>
+
                     <div class="row">
                         <div class="col-lg-8 col-md-6">
        		  				<div class="checkout__input">
@@ -63,21 +77,24 @@
                             <div class="checkout__input">
                                 <p>전화번호<span>*</span></p>
                                 <input type="text" name="phone" value = "${userInfo.phone}" required />
+                                <form:errors path="orderCommand.phone" />
                             </div>
                             <div class="checkout__input">
                                 <p>주소<span>*</span></p>
                                 <input type="text" name="address" value = "${userInfo.address}" required/>
+                                <form:errors path="orderCommand.address" />
                             </div>
                             <div class="checkout__input">
                                 <p>결제정보<span>*</span></p>
                                 <input type="text" name="payment" value = "${userInfo.payment}" required />
+                                <form:errors path="orderCommand.payment" />
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-6">
                             <div class="checkout__order">
-                                <div class="checkout__order__subtotal">상품 남은 개수<span>${purchaseItem.totalQuantity - purchaseItem.soldQuantity}</span></div>
+                                <div class="checkout__order__subtotal">상품 남은 개수<span>${purchaseItem.remainedQuantity}</span></div>
                                 <!-- 0 이하 숫자 안 되게끔 처리 해야 함 -->
-                                <div class="checkout__order__products">구매할 상품 개수<span>${param.quantity}</span></div>
+                                <div class="checkout__order__products">구매할 상품 개수&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="number" id="quantity" name="quantity" value="${param.quantity}" max="${purchaseItem.remainedQuantity}" min="1"/><form:errors path="orderCommand.quantity" />&nbsp;&nbsp;<button type="button" class="button" id="button1" onclick="updateQuantity('<c:url value ='/shop/askPurchase.do'></c:url> ')">변경</button><span></span></span></div>
 		       					<div class="checkout__order__subtotal">확정 시 개당 가격<span>${purchaseItem.price}</span></div>
                                 <div class="checkout__order__total">총 가격<span>${purchaseItem.price * param.quantity}</span></div>
                                 <div class="checkout__input__checkbox">
@@ -85,7 +102,7 @@
                                 <div class="checkout__input__checkbox">
                                     <label for="paypal">
                                         구매에 동의합니다.
-                                        <input type="checkbox" id="paypal" required />
+                                        <input type="checkbox" value="true" name="check" id="paypal" /> 
                                         <span class="checkmark"></span>
                                     </label>
                                 </div>

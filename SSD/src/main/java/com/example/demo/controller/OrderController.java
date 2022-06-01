@@ -5,9 +5,11 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -31,11 +33,9 @@ public class OrderController {
 	@RequestMapping("/shop/askPurchase.do")
 	public ModelAndView initNewOrder( 
 			HttpServletRequest request, HttpSession session, @RequestParam("itemId") int itemId) throws Exception {
-		
-		session.setAttribute("loginUserEmail", "som@gmail.com");		//test용으로 세션 설정
-		String userEmail = (String)session.getAttribute("loginUserEmail");	//session에서 얻은 email로 현재 로그인한 UserInfo 얻기
-		
-		UserInfo userInfo = userService.getUserByEmail(userEmail);		
+
+		UserInfo userInfo = (UserInfo)session.getAttribute("loginMember");	//session에서 현재 로그인한 userInfo객체 얻어옴
+		System.out.println("주문서 UserInfo: "+userInfo.getUserId()+", "+userInfo.getName() + ", "+userInfo.getAddress());
 		
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("shopping/shoppingPurchase");
@@ -50,16 +50,23 @@ public class OrderController {
 	@RequestMapping("/shop/OrderMypageUpdate.do")
 	public String updateMyPageOrder( 
 			HttpServletRequest request, HttpSession session, @RequestParam("itemId") int itemId, @RequestParam("quantity") int quantity,
-			 @ModelAttribute("orderCommand") OrderCommand orderCommand) throws Exception {
+			@Valid @ModelAttribute("orderCommand") OrderCommand orderCommand, BindingResult result) throws Exception {
 		
-		String userEmail = (String)session.getAttribute("loginUserEmail");	
-		UserInfo userInfo = userService.getUserByEmail(userEmail);
+		if(result.hasErrors()) {
+			return "redirect:/shop/askPurchase.do?itemId="+itemId;
+		}
+		
+		UserInfo userInfo = (UserInfo)session.getAttribute("loginMember");	//session에서 현재 로그인한 userInfo객체 얻어옴
+		System.out.println("update 전 UserInfo: "+userInfo.getUserId()+", "+userInfo.getName() + ", "+userInfo.getAddress());
 		
 		UpdateUserCommand userC = new UpdateUserCommand(userInfo.getNickname(), userInfo.getPassword(), 
-				orderCommand.getPhone(), orderCommand.getAddress(), orderCommand.getPayment(), userEmail);
+				orderCommand.getPhone(), orderCommand.getAddress(), orderCommand.getPayment(), userInfo.getEmail());
 		userService.updateUser(userC);
 		
-		int updateSuccess = userService.updateUser(userC);
+		UserInfo updateUser = userService.getUserByUserId(userInfo.getUserId());	//userId는 바뀌지 않으므로 id로 update된 정보 가져옴
+		session.setAttribute("loginMember", updateUser);
+		System.out.println("update 후 UserInfo: "+userInfo.getUserId()+", "+userInfo.getName() + ", "+userInfo.getAddress());
+		
 		
 		return "redirect:/shop/askPurchase.do?itemId="+itemId+"&quantity="+quantity;
 	}
@@ -78,7 +85,12 @@ public class OrderController {
 	}
 	
 	@RequestMapping("/shop/confirmPurchase.do")
-	public String donePurchase(OrderCommand orderCommand) throws Exception{	//OrderCommand 받아와야함
+	public String donePurchase(@Valid OrderCommand orderCommand, BindingResult result) throws Exception{	//OrderCommand 받아와야함
+		
+		if(result.hasErrors()) {
+			return "redirect:/shop/askPurchase.do?itemId="+orderCommand.getItemId();
+			
+		}
 	
 		Date now = new Date();	//현재 시간 구하기
 		
