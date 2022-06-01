@@ -19,10 +19,17 @@
 </style>
 
 <script>
-		function deleteCart(targetUri) {
-			cart.action = targetUri
-			cart.submit();
-		}
+
+
+	function deleteCart(targetUri) {
+		cart.action = targetUri
+		cart.submit();
+	}
+
+	if(${same} == 1) {
+		alert("이미 찜 목록에 있는 상품입니다.");
+	} 
+		
 		
 </script>
 
@@ -33,9 +40,11 @@
     <div class="container">
       <h3 align="center" style="padding-bottom:30px">찜한 상품</h3>
       <form name="cart" method="POST">
+      	
 		<div><h4>찜한 상품: ${myCartSize}</h4></div>
 		<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
 			<c:forEach var="myCartItem" items="${myCartItemList}">
+				
 		        <div class="col" style="padding-right:50px">
 		          <div class="card shadow-sm"> 
 		          	 <a href="<c:url value='/shop/viewItem.do'>
@@ -47,8 +56,8 @@
 		            <div class="card-body">
 		              <p class="card-text">찜한 상품: ${myCartItem.name}</p>
 		              <p>가격: ${myCartItem.price}</p>
-		              <p><button type="button" class="button" onclick="deleteCart('<c:url value ='/shop/deleteCart.do'>
-																		<c:param name='cartId' value='${myCartItem.cartId}' />
+		              <p><button type="button" class="button" onclick="deleteCart('<c:url value ='/shop/deleteCart.do?cartId=${myCartItem.cartId}'>
+																		
 																	</c:url> ')">찜 삭제</button></p>
 		            </div>
 		          </div>

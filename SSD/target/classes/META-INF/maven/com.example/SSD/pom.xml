@@ -15,9 +15,10 @@
 	<description>Demo project for Spring Boot</description>
 	<properties>
 		<java.version>11</java.version>
-		<!-- Bean Validation API -->
+		<!-- Bean Validation API
 		<bean-validation-api.version>2.0.1.Final</bean-validation-api.version>
 		<hibernate-validator.version>6.0.7.Final</hibernate-validator.version>
+		 -->
 	</properties>
 	<dependencies>
 		<dependency>
@@ -40,6 +41,13 @@
 		
 		<!-- Bean Validation API -->
 		<dependency>
+		    <groupId>org.springframework.boot</groupId>
+		    <artifactId>spring-boot-starter-validation</artifactId>
+		</dependency>
+		
+		
+		<!-- Bean Validation API
+		<dependency>
 			<groupId>javax.validation</groupId>
 			<artifactId>validation-api</artifactId>
 			<version>${bean-validation-api.version}</version>
@@ -49,6 +57,7 @@
 			<artifactId>hibernate-validator</artifactId>
 			<version>${hibernate-validator.version}</version>
 		</dependency>
+		 -->
 		
 		
 		<!-- JSTL for JSP -->

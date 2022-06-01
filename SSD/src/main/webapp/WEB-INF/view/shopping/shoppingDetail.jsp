@@ -72,7 +72,7 @@
 					           <a href="/shop/addItemToCart.do?itemId=${shoppingItem.itemId }" class="heart-icon"><span class="icon_heart_alt"></span></a>&nbsp;	 			  
 				 			 
 				 			 
-				 			 <c:if test="${shoppingItem.remainedQuantity < 1}"><input type="button" class="site-btn">품절</button></c:if>
+				 			 <c:if test="${shoppingItem.remainedQuantity < 1}"><input type="button" class="site-btn" value="품절" /></c:if>
 							 <c:if test="${shoppingItem.remainedQuantity >= 1}"><input type="submit" class="site-btn" value = "공동구매신청버튼" /></c:if>
 							</form>
 	                    
