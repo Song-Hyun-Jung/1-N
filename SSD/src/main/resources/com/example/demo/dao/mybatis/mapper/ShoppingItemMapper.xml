@@ -35,7 +35,7 @@
     	SELECT *
     	FROM (SELECT * FROM SHOPPINGITEM
     	ORDER BY soldQuantity DESC) 
-    	WHERE ROWNUM &lt; 3
+    	WHERE ROWNUM &lt; 4
   	</select>
   	
   	<select id="getItem"  parameterType="int" resultType="ShoppingItem">
@@ -55,5 +55,17 @@
     	SET soldQuantity = soldQuantity + #{quantity}
     	WHERE ITEMID = #{itemId}
   	</update>
+  	
+  	<select id="getTotalQuantityByItemId" parameterType="int" resultType="int">
+    	SELECT totalQuantity
+    	FROM SHOPPINGITEM
+    	WHERE shoppingcategoryId= #{shoppingcategoryId}
+    </select>
+  	
+  	<select id="getSoldQuantityByItemId" parameterType="int" resultType="int">
+    	SELECT SoldQuantity
+    	FROM SHOPPINGITEM
+    	WHERE shoppingcategoryId= #{shoppingcategoryId}
+  	</select>
   	
 </mapper>

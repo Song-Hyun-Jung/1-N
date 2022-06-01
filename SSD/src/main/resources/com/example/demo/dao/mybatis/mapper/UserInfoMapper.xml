@@ -74,6 +74,7 @@
 	    		s.description, s.totalprice, s.price, s.name, c.cartId
 	    FROM CART c, SHOPPINGITEM s
 	    WHERE c.USERID = #{userId} AND c.itemid = s.itemid
+	    ORDER BY c.cartId DESC
 	  </select>
 	
 	<select id="getMyDeliveryPostList" parameterType="int" resultType="deliveryPost">

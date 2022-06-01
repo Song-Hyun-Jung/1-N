@@ -8,8 +8,16 @@ public class OrderInfo implements Serializable {
 	private int orderId;
 	private Date orderDate;
 	private int quantity;
-	private int userID;
+	private int userId;
 	private int itemId;
+	
+	public OrderInfo() {};
+	public OrderInfo(Date orderDate, int quantity, int userId, int itemId) {
+		this.orderDate = orderDate;
+		this.quantity = quantity;
+		this.userId = userId;
+		this.itemId = itemId;
+	}
 	
 	public int getOrderId() {
 		return orderId;
@@ -36,11 +44,11 @@ public class OrderInfo implements Serializable {
 	}
 	
 	public int getUserID() {
-		return userID;
+		return userId;
 	}
 	
 	public void setUserID(int userID) {
-		this.userID = userID;
+		this.userId = userID;
 	}
 	
 	public int getItemId() {
@@ -54,6 +62,6 @@ public class OrderInfo implements Serializable {
 	@Override
 	public String toString() {
 		return "OrderInfo [orderId=" + orderId + ", orderDate=" + orderDate + ", quantity=" + quantity + ", userID="
-				+ userID + ", itemId=" + itemId + "]";
+				+ userId + ", itemId=" + itemId + "]";
 	}
 }

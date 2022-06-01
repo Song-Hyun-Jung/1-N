@@ -18,7 +18,7 @@ import com.example.demo.domain.ShoppingCategory;
 import com.example.demo.domain.ShoppingItem;
 
 @Service
-public class ShoppingService_jinhee {
+public class ShoppingService {
 	
 	@Autowired
 	private CartDAO cartDAO;
@@ -93,5 +93,9 @@ public class ShoppingService_jinhee {
 	
 	public String getDescriptionByCategoryId(int shoppingCategoryId) {
 		return shoppingCategoryDAO.getDescriptionByCategoryId(shoppingCategoryId);
+	}
+	
+	public void updateQuantity(OrderInfo orderInfo) {
+		shoppingItemDAO.updateQuantity(orderInfo);
 	}
 }
