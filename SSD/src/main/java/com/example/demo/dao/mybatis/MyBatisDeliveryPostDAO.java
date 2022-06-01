@@ -7,41 +7,42 @@ import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Repository;
 
 import com.example.demo.domain.DeliveryComment;
+import com.example.demo.dao.DeliveryPostDAO;
 import com.example.demo.dao.mybatis.mapper.DeliveryPostMapper;
 import com.example.demo.domain.DeliveryPost;
 
 
 @Repository
-public class MyBatisDeliveryPostDAO {
+public class MyBatisDeliveryPostDAO implements DeliveryPostDAO{
 	
 	@Autowired
 	private DeliveryPostMapper deliveryPostMapper;
 	
-	void insertDeliveryPost(DeliveryPost post) throws DataAccessException{
+	public void insertDeliveryPost(DeliveryPost post) throws DataAccessException{
 		deliveryPostMapper.insertDeliveryPost(post);
 	}
 	
-	void updateDeliveryPost(DeliveryPost post) throws DataAccessException{
+	public void updateDeliveryPost(DeliveryPost post) throws DataAccessException{
 		deliveryPostMapper.updateDeliveryPost(post);
 	}
 	
-	List<DeliveryPost> getAllDeliveryPost() throws DataAccessException{
+	public List<DeliveryPost> getAllDeliveryPost() throws DataAccessException{
 		return deliveryPostMapper.getAllDeliveryPost();
 	}
 	
-	List<DeliveryComment> getAllDeliveryComments(int postId) throws DataAccessException{
+	public List<DeliveryComment> getAllDeliveryComments(int postId) throws DataAccessException{
 		return deliveryPostMapper.getAllDeliveryComments(postId);
 	}
 	
-	void updateParticipantList(int userId, int postId) throws DataAccessException{	//userId는 댓글 작성자 userId 
+	public void updateParticipantList(int userId, int postId) throws DataAccessException{	//userId는 댓글 작성자 userId 
 		deliveryPostMapper.updateParticipantList(userId, postId);
 	}
 	
-	DeliveryPost getDeliveryPost(int postId) throws DataAccessException{
+	public DeliveryPost getDeliveryPost(int postId) throws DataAccessException{
 		return deliveryPostMapper.getDeliveryPost(postId);
 	}
 	
-	List<DeliveryPost> getDeliveryPostByCategoryId(int deliveryCategoryId) throws DataAccessException{
+	public List<DeliveryPost> getDeliveryPostByCategoryId(int deliveryCategoryId) throws DataAccessException{
 		return deliveryPostMapper.getDeliveryPostByCategoryId(deliveryCategoryId);
 	}
 

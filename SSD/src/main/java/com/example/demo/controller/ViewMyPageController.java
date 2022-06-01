@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.example.demo.domain.DeliveryPost;
+import com.example.demo.domain.MyCartResultMap;
 import com.example.demo.domain.MyPurchaseResultMap;
 import com.example.demo.domain.SellPost;
 import com.example.demo.domain.ShoppingItem;
@@ -42,20 +43,22 @@ public class ViewMyPageController {
 		return mav;
 	}
 	
+	//찜 목록 가져오기
 	@RequestMapping("/shop/mypageCart.do")
 	public ModelAndView mypageCart(HttpServletRequest request, HttpSession session) throws Exception{
 		UserInfo userInfo = (UserInfo)session.getAttribute("loginMember");
-		List<ShoppingItem> myCartItemList = userService.getCartItemList(userInfo.getUserId());
+		List<MyCartResultMap> myCartItemList = userService.getCartItemList(userInfo.getUserId());
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("myCartItemList", myCartItemList);
-		for(ShoppingItem s : myCartItemList) {
-			System.out.println("카트아이템: " + s.getName() + " 아이템이미지: " + s.getImage() );
+		for(MyCartResultMap c : myCartItemList) {
+			System.out.println("카트 아이디: " + c.getCartId() +  "카트 아이템: "+ c.getName() + " 아이템이미지: " + c.getImage() );
 		}
-		mav.addObject("myCartSize", myCartItemList.size());
+		mav.addObject("myCartSize", myCartItemList.size()); //찜한 개수 보내기
 		mav.setViewName("shopping/shoppingCart");
 		return mav;
 	}
 	
+	//내 판매글 가져오기
 	@RequestMapping("/shop/mypageSell.do")
 	public ModelAndView mypageSell(HttpServletRequest request, HttpSession session) throws Exception{
 		UserInfo userInfo = (UserInfo)session.getAttribute("loginMember");
@@ -69,6 +72,7 @@ public class ViewMyPageController {
 		return mav;
 	}
 	
+	//내 배달글 가져오기
 	@RequestMapping("/shop/mypageDelivery.do")
 	public ModelAndView mypageDelivery(HttpServletRequest request, HttpSession session) throws Exception{
 		UserInfo userInfo = (UserInfo)session.getAttribute("loginMember");

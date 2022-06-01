@@ -69,10 +69,12 @@
 	  </select>
 	
 	
-	<select id="getCartItemList" parameterType="int" resultType="shoppingItem">
-	    SELECT s.itemid, s.shoppingCategoryId, s.image, s.memo, s.soldQuantity, s.totalQuantity, s.description, s.totalprice, s.price, s.name
-	             FROM CART c, SHOPPINGITEM s
+	<select id="getCartItemList" parameterType="int" resultType="MyCartResultMap">
+	    SELECT s.itemid, s.shoppingCategoryId, s.image, s.memo, s.soldQuantity, s.totalQuantity,
+	    		s.description, s.totalprice, s.price, s.name, c.cartId
+	    FROM CART c, SHOPPINGITEM s
 	    WHERE c.USERID = #{userId} AND c.itemid = s.itemid
+	    ORDER BY c.cartId DESC
 	  </select>
 	
 	<select id="getMyDeliveryPostList" parameterType="int" resultType="deliveryPost">

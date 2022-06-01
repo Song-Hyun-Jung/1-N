@@ -13,11 +13,11 @@ public interface DeliveryPostDAO {
 	
 	List<DeliveryPost> getAllDeliveryPost() throws DataAccessException; 
 	
-	List<DeliveryComment> getAllDeliveryComments(int postId) throws DataAccessException; 
+	List<DeliveryComment> getAllDeliveryComments(int postId) throws DataAccessException; //postId에 해당하는 글에 달린 댓글들 가져오기 
 	
 	void updateParticipantList(int userId, int postId) throws DataAccessException; //userId는 댓글 작성자 userId 
 	
-	DeliveryPost getDeliveryPost(int postId) throws DataAccessException; 
+	DeliveryPost getDeliveryPost(int postId) throws DataAccessException; //글정보 가져오기 
 	
 	List<DeliveryPost> getDeliveryPostByCategoryId(int deliveryCategoryId) throws DataAccessException; 
 } 

@@ -8,7 +8,7 @@ import com.example.demo.dao.DeliveryCommentDAO;
 import com.example.demo.dao.mybatis.mapper.DeliveryCommentMapper;
 
 @Repository
-public class MybatisDeliveryComment implements DeliveryCommentDAO{
+public class MybatisDeliveryCommentDAO implements DeliveryCommentDAO{
 	@Autowired
 	private DeliveryCommentMapper deliveryCommentMapper;
 
@@ -21,5 +21,5 @@ public class MybatisDeliveryComment implements DeliveryCommentDAO{
 	public void updateChooseComment(int commentId) throws DataAccessException {
 		deliveryCommentMapper.updateChooseComment(commentId);
 	}
-	
+
 }

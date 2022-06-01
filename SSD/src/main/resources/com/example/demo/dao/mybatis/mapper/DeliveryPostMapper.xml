@@ -9,7 +9,13 @@
 		ORDER BY postId DESC 
 	</select>
 	
-	<select id="selectDeliveryPostByPostId" parameterType="int" resultType="DeliveryPost"> 
+	<select id="getAllDeliveryComments" parameterType="int" resultType="DeliveryComment"> 
+		SELECT * 
+		FROM DELIVERYCOMMENT
+		WHERE postId=#{postId} 
+	</select>
+	
+	<select id="getDeliveryPost" parameterType="int" resultType="DeliveryPost"> 
 		SELECT * 
 		FROM DELIVERYPOST 
 		WHERE postId=#{postId} 

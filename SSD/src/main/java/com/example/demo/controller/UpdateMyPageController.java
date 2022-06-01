@@ -20,11 +20,14 @@ public class UpdateMyPageController {
 
 	@RequestMapping("/shop/mypageUpdate.do")
 	public String myPageUpdate(HttpServletRequest request, HttpSession session, UpdateUserCommand updateUserCommand) throws Exception{
-		
-		updateUserCommand.setEmail((String)session.getAttribute("loginUserEmail"));
+		UserInfo userInfo = (UserInfo)session.getAttribute("loginMember");
+		updateUserCommand.setEmail(userInfo.getEmail());
 		
 		int updateSuccess = userService.updateUser(updateUserCommand);
 		System.out.println("user정보 수정: " + updateSuccess);
+		
+		UserInfo newUserInfo = userService.getUserByEmail(userInfo.getEmail());
+		session.setAttribute("loginMember", newUserInfo);
 		
 		return "redirect:/shop/mypageView.do";
 	}

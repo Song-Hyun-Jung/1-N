@@ -6,6 +6,7 @@ import org.springframework.dao.DataAccessException;
 
 import com.example.demo.controller.UpdateUserCommand;
 import com.example.demo.domain.DeliveryPost;
+import com.example.demo.domain.MyCartResultMap;
 import com.example.demo.domain.MyPurchaseResultMap;
 import com.example.demo.domain.SellPost;
 import com.example.demo.domain.ShoppingItem;
@@ -15,11 +16,13 @@ public interface UserService {
 	
 	UserInfo getUserByEmail(String email);
 	
+	UserInfo getUserByUserId(int userId);
+	
 	int updateUser(UpdateUserCommand updateUserCommand);
 
 	List<MyPurchaseResultMap> getPurchaseItemList(int userId);
 	
-	List<ShoppingItem> getCartItemList(int userId);
+	List<MyCartResultMap> getCartItemList(int userId);
 	
 	List<SellPost> getMySellPostList(int userId);
 	
