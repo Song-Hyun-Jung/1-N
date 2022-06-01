@@ -19,7 +19,7 @@ public interface DeliveryPostMapper {
 	
 	List<DeliveryComment> getAllDeliveryComments(int postId); 
 	
-	void updateParticipantList(int userId, int postId); //userId는 댓글 작성자 userId 
+	int updateParticipantList(String chooseNickname, int postId); //chooseNickname은 선택된 댓글 작성자 닉네임 
 
 	DeliveryPost getDeliveryPost(int postId); 
 	

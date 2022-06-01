@@ -6,6 +6,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
@@ -27,7 +28,7 @@ public class ViewPostController {
 	
 	@RequestMapping("/shop/viewDeliveryPost.do")
 	public ModelAndView getDeliveryPost(
-			@RequestParam("deliveryPostId") int deliveryPostId, HttpSession session) throws Exception{
+			@RequestParam("deliveryPostId") int deliveryPostId, HttpSession session, @ModelAttribute("addDCommentCommand") AddDCommentCommand addDCommentCommand) throws Exception{
 		DeliveryPost deliveryPost = deliveryService.getDeliveryPost(deliveryPostId); //post정보 가져오기
 		System.out.println("게시글 상세보기: " + deliveryPost.getPostId() + " " + deliveryPost.getTitle());
 		UserInfo writtenUser = userService.getUserByUserId(deliveryPost.getUserId());//작성자 닉네임 가져오기

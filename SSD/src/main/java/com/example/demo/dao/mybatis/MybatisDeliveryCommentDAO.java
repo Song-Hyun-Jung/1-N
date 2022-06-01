@@ -6,6 +6,7 @@ import org.springframework.stereotype.Repository;
 
 import com.example.demo.dao.DeliveryCommentDAO;
 import com.example.demo.dao.mybatis.mapper.DeliveryCommentMapper;
+import com.example.demo.domain.DeliveryComment;
 
 @Repository
 public class MybatisDeliveryCommentDAO implements DeliveryCommentDAO{
@@ -13,13 +14,13 @@ public class MybatisDeliveryCommentDAO implements DeliveryCommentDAO{
 	private DeliveryCommentMapper deliveryCommentMapper;
 
 	@Override
-	public void insertDeliveryComment(DeliveryCommentDAO comment) throws DataAccessException {
-		deliveryCommentMapper.insertDeliveryComment(comment);
+	public int insertDeliveryComment(DeliveryComment deliveryComment) throws DataAccessException {
+		return deliveryCommentMapper.insertDeliveryComment(deliveryComment);
 	}
 
 	@Override
-	public void updateChooseComment(int commentId) throws DataAccessException {
-		deliveryCommentMapper.updateChooseComment(commentId);
+	public int updateChooseComment(int commentId) throws DataAccessException {
+		return deliveryCommentMapper.updateChooseComment(commentId);
 	}
 
 }
