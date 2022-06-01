@@ -4,12 +4,12 @@
 <mapper namespace="com.example.demo.dao.mybatis.mapper.OrderInfoMapper">
 	<cache />
 
-  	<insert id="insertOrder">
+  	<insert id="insertOrder" parameterType="OrderInfo">
 	<selectKey keyProperty="orderId" resultType="int" order="BEFORE">
 		SELECT orderId_Seq.nextval AS userId FROM DUAL
 	</selectKey>
-    	INSERT INTO ORDERS (ORDERID, ITEMID, USERID, QUANTITY, ORDERDATE)
-    	VALUES(#{orderId}, #{itemid}, #{userid}, #{quantity}, #{date_col, jdbcType=TIMESTAMP})
+    	INSERT INTO ORDERINFO (ORDERID, ITEMID, USERID, QUANTITY, ORDERDATE)
+    	VALUES(#{orderId}, #{itemId}, #{userId}, #{quantity}, #{orderDate, jdbcType=TIMESTAMP})
     </insert>
 
 	<select id="getOrdersByUserId" parameterType="int" resultType="OrderInfo">

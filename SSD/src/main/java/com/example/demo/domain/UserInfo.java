@@ -14,6 +14,8 @@ public class UserInfo implements Serializable{
 	private String address; //주문 주소
 	private String payment; //결제 정보
 	
+	public UserInfo() {}
+	
 	public UserInfo(String email, String name, String nickname, String password, String phone,
 			String address, String payment) {
 		super();

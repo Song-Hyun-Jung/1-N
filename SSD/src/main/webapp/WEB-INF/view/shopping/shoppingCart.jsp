@@ -17,11 +17,21 @@
 	display:flex;
 }
 </style>
+
+<script>
+		function deleteCart(targetUri) {
+			cart.action = targetUri
+			cart.submit();
+		}
+	</script>
+
+
 </head>
 <body>
 <div class="album py-5 bg-light">
     <div class="container">
       <h3 align="center" style="padding-bottom:30px">찜한 상품</h3>
+      <form name="cart" method="POST">
 		<div><h4>찜한 상품: ${myCartSize}</h4></div>
 		<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
 			<c:forEach var="myCartItem" items="${myCartItemList}">
@@ -31,14 +41,17 @@
 		            	<image href="/static/images/${myCartItem.image}.jpg" width="100%" height="100%" />
 		            </svg>
 		            <div class="card-body">
-		              <p class="card-text">구매 상품: ${myCartItem.name}</p>
+		              <p class="card-text">찜한 상품: ${myCartItem.name}</p>
 		              <p>가격: ${myCartItem.price}</p>
+		              <p><button type="button" class="button" onclick="deleteCart('<c:url value ='/shop/deleteCart.do'>
+																		<c:param name='cartId' value='${cartId}' />
+																	</c:url> ')">찜 삭제</button></p>
 		            </div>
 		          </div>
 		        </div>
 	        </c:forEach>
         </div>
-        
+        </form>
       <p/>
     </div>
    </div>

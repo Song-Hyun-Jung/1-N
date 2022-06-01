@@ -16,6 +16,24 @@ public class ShoppingItem implements Serializable {
 	private String image;	//�켱 ���� String���� ����
 	private int shoppingCategoryId;
 	
+	public ShoppingItem() {}
+	
+	public ShoppingItem(int itemId, String name, int price, int totalPrice, int soldQuantity, int totalQuantity,
+			int remainedQuantity, String description, String memo, String image, int shoppingCategoryId) {
+		super();
+		this.itemId = itemId;
+		this.name = name;
+		this.price = price;
+		this.totalPrice = totalPrice;
+		this.soldQuantity = soldQuantity;
+		this.totalQuantity = totalQuantity;
+		this.remainedQuantity = remainedQuantity;
+		this.description = description;
+		this.memo = memo;
+		this.image = image;
+		this.shoppingCategoryId = shoppingCategoryId;
+	}
+
 	public int getItemId() {
 		return itemId;
 	}
