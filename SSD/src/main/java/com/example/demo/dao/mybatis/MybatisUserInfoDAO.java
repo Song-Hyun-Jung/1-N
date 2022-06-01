@@ -8,6 +8,7 @@ import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Repository;
 
 import com.example.demo.domain.DeliveryPost;
+import com.example.demo.domain.MyCartResultMap;
 import com.example.demo.domain.MyPurchaseResultMap;
 import com.example.demo.domain.SellPost;
 import com.example.demo.domain.ShoppingCategory;
@@ -54,7 +55,7 @@ public class MybatisUserInfoDAO implements UserInfoDAO{
 		return userInfoMapper.getPurchaseItemList(userId);
 	}
 
-	public List<ShoppingItem> getCartItemList(int userId) throws DataAccessException{ //개인 찜 상품들
+	public List<MyCartResultMap> getCartItemList(int userId) throws DataAccessException{ //개인 찜 상품들
 		return userInfoMapper.getCartItemList(userId);
 		
 	}

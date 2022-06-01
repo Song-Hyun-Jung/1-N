@@ -8,6 +8,7 @@ import org.springframework.dao.DataAccessException;
 import com.example.demo.controller.UpdateUserCommand;
 import com.example.demo.controller.UserRegisterCommand;
 import com.example.demo.domain.DeliveryPost;
+import com.example.demo.domain.MyCartResultMap;
 import com.example.demo.domain.MyPurchaseResultMap;
 import com.example.demo.domain.SellPost;
 import com.example.demo.domain.ShoppingItem;
@@ -37,7 +38,7 @@ public interface UserInfoDAO {
 	List<MyPurchaseResultMap> getPurchaseItemList(int userId) throws DataAccessException;
 	
 	//user 찜 목록 가져오기
-	List<ShoppingItem> getCartItemList(int userId) throws DataAccessException;
+	List<MyCartResultMap> getCartItemList(int userId) throws DataAccessException;
 	
 	//user가 작성한 글 가져오기
 	//배달음식

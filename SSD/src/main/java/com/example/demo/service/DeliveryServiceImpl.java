@@ -13,6 +13,7 @@ public class DeliveryServiceImpl implements DeliveryService{
 	@Autowired
 	private DeliveryPostDAO deliveryPostDao;
 	
+	//글 상세정보 보기위해 글정보, 댓글들 가져오기
 	@Override
 	public DeliveryPost getDeliveryPost(int postId){
 		return deliveryPostDao.getDeliveryPost(postId);

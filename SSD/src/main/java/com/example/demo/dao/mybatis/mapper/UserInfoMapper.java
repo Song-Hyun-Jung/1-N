@@ -11,6 +11,7 @@ import org.springframework.dao.DataAccessException;
 import com.example.demo.domain.ShoppingItem;
 import com.example.demo.controller.UpdateUserCommand;
 import com.example.demo.domain.DeliveryPost;
+import com.example.demo.domain.MyCartResultMap;
 import com.example.demo.domain.MyPurchaseResultMap;
 import com.example.demo.domain.SellPost;
 import com.example.demo.domain.UserInfo;
@@ -36,7 +37,7 @@ public interface UserInfoMapper {
 	List<MyPurchaseResultMap> getPurchaseItemList(int userId);
 
 	//사용자 userId 받아서 cart에서 userId에 해당하는 shoppingItem 가져오기 
-	List<ShoppingItem> getCartItemList(int userId);
+	List<MyCartResultMap> getCartItemList(int userId);
 
 	//사용자 userId 받아서 deliveryPost에서 작성자가 userId인 글들 가져오기
 	List<DeliveryPost> getMyDeliveryPostList(int userId);
