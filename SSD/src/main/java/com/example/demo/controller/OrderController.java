@@ -30,6 +30,7 @@ public class OrderController {
 	@Autowired private ShoppingService shoppingService;
 	@Autowired private UserService userService;
 	
+	
 	@RequestMapping("/shop/askPurchase.do")
 	public ModelAndView initNewOrder( 
 			HttpServletRequest request, HttpSession session, @RequestParam("itemId") int itemId) throws Exception {
@@ -50,11 +51,8 @@ public class OrderController {
 	@RequestMapping("/shop/OrderMypageUpdate.do")
 	public String updateMyPageOrder( 
 			HttpServletRequest request, HttpSession session, @RequestParam("itemId") int itemId, @RequestParam("quantity") int quantity,
-			@Valid @ModelAttribute("orderCommand") OrderCommand orderCommand, BindingResult result) throws Exception {
-		
-		if(result.hasErrors()) {
-			return "redirect:/shop/askPurchase.do?itemId="+itemId;
-		}
+			 @ModelAttribute("orderCommand") OrderCommand orderCommand) throws Exception {
+
 		
 		UserInfo userInfo = (UserInfo)session.getAttribute("loginMember");	//session에서 현재 로그인한 userInfo객체 얻어옴
 		System.out.println("update 전 UserInfo: "+userInfo.getUserId()+", "+userInfo.getName() + ", "+userInfo.getAddress());
@@ -85,12 +83,7 @@ public class OrderController {
 	}
 	
 	@RequestMapping("/shop/confirmPurchase.do")
-	public String donePurchase(@Valid OrderCommand orderCommand, BindingResult result) throws Exception{	//OrderCommand 받아와야함
-		
-		if(result.hasErrors()) {
-			return "redirect:/shop/askPurchase.do?itemId="+orderCommand.getItemId();
-			
-		}
+	public String donePurchase(OrderCommand orderCommand) throws Exception{	//OrderCommand 받아와야함
 	
 		Date now = new Date();	//현재 시간 구하기
 		

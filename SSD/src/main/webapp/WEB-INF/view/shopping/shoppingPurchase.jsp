@@ -32,8 +32,21 @@
    
     <script>
 		function updateInfo(targetUri) {
-			orderForm.action = targetUri;
-			orderForm.submit();
+			var regex = /\s/gi;
+			
+			if (orderForm.phone.value.replace(regex, '') == "") {
+				alert("전화번호를 입력하십시오.");
+				orderForm.phone.focus();
+			} else if(orderForm.address.value.replace(regex, '') == "") {
+				alert("주소를 입력하십시오.");
+				orderForm.address.focus();
+			} else if(orderForm.payment.value.replace(regex, '') == "") {
+				alert("결제정보를 입력하십시오.");
+				orderForm.payment.focus();
+			} else {
+				orderForm.action = targetUri;
+				orderForm.submit();
+			}
 		}
 		
 		function cancel(targetUri) {
@@ -42,8 +55,21 @@
 		}
 		
 		function confirm(targetUri) {
-			orderForm.action = targetUri
-			orderForm.submit();
+			var regex = /\s/gi;
+			
+			if (orderForm.phone.value.replace(regex, '') == "") {
+				alert("전화번호를 입력하십시오.");
+				orderForm.phone.focus();
+			} else if(orderForm.address.value.replace(regex, '') == "") {
+				alert("주소를 입력하십시오.");
+				orderForm.address.focus();
+			} else if(orderForm.payment.value.replace(regex, '') == "") {
+				alert("결제정보를 입력하십시오.");
+				orderForm.payment.focus();
+			} else {
+				orderForm.action = targetUri;
+				orderForm.submit();
+			}
 		}
 		
 		function updateQuantity(targetUri) {
@@ -62,8 +88,8 @@
         <div class="container">
             <div class="checkout__form">
                 <h4>구매자 정보</h4>
-                <spring:hasBindErrors name="orderCommand" />
-                <form:errors path="orderCommand" />
+                 <p style="color:red;">*정보 수정 시 반드시 정보 수정 버튼을 눌러주세요*</p>
+
                 <form method="POST" name = "orderForm">
                 	<input type="hidden" name="itemId" value="${purchaseItem.itemId}"/>
                 	<input type="hidden" name="userId" value="${userInfo.userId}"/>
@@ -77,34 +103,23 @@
                             <div class="checkout__input">
                                 <p>전화번호<span>*</span></p>
                                 <input type="text" name="phone" value = "${userInfo.phone}" required />
-                                <form:errors path="orderCommand.phone" />
                             </div>
                             <div class="checkout__input">
                                 <p>주소<span>*</span></p>
                                 <input type="text" name="address" value = "${userInfo.address}" required/>
-                                <form:errors path="orderCommand.address" />
                             </div>
                             <div class="checkout__input">
                                 <p>결제정보<span>*</span></p>
                                 <input type="text" name="payment" value = "${userInfo.payment}" required />
-                                <form:errors path="orderCommand.payment" />
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-6">
                             <div class="checkout__order">
                                 <div class="checkout__order__subtotal">상품 남은 개수<span>${purchaseItem.remainedQuantity}</span></div>
-                                <!-- 0 이하 숫자 안 되게끔 처리 해야 함 -->
-                                <div class="checkout__order__products">구매할 상품 개수&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="number" id="quantity" name="quantity" value="${param.quantity}" max="${purchaseItem.remainedQuantity}" min="1"/><form:errors path="orderCommand.quantity" />&nbsp;&nbsp;<button type="button" class="button" id="button1" onclick="updateQuantity('<c:url value ='/shop/askPurchase.do'></c:url> ')">변경</button><span></span></span></div>
+                                <div class="checkout__order__products">구매할 상품 개수&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="number" id="quantity" name="quantity" value="${param.quantity}" max="${purchaseItem.remainedQuantity}" min="1"/>&nbsp;&nbsp;<button type="button" class="button" id="button1" onclick="updateQuantity('<c:url value ='/shop/askPurchase.do'></c:url> ')">변경</button><span></span></div>
 		       					<div class="checkout__order__subtotal">확정 시 개당 가격<span>${purchaseItem.price}</span></div>
                                 <div class="checkout__order__total">총 가격<span>${purchaseItem.price * param.quantity}</span></div>
                                 <div class="checkout__input__checkbox">
-                                </div>
-                                <div class="checkout__input__checkbox">
-                                    <label for="paypal">
-                                        구매에 동의합니다.
-                                        <input type="checkbox" value="true" name="check" id="paypal" /> 
-                                        <span class="checkmark"></span>
-                                    </label>
                                 </div>
                              
                                 

@@ -8,7 +8,6 @@ import javax.validation.constraints.Positive;
 
 public class OrderCommand {
 	
-	@Positive
 	private String quantity;		//구매할 상품 개수
 	private int userId;		//구매자 id
 	private int itemId;		//구매할 상품 id
