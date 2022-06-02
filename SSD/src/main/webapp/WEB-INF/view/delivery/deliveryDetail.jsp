@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@ page language="java" contentType="text/html;"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -61,7 +61,8 @@
 
 </head>
 <body>
-<div class="container">
+<%@ include file="../top.jsp" %>
+<div class="container"> 
 	<div class="row">
 	    <div class="col-md-8 col-md-offset-2">
 	        
