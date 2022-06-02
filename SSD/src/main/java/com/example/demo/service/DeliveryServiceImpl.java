@@ -39,4 +39,12 @@ public class DeliveryServiceImpl implements DeliveryService{
 	public int insertDeliveryComment(DeliveryComment deliveryComment) {
 		return deliveryCommentDao.insertDeliveryComment(deliveryComment);
 	}
+	
+	public List<DeliveryPost> getAllDeliveryPost() {
+		return deliveryPostDao.getAllDeliveryPost();
+	}
+	
+	public List<DeliveryPost> getDeliveryPostByCategoryId(int deliveryCategoryId) {
+		return deliveryPostDao.getDeliveryPostByCategoryId(deliveryCategoryId);
+	}
 }
