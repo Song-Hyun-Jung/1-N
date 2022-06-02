@@ -1,7 +1,7 @@
 package com.example.demo.controller;
 
 public class AddDCommentCommand {
-	//댓글등록 comment 객체
+	//댓글등록 delivery comment 객체
 	private String deliveryPostId;
 	private String comments;
 	

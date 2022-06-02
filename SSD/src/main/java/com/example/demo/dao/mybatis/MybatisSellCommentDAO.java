@@ -6,6 +6,7 @@ import org.springframework.stereotype.Repository;
 
 import com.example.demo.dao.SellCommentDAO;
 import com.example.demo.dao.mybatis.mapper.SellCommentMapper;
+import com.example.demo.domain.SellComment;
 
 @Repository
 public class MybatisSellCommentDAO implements SellCommentDAO{
@@ -14,8 +15,8 @@ public class MybatisSellCommentDAO implements SellCommentDAO{
 	private SellCommentMapper sellCommentMapper;
 
 	@Override
-	public void insertSellComment(SellCommentDAO comment) throws DataAccessException {
-		sellCommentMapper.insertSellComment(comment);
+	public int insertSellComment(SellComment comment) throws DataAccessException {
+		return sellCommentMapper.insertSellComment(comment);
 	}
 	
 	

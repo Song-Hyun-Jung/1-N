@@ -20,6 +20,7 @@ public class UpdatePostController {
 	@Autowired
 	private UserService userService;
 	
+		//commentId 추가해야함
 		//참여자 선택
 		@RequestMapping("/shop/choosePart.do")
 		public String updateParticipantList(
