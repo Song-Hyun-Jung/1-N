@@ -7,6 +7,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -26,11 +27,15 @@ public class AddItemToCartController {
 
 	@RequestMapping("/shop/addItemToCart.do")
 	public String handleRequest( 
-			HttpSession session, @RequestParam("itemId") int itemId) throws Exception {
+			HttpSession session, Model model,
+			@RequestParam("itemId") int itemId) throws Exception {
 		
-		UserInfo loginMember = userService.getUserByEmail("som@gmail.com");		//test
-		session.setAttribute("loginMember", loginMember);		//test용으로 세션 설정
 		UserInfo userInfo = (UserInfo)session.getAttribute("loginMember");
+		if (userInfo == null) {//로그인 상태가 아닌 경우
+			model.addAttribute("msg", "로그인 상태가 아닙니다. 로그인을 먼저 해주세요");
+	        model.addAttribute("url", "/shop/login.do");
+	        return "alert/error";
+		}
 		
 		List<Cart> cartItemList = shoppingService.getCartByUserId(userInfo.getUserId());		//user의 cartList 가져옴
 

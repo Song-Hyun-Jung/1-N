@@ -24,11 +24,14 @@ public class MainController {
 		UserInfo user = (UserInfo) session.getAttribute("loginMember");
 		if (user == null) {//로그인 상태가 아닌 경우
 			mav.addObject("ses", 0);
+			session.setAttribute("ses", 0);
 			System.out.println("MainController - 로그인 기록 없음");
 		} 
 		else {
 			mav.addObject("ses", 1);//로그인 상태인 경우
 			System.out.println("MainController - 로그인성공");
+			session.setAttribute("ses", 1);
+			session.setAttribute("nickName", user.getNickname());
 			mav.addObject("email", user.getEmail());
 			mav.addObject("nickName", user.getNickname());
 		}

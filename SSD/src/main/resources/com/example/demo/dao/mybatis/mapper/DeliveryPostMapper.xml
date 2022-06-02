@@ -10,9 +10,10 @@
 	</select>
 	
 	<select id="getAllDeliveryComments" parameterType="int" resultType="DeliveryComment"> 
-		SELECT * 
-		FROM DELIVERYCOMMENT
-		WHERE postId=#{postId} 
+		SELECT d.commentId, d.postId, d.choice, d.comments, u.nickname
+		FROM DELIVERYCOMMENT d, USERINFO u
+		WHERE postId=#{postId} and d.userId = u.userId
+		ORDER BY commentId
 	</select>
 	
 	<select id="getDeliveryPost" parameterType="int" resultType="DeliveryPost"> 
@@ -39,7 +40,7 @@
 	
 	<update id="updateParticipantList" parameterType="DeliveryPost"> 
 		UPDATE DELIVERYPOST 
-		SET participantList=#{participantListNickname} 
+		SET participantList=#{chooseNickname} 
 		WHERE postId = #{postId}
 	</update>
 	

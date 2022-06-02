@@ -9,11 +9,18 @@
 		ORDER BY postId DESC 
 	</select> 
 	
-	<select id="selectSellPostByPostId" parameterType="int" resultType="SellPost"> 
+	<select id="getSellPost" parameterType="int" resultType="SellPost"> 
 		SELECT *
 		FROM SELLPOST 
 		WHERE postId=#{postId} 
 	</select> 
+	
+	<select id="getAllSellComments" parameterType="int" resultType="SellComment"> 
+		SELECT s.commentId, s.postId, s.comments, u.nickname
+		FROM SELLCOMMENT s, USERINFO u
+		WHERE postId=#{postId} and s.userId = u.userId
+		ORDER BY commentId
+	</select>
 	
 	<insert id="insertSellPost" parameterType="SellPost"> 
 		<selectKey keyProperty="postId" resultType="int" order="BEFORE"> 

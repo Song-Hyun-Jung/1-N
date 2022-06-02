@@ -7,7 +7,7 @@
     	<selectKey keyProperty="commentId" resultType="int" order="BEFORE">
         	SELECT sellcommentId_Seq.nextval AS commentId FROM DUAL
     	</selectKey>
-      	INSERT INTO SELLCOMMENT (commentId, userId, postId, comment)
-     	VALUES (#{commentId}, #{userId}, #{postId}, #{comment})
+      	INSERT INTO SELLCOMMENT (commentId, userId, postId, comments)
+     	VALUES (#{commentId}, #{userId}, #{postId}, #{comments})
   	</insert>
 </mapper>

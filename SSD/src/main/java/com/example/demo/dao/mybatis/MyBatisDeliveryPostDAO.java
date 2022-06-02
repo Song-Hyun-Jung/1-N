@@ -34,8 +34,8 @@ public class MyBatisDeliveryPostDAO implements DeliveryPostDAO{
 		return deliveryPostMapper.getAllDeliveryComments(postId);
 	}
 	
-	public void updateParticipantList(int userId, int postId) throws DataAccessException{	//userId는 댓글 작성자 userId 
-		deliveryPostMapper.updateParticipantList(userId, postId);
+	public int updateParticipantList(String chooseNickname, int postId) throws DataAccessException{	//userId는 댓글 작성자 userId 
+		return deliveryPostMapper.updateParticipantList(chooseNickname, postId);
 	}
 	
 	public DeliveryPost getDeliveryPost(int postId) throws DataAccessException{

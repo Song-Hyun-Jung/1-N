@@ -8,7 +8,8 @@ public class SellComment implements Serializable{
 	private int commentId;
 	private int userId;
 	private int postId;
-	private String comment;
+	private String comments;
+	private String nickname;
 	
 	
 	public int getCommentId() {
@@ -29,11 +30,17 @@ public class SellComment implements Serializable{
 	public void setPostId(int postId) {
 		this.postId = postId;
 	}
-	public String getComment() {
-		return comment;
+	public String getComments() {
+		return comments;
 	}
-	public void setComment(String comment) {
-		this.comment = comment;
+	public void setComments(String comments) {
+		this.comments = comments;
+	}
+	public String getNickname() {
+		return nickname;
+	}
+	public void setNickname(String nickname) {
+		this.nickname = nickname;
 	}
 	
 }

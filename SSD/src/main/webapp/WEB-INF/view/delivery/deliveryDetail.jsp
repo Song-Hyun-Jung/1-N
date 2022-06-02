@@ -1,7 +1,10 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@ page language="java" contentType="text/html;"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 
 <!DOCTYPE html>
 <html>
@@ -58,7 +61,8 @@
 
 </head>
 <body>
-<div class="container">
+<%@ include file="../top.jsp" %>
+<div class="container"> 
 	<div class="row">
 	    <div class="col-md-8 col-md-offset-2">
 	        
@@ -104,7 +108,7 @@
 	           			
 	           		</div>
 	           		<div class="form-group">
-				    		  <button type="submit" class="btn btn-primary"> 수정 </button>
+				    		  <c:if test="${loginUser.nickname eq writtenUser.nickname}"><button type="submit" class="btn btn-primary"> 수정 </button></c:if>
 				    		  <button class="btn btn-default"> 목록으로 돌아가기 </button>
 				     </div>
 	    	     </div>
@@ -126,8 +130,17 @@
 	                <div class="bg-white p-2">
 	                    <div class="d-flex flex-row user-info">
 	                        <div class="d-flex flex-column justify-content-start ml-2">
-	                        	<span class="d-block font-weight-bold name">${deliveryComment.userId}</span>
-	                        	<c:if test="${loginUser.nickname eq writtenUser.nickname}"><span><button type="submit" class="btn btn-info btn-xs">선택</button></span></c:if>
+	                        	<span class="d-block font-weight-bold name">${deliveryComment.nickname}</span>
+	                        	<c:if test="${loginUser.nickname eq writtenUser.nickname}">
+	                        		<c:if test="${deliveryComment.choice eq 'n'}">
+	                        			<span><button type="button" class="btn btn-info btn-xs" 
+	                        					onClick="location.href='/shop/choosePart.do?chooseNickname=${deliveryComment.nickname}&deliveryPostId=${deliveryPost.postId}'">선택</button></span>
+	                        		</c:if>
+	                        		<c:if test="${deliveryComment.choice eq 'y'}">
+	                        			<span><button type="button" class="btn btn-info btn-xs" style="background-color: #FF0000;" disabled>선택됨</button></span>
+	                        		</c:if>
+	                        	
+	                        	</c:if>
 	                        </div>
 	                    
 	                    </div>
@@ -139,19 +152,20 @@
                	<hr/>
                	</c:forEach>
                	
-               	
-               	<form name="addReply">
+               	<!-- 댓글 등록 -->
+               	<form:form modelAttribute="addDCommentCommand" method="POST" action="/shop/insertDComment.do">
 	                <div class="d-flex flex-row user-info">
 	                     <div class="d-flex flex-column justify-content-start ml-2"><span class="d-block font-weight-bold name">${loginUser.nickname}</span></div>
 	                </div>
 	                <div class="bg-light p-2">
-	                    <div class="d-flex flex-row align-items-start"><textarea class="form-control ml-1 shadow-none textarea"></textarea></div>
-	                    <div class="mt-2 text-right" style="padding-top:10px"><button class="btn btn-primary btn-sm shadow-none" type="button">댓글 등록</button></div>
+	                    <div class="d-flex flex-row align-items-start"><textarea class="form-control ml-1 shadow-none textarea" name="comments"></textarea></div>
+	                    <div class="mt-2 text-right" style="padding-top:10px"><button class="btn btn-primary btn-sm shadow-none" type="submit">댓글 등록</button></div>
 	                </div>
-	            </form>
+	                <input type="hidden" name="deliveryPostId" value="${deliveryPost.postId}"/>
+	            </form:form>
             </div>
         </div>
     </div>
-</div>
+
 </body>
 </html>

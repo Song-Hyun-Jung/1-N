@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@ page language="java" contentType="text/html;"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -21,7 +21,7 @@
 </style>
 </head>
 <body>
-
+<%@ include file="../top.jsp" %>
 	<nav class="navbar navbar-default"> <!-- 네비게이션 -->
 		<div class="navbar-header"> 	<!-- 네비게이션 상단 부분 -->
 			<!-- 네비게이션 상단 박스 영역 -->
@@ -76,7 +76,9 @@
 					<c:forEach var="mySellPost" items="${mySellPostList}">
 					<tr>
 						<!-- 게시글 제목을 누르면 해당 글을 볼 수 있도록 링크 걸어야함 -->
-						<td>${mySellPost.title}</td>
+						<td><a href="<c:url value='/shop/viewSellPost.do'>
+																<c:param name="sellPostId" value="${mySellPost.postId}" />
+													 </c:url>">${mySellPost.title}</a></td>
 						<td>
 							<c:if test="${mySellPost.complete == true}">완료</c:if>
 							<c:if test="${mySellPost.complete == false}">미완료</c:if>

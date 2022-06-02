@@ -10,7 +10,7 @@ public class DeliveryComment implements Serializable{
 	private int postId;
 	private String comments;
 	private String choice;
-	private String userNickname;
+	private String nickname;
 	
 	public int getCommentId() {
 		return commentId;
@@ -42,11 +42,11 @@ public class DeliveryComment implements Serializable{
 	public void setChoice(String choice) {
 		this.choice = choice;
 	}
-	public String getUserNickname() {
-		return userNickname;
+	public String getNickname() {
+		return nickname;
 	}
-	public void setUserNickname(String userNickname) {
-		this.userNickname = userNickname;
+	public void setNickname(String nickname) {
+		this.nickname = nickname;
 	}	
 	
 	
