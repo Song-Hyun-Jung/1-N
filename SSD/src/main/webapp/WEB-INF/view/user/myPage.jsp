@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@ page language="java" contentType="text/html;"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
@@ -39,6 +39,7 @@
 </head>
 <body>
 
+<%@ include file="../top.jsp" %>
 <div align="left" style="padding-left:380px;">
  <h2>마이페이지</h2>
  </div>

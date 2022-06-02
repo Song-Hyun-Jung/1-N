@@ -7,7 +7,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.example.demo.dao.ShoppingItemDAO;
 import com.example.demo.domain.ShoppingCategory;
 import com.example.demo.domain.ShoppingItem;
 import com.example.demo.service.ShoppingService;
@@ -24,6 +23,7 @@ public class GoShoppingController {		//쇼핑몰 메인으로 이동
 	
 	@RequestMapping("/shop/shoppingMain.do")
 	public ModelAndView myPageView() throws Exception{
+		
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("shopping/shoppingMain");
 		List<ShoppingItem> top3Item = shoppingService.getTop3Item();
@@ -31,6 +31,7 @@ public class GoShoppingController {		//쇼핑몰 메인으로 이동
 		
 		List<ShoppingCategory> categories = shoppingService.getAllCategory();
 		mav.addObject("categories", categories);
+		
 		return mav;
 	}
 }

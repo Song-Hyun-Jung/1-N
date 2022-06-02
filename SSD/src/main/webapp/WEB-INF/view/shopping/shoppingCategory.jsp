@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@ page language="java" contentType="text/html;"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
@@ -31,8 +31,8 @@
 	</script>
 </head>
 <body>
-
-<br/><br/><br/>
+<%@ include file="../top.jsp" %>
+<br/>
 <a href='<c:url value="/shop/shoppingMain.do"/>'><h1 align="center">쇼핑몰</h1></a><br><br/>
             
 <c:choose>
