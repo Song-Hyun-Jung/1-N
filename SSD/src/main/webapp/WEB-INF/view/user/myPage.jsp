@@ -20,18 +20,20 @@
 	 }
 	
 	.card2 {
-		 padding:10px 30px;
+		 padding:5px 5px;
 		 border-radius: 15px;
 		 border-style:solid;
 	  	 border-color:gray;
 	  	 border-width:thin;
 	  	 text-align:center;
-	  	 width:230px; height:20px;
+	  	 width:300px; height:40px;
 	}
  	#errorStyle{
  		color:red;
  		font-size:x-small;
  	}
+ 	.atag {color:black; text-decoration:none;}
+ 	.atag:hover { color: blue; }
 
 </style>
 
@@ -98,10 +100,10 @@
 			</form:form>
 	  	  </td>
 	  	   <td  style="width:100px; padding: 50px;">
-		  	  <h4 class="card2"><a href="/shop/mypagePurchase.do">구매한 상품 목록</a></h4>
-		  	  <h4 class="card2"><a href="/shop/mypageCart.do">찜 목록</a></h4>
-		  	  <h4 class="card2"><a href="/shop/mypageDelivery.do">작성한 배달 커뮤니티 글</a></h4>
-		  	  <h4 class="card2"><a href="/shop/mypageSell.do">작성한 이웃 커뮤니티 글</a></h4>
+		  	  <h5 class="card2" ><a class="atag" href="/shop/mypagePurchase.do">구매한 상품 목록</a></h5>
+		  	  <h5 class="card2"><a class="atag" href="/shop/mypageCart.do">찜 목록</a></h5>
+		  	  <h5 class="card2"><a class="atag" href="/shop/mypageDelivery.do">작성한 배달 커뮤니티 글</a></h5>
+		  	  <h5 class="card2"><a class="atag" href="/shop/mypageSell.do">작성한 이웃 커뮤니티 글</a></h5>
 		  	</td>
   	  </tr>
 	  	 
