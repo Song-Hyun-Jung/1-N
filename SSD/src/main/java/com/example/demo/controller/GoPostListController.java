@@ -6,13 +6,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.demo.domain.DeliveryPost;
 import com.example.demo.service.DeliveryServiceImpl;
 
 @Controller
-public class ViewCategoryController {
+public class GoPostListController {
 	private DeliveryServiceImpl deliveryService;
 
 	@Autowired
@@ -20,12 +19,11 @@ public class ViewCategoryController {
 		this.deliveryService = deliveryService;
 	}
 	
-	//배달음식 나누기 카테고리 별로 보기
-	@RequestMapping("/shop/categoryDelivery.do")
-	public String categoryDelivery(
-			@RequestParam("deliveryCategoryId") int deliveryCategoryId,
+	//배달음식 나누기 메인
+	@RequestMapping("/shop/deliveryMain.do")
+	public String deliveryList(
 			ModelMap model) throws Exception {
-		List<DeliveryPost> deliveryPostList = this.deliveryService.getDeliveryPostByCategoryId(deliveryCategoryId);
+		List<DeliveryPost> deliveryPostList = this.deliveryService.getAllDeliveryPost();
 		model.put("deliveryPostList", deliveryPostList);
 		return "/delivery/deliveryList";
 	}

@@ -59,9 +59,9 @@
 
         <div class="container">
           <div class="carousel-caption text-dark">
-            <h1>Another example headline.</h1>
-            <p>Some representative placeholder content for the second slide of the carousel.</p>
-            <p><a class="btn btn-lg btn-primary" href="#">Learn more</a></p>
+            <h1>배달음식 나눠먹기</h1>
+            <p>동네 이웃들과 맛있는 배달음식을 함께 주문해요</p>
+            <p><a class="btn btn-lg btn-primary" href='<c:url value="/shop/deliveryMain.do"/>'>View details &raquo;</a></p>
           </div>
         </div>
       </div>

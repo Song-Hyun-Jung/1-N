@@ -1,7 +1,6 @@
 package com.example.demo.domain;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.Date;
 
 @SuppressWarnings("serial")
@@ -9,6 +8,7 @@ public class DeliveryPost implements Serializable{
 	private int postId;		//시퀀스로 생성
 	private int deliveryCategoryId;	
 	private int userId;
+	private String nickname;
 	private String title;
 	private Date writtenDate;
 	private String address;
@@ -26,6 +26,9 @@ public class DeliveryPost implements Serializable{
 	
 	public int getUserId() {return userId;}
 	public void setUserId(int userId) {this.userId = userId;}
+	
+	public String getNickname() {return nickname;}
+	public void setNickname(String nickname) {this.nickname = nickname;}
 	
 	public String getTitle() {return title;}
 	public void setTitle(String title) {this.title = title;}
@@ -60,7 +63,6 @@ public class DeliveryPost implements Serializable{
 		return nicknames;
 	}
 	public void setParticipantListNickname(String participantListNickname) { this.participantListNickname = participantListNickname;}
-
 	*/
 	
 	

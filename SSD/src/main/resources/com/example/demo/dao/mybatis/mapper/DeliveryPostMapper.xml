@@ -4,8 +4,9 @@
 	<cache />
 
 	<select id="getAllDeliveryPost" resultType="DeliveryPost"> 
-		SELECT * 
-		FROM DELIVERYPOST 
+		SELECT d.postId, d.deliveryCategoryId, d.userId, d.title, d.writtenDate, d.address, d.foodName, d.complete, d.participantList, u.nickname 
+		FROM DELIVERYPOST d, USERINFO u 
+		WHERE d.userId = u.userId
 		ORDER BY postId DESC 
 	</select>
 	
@@ -17,9 +18,9 @@
 	</select>
 	
 	<select id="getDeliveryPost" parameterType="int" resultType="DeliveryPost"> 
-		SELECT * 
-		FROM DELIVERYPOST 
-		WHERE postId=#{postId} 
+		SELECT d.postId, d.deliveryCategoryId, d.userId, d.title, d.writtenDate, d.address, d.foodName, d.complete, d.participantList, u.nickname
+		FROM DELIVERYPOST d, USERINFO u 
+		WHERE postId=#{postId} and d.userId = u.userId
 	</select> 
 	
 	<insert id="insertDeliveryPost" parameterType="DeliveryPost"> 
@@ -44,7 +45,7 @@
 		WHERE postId = #{postId}
 	</update>
 	
-	<select id="getPostByDeliveryCategory" parameterType="int" resultType="DeliveryPost">
+	<select id="getDeliveryPostByCategoryId" parameterType="int" resultType="DeliveryPost">
     	SELECT *
     	FROM DELIVERYPOST
     	WHERE deliveryCategoryId= #{deliveryCategoryId} 
