@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.example.demo.dao.CartDAO;
 import com.example.demo.dao.OrderInfoDAO;
@@ -43,10 +44,12 @@ public class ShoppingService {
 		return cartDAO.getCart(cartId);
 	}
 
+	@Transactional
 	public void insertCart(Cart cart) {
 		cartDAO.insertCart(cart);  
 	}
 
+	@Transactional
 	public void deleteCart(int cartId) {
 		cartDAO.deleteCart(cartId);
 	}
@@ -55,8 +58,10 @@ public class ShoppingService {
 		return cartDAO.getCartByUserId(userId);
 	}
 	
+	@Transactional
 	public void insertOrder(OrderInfo order) {
 		orderInfoDAO.insertOrder(order);
+		shoppingItemDAO.updateQuantity(order);
 	}
 	
 	public ShoppingItem getItem(int shoppingItemId) {
@@ -93,9 +98,5 @@ public class ShoppingService {
 	
 	public String getDescriptionByCategoryId(int shoppingCategoryId) {
 		return shoppingCategoryDAO.getDescriptionByCategoryId(shoppingCategoryId);
-	}
-	
-	public void updateQuantity(OrderInfo orderInfo) {
-		shoppingItemDAO.updateQuantity(orderInfo);
 	}
 }

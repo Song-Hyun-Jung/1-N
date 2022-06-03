@@ -19,11 +19,19 @@
 </style>
 
 <script>
-		function deleteCart(targetUri) {
-			cart.action = targetUri
-			cart.submit();
-		}
-	</script>
+
+
+	function deleteCart(targetUri) {
+		cart.action = targetUri
+		cart.submit();
+	}
+
+	if(${same} == 1) {
+		alert("이미 찜 목록에 있는 상품입니다.");
+	} 
+		
+		
+</script>
 
 
 </head>
@@ -33,19 +41,24 @@
     <div class="container">
       <h3 align="center" style="padding-bottom:30px">찜한 상품</h3>
       <form name="cart" method="POST">
+      	
 		<div><h4>찜한 상품: ${myCartSize}</h4></div>
 		<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
 			<c:forEach var="myCartItem" items="${myCartItemList}">
+				
 		        <div class="col" style="padding-right:50px">
 		          <div class="card shadow-sm"> 
-		            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
-		            	<image href="/static/images/${myCartItem.image}.jpg" width="100%" height="100%" />
-		            </svg>
+		          	 <a href="<c:url value='/shop/viewItem.do'>
+      					<c:param name='shoppingItemId' value='${myCartItem.itemId}'/></c:url>">
+			            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
+			            	<image href="/static/images/${myCartItem.image}.jpg" width="100%" height="100%" />
+			            </svg>
+		            </a>
 		            <div class="card-body">
 		              <p class="card-text">찜한 상품: ${myCartItem.name}</p>
 		              <p>가격: ${myCartItem.price}</p>
-		              <p><button type="button" class="button" onclick="deleteCart('<c:url value ='/shop/deleteCart.do'>
-																		<c:param name='cartId' value='${cartId}' />
+		              <p><button type="button" class="button" onclick="deleteCart('<c:url value ='/shop/deleteCart.do?cartId=${myCartItem.cartId}'>
+																		
 																	</c:url> ')">찜 삭제</button></p>
 		            </div>
 		          </div>

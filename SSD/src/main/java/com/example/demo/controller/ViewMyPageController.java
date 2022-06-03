@@ -54,6 +54,7 @@ public class ViewMyPageController {
 			System.out.println("카트 아이디: " + c.getCartId() +  "카트 아이템: "+ c.getName() + " 아이템이미지: " + c.getImage() );
 		}
 		mav.addObject("myCartSize", myCartItemList.size()); //찜한 개수 보내기
+		mav.addObject("same", 0);
 		mav.setViewName("shopping/shoppingCart");
 		return mav;
 	}
