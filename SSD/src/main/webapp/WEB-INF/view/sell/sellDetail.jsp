@@ -15,6 +15,19 @@
 	<script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 	
 	<style>
+		.customButton {
+			 padding: 5px 20px 5px 20px;
+			 border-radius: 20px;
+			 border-style:solid;
+		  	 border-color:gray;
+		  	 border-width:thin;
+		  	 text-align:center;
+		  	 display:inline-block;
+		  	 background-color: white;
+		}
+		.customButton:hover{
+			background-color:#8FDEFF;
+		}
 		hr {
 		  border: 0;
 		  clear:both;
@@ -58,6 +71,9 @@
 		.form-control[readonly].no-gray {
 		  background-color:white;
 		}
+		div{
+			font-size: medium;
+		}
 	</style>
 
 </head>
@@ -65,46 +81,46 @@
 <%@ include file="../top.jsp" %>
 <div class="container">
 	<div class="row">
-	    <div class="col-md-8 col-md-offset-2">
+	    <div class="col-md-8 col-md-offset-2 justify-content-center">
 	        
     		<h2>회원간 거래 상세보기</h2>
  	    
     		    <div class="row col-md-12 col-sm-12">
 	    		    <div class="form-group has-error col-md-9 col-sm-9" >
 	    		        <label for="title">글 제목</label>
-	    		        <input type="text" class="form-control no-gray" name="title" value="${sellPost.title}" readonly/>
+	    		        <input type="text" class="form-control no-gray" name="title" value="${sellPost.title}" readonly style="font-size:medium"/>
 	    		    </div>
 	    		    <div class="form-group has-error col-md-3 col-sm-3" >
 	    		        <label for="writer">작성자</label>
-	    		        <input type="text" class="form-control no-gray" name="writer" value="${writtenUser.nickname}" readonly />
+	    		        <input type="text" class="form-control no-gray" name="writer" value="${writtenUser.nickname}" readonly style="font-size:medium"/>
     		   		 </div>
     		    </div>
     		   
     		   	<div class="form-group  col-md-6 col-sm-6">
 	           	 	<label for="address">완료 여부</label>
-	           		 	 <c:if test="${sellPost.complete eq 'Y' or sellPost.complete eq 'y'}"><input type="text" class="form-control no-gray" name="complete" value="완료" readonly /></c:if>
-						 <c:if test="${sellPost.complete eq 'N' or sellPost.complete eq 'n'}"><input type="text" class="form-control no-gray" name="complete" value="미완료" readonly /></c:if>    	 
+	           		 	 <c:if test="${sellPost.complete eq 'Y' or sellPost.complete eq 'y'}"><input type="text" class="form-control no-gray" name="complete" value="완료" readonly style="font-size:medium"/></c:if>
+						 <c:if test="${sellPost.complete eq 'N' or sellPost.complete eq 'n'}"><input type="text" class="form-control no-gray" name="complete" value="미완료" readonly style="font-size:medium"/></c:if>    	 
 	           	</div>
 				<div class = "form-group col-md-6 col-sm-6">
 					<label for="date">작성일자<span class="require"></span></label>
-	    		       <input type="text" class="form-control no-gray" name="date" readonly value="<fmt:formatDate pattern="yyyy-MM-dd HH:mm:ss" 
-	    		       		value="${sellPost.writtenDate}"/> "/>    	
+	    		       <input type="text" class="form-control no-gray" name="date" readonly style="font-size:medium"
+	    		       		value="<fmt:formatDate pattern="yyyy-MM-dd HH:mm:ss" value="${sellPost.writtenDate}"/> "/>    	
 				</div>
     		</div>
     		   
     		
-	    		<div class="form-group col-md-8 col-md-offset-2 col-sm-8"> 
+	    		<div class="form-group col-md-7 col-md-offset-2 col-sm-8" style="padding-left:25px"> 
 	    			<div class="row">
 	    				<div class="form-group  col-md-12 col-sm-12"> 
 			    	        <label for="detail">상세 내용</label>
-			    	        <textarea class="form-control no-gray ml-1 shadow-none textarea" rows="4" name="detail" readonly>${sellPost.content}</textarea>
+			    	        <textarea class="form-control no-gray ml-1 shadow-none textarea" rows="4" name="detail" readonly style="font-size:medium">${sellPost.content}</textarea>
 		    	        </div>	
 		    	        
 	           			
 	           		</div>
 	           		<div class="form-group">
-				    		  <c:if test="${loginUser.nickname eq writtenUser.nickname}"><button type="submit" class="btn btn-primary"> 수정 </button></c:if>
-				    		  <button class="btn btn-default"> 목록으로 돌아가기 </button>
+				    		  <c:if test="${loginUser.nickname eq writtenUser.nickname}"><button type="submit" class="customButton"> 수정 </button></c:if>
+				    		  <button class="customButton" type="button"> 목록으로 돌아가기 </button>
 				     </div>
 	    	     </div>
 		</div>
@@ -114,7 +130,7 @@
 
 <!-- 댓글 보기 -->
 <div class="container mt-5">
-    <div class="d-flex justify-content-center row">
+    <div class=justify-content-center">
          <div class="col-md-8 col-md-offset-2">
          	<h4>댓글</h4>
          	
@@ -129,7 +145,7 @@
 	                    
 	                    </div>
 	                    <div class="mt-2">
-	                    	<textarea class="form-control no-gray ml-1 shadow-none textarea" readonly>${sellComment.comments}</textarea>
+	                    	<textarea class="form-control no-gray ml-1 shadow-none textarea" readonly style="font-size:medium">${sellComment.comments}</textarea>
 	                    </div>
 	                </div>
                 </form>
@@ -143,7 +159,7 @@
 	                </div>
 	                <div class="bg-light p-2">
 	                    <div class="d-flex flex-row align-items-start"><textarea class="form-control ml-1 shadow-none textarea" name="comments"></textarea></div>
-	                    <div class="mt-2 text-right" style="padding-top:10px"><button class="btn btn-primary btn-sm shadow-none" type="submit">댓글 등록</button></div>
+	                    <div class="mt-2 text-right" style="padding-top:10px"><button class="customButton" type="submit">댓글 등록</button></div>
 	                </div>
 	                <input type="hidden" name="sellPostId" value="${sellPost.postId}"/>
 	            </form:form>

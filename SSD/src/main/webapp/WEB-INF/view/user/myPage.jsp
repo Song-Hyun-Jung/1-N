@@ -51,7 +51,7 @@
     </tr>
   	<tr>
 	  	  <td style="text-align: center;">
-	  	  <!-- 회원정보 수정 form -->
+	  	  <!-- 회원정보 수정 form -->  
 	  	  	<form:form modelAttribute="updateUserCommand" method="POST" action="/shop/mypageUpdate.do">
 	  	    <table style="text-align: center; border: 1px solid #dddddd">
 				<tr>
@@ -95,6 +95,7 @@
 					<form:errors path="payment"  id="errorStyle"></form:errors></td>
 				</tr>				
 			</table>
+		
 			<br>
 			<input type="submit" value="회원 정보 수정">
 			</form:form>

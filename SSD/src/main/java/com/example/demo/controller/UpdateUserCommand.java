@@ -1,8 +1,8 @@
 package com.example.demo.controller;
 
-import javax.validation.constraints.NotNull;
+import javax.validation.constraints.*;
+import org.hibernate.validator.constraints.*;
 
-import org.hibernate.validator.constraints.NotEmpty;
 
 public class UpdateUserCommand {
 	
