@@ -90,7 +90,7 @@ public class OrderController {
 		OrderInfo order = new OrderInfo(now, orderCommand.getQuantity(), orderCommand.getUserId(), orderCommand.getItemId());
 		
 		shoppingService.insertOrder(order);
-		shoppingService.updateQuantity(order);
+		
 		
 		return "redirect:/shop/mypagePurchase.do";
 	}
