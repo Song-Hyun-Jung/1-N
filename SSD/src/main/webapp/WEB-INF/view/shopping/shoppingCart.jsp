@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@ page language="java" contentType="text/html;"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -36,6 +36,7 @@
 
 </head>
 <body>
+<%@ include file="../top.jsp" %>
 <div class="album py-5 bg-light">
     <div class="container">
       <h3 align="center" style="padding-bottom:30px">찜한 상품</h3>

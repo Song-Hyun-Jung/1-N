@@ -6,16 +6,16 @@
 
 <insert id="insertDeliveryComment" parameterType="DeliveryComment">
       <selectKey keyProperty="commentId" resultType="int" order="BEFORE">
-         SELECT deliverycommentId_Seq.nextval AS commentId FROM DUAL
+         SELECT deliverycomment_Seq.nextval AS commentId FROM DUAL
       </selectKey>
-      INSERT INTO DELIVERYCOMMENT (commentId, userId, postId, comment, choice)
-      VALUES (#{commentId}, #{userId}, #{postId}, #{comment}, false) 
+      INSERT INTO DELIVERYCOMMENT (commentId, userId, postId, comments, choice)
+      VALUES (#{commentId}, #{userId}, #{postId}, #{comments}, 'n') 
  </insert>
 
-<!-- 댓글이 선택되면 choice를 false에서 true로 변경 -->
+<!-- 댓글이 선택되면 choice를 'n'에서 'y'로 변경 -->
 <update id="updateChooseComment" parameterType="int">
 		UPDATE DELIVERYCOMMENT 
-		SET choice=true
+		SET choice='y'
 		WHERE commentId= #{commentId}
 </update>
 

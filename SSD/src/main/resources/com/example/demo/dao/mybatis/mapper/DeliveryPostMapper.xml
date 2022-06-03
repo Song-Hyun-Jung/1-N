@@ -4,29 +4,31 @@
 	<cache />
 
 	<select id="getAllDeliveryPost" resultType="DeliveryPost"> 
-		SELECT * 
-		FROM DELIVERYPOST 
+		SELECT d.postId, d.deliveryCategoryId, d.userId, d.title, d.writtenDate, d.address, d.foodName, d.complete, d.participantList, u.nickname 
+		FROM DELIVERYPOST d, USERINFO u 
+		WHERE d.userId = u.userId
 		ORDER BY postId DESC 
 	</select>
 	
 	<select id="getAllDeliveryComments" parameterType="int" resultType="DeliveryComment"> 
-		SELECT * 
-		FROM DELIVERYCOMMENT
-		WHERE postId=#{postId} 
+		SELECT d.commentId, d.postId, d.choice, d.comments, u.nickname
+		FROM DELIVERYCOMMENT d, USERINFO u
+		WHERE postId=#{postId} and d.userId = u.userId
+		ORDER BY commentId
 	</select>
 	
 	<select id="getDeliveryPost" parameterType="int" resultType="DeliveryPost"> 
-		SELECT * 
-		FROM DELIVERYPOST 
-		WHERE postId=#{postId} 
+		SELECT d.postId, d.deliveryCategoryId, d.userId, d.title, d.writtenDate, d.address, d.foodName, d.complete, d.participantList, u.nickname
+		FROM DELIVERYPOST d, USERINFO u 
+		WHERE postId=#{postId} and d.userId = u.userId
 	</select> 
 	
 	<insert id="insertDeliveryPost" parameterType="DeliveryPost"> 
 		<selectKey keyProperty="postId" resultType="int" order="BEFORE"> 
-			SELECT deliveryPostId _Seq.nextval AS postId FROM DUAL 
+			SELECT deliverypostId_Seq.nextval AS postId FROM DUAL 
 		</selectKey> 
 		INSERT INTO DELIVERYPOST (postId, deliveryCategoryId, userId, title, writtenDate, content, complete, participantList, foodName, address) 
-		VALUES (#{postId}, #{deliveryCategoryId}, #{userId}, #{title}, #{writtenDate}, #{content}, #{complete}, #{participantListNickname}, #{foodName}, #{address}) 
+		VALUES (#{postId}, #{deliveryCategoryId}, #{userId}, #{title}, #{writtenDate}, #{content}, #{complete}, #{participantList,jdbcType=VARCHAR}, #{foodName}, #{address}) 
 	</insert> 
 	
 	<update id="updateDeliveryPost" parameterType="DeliveryPost"> 
@@ -39,11 +41,11 @@
 	
 	<update id="updateParticipantList" parameterType="DeliveryPost"> 
 		UPDATE DELIVERYPOST 
-		SET participantList=#{participantListNickname} 
+		SET participantList=#{chooseNickname} 
 		WHERE postId = #{postId}
 	</update>
 	
-	<select id="getPostByDeliveryCategory" parameterType="int" resultType="DeliveryPost">
+	<select id="getDeliveryPostByCategoryId" parameterType="int" resultType="DeliveryPost">
     	SELECT *
     	FROM DELIVERYPOST
     	WHERE deliveryCategoryId= #{deliveryCategoryId} 

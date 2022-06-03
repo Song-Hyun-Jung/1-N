@@ -9,6 +9,6 @@ import com.example.demo.domain.DeliveryComment;
 
 @Mapper
 public interface DeliveryCommentMapper {
-	void insertDeliveryComment(DeliveryCommentDAO comment);
-	void updateChooseComment(int commentId);
+	int insertDeliveryComment(DeliveryComment deliveryComment);
+	int updateChooseComment(int commentId);
 }

@@ -1,7 +1,9 @@
 package com.example.demo.dao;
 import org.springframework.dao.DataAccessException;
 
+import com.example.demo.domain.DeliveryComment;
+
 public interface DeliveryCommentDAO {
-	void insertDeliveryComment(DeliveryCommentDAO comment) throws DataAccessException;
-	void updateChooseComment(int commentId)throws DataAccessException;
+	int insertDeliveryComment(DeliveryComment deliveryComment) throws DataAccessException;
+	int updateChooseComment(int commentId)throws DataAccessException; //??? 참여자 선택인가요?
 }

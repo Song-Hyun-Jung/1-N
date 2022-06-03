@@ -15,22 +15,11 @@ import org.springframework.web.util.WebUtils;
 import com.example.demo.domain.UserInfo;
 import com.example.demo.service.UserService;
 
-//@SessionAttributes("loginUserEmail")
 @Controller
 public class GoMyPageController {
 	
 	@Autowired
 	UserService userService;
-	
-	/*
-	@ModelAttribute("loginUser")
-	public UserInfo createUser(HttpSession session) {
-		UserInfo userInfo = (UserInfo)session.getAttribute("sessionCart");
-		if (userInfo == null) userInfo = new UserInfo();
-		return userInfo;
-	}
-	*/
-	
 	
 	@RequestMapping("/shop/mypageView.do")
 	public ModelAndView myPageView(HttpServletRequest request, HttpSession session, @ModelAttribute("updateUserCommand") UpdateUserCommand updateUserCommand) throws Exception{

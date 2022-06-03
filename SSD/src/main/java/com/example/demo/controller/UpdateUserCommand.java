@@ -1,12 +1,21 @@
 package com.example.demo.controller;
 
+import javax.validation.constraints.*;
+import org.hibernate.validator.constraints.*;
+
+
 public class UpdateUserCommand {
 	
 	//회원정보 수정 command 객체
+	@NotNull(message="닉네임 필수")
 	private String nickname;
+	@NotNull(message="비번 필수")
 	private String password;
+	@NotNull(message="전화 필수")
 	private String phone;
+	@NotNull(message="주소 필수")
 	private String address; //주문 주소
+	@NotNull(message="결제정보 필수")
 	private String payment; //결제 정보
 	private String email;
 	
@@ -41,6 +50,9 @@ public class UpdateUserCommand {
 	public String getEmail() { return email; }
 	public void setEmail(String email) { this.email = email; }
 	
+	public UpdateUserCommand getUpdateUserCommand() { //이게 맞나....
+		return new UpdateUserCommand(nickname, password, phone, address, payment, email);
+	}
 	
 
 }

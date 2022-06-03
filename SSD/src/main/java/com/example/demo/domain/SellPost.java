@@ -1,15 +1,17 @@
 package com.example.demo.domain;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class SellPost {
+@SuppressWarnings("serial")
+public class SellPost implements Serializable{
 	private int postId;		//시퀀스로 생성
 	private int sellCategoryId;	
 	private int userId;
 	private String title;
 	private Date writtenDate;
 	private String content;
-	private boolean complete;		//완료 여부
+	private String complete;		//완료 여부
 	
 	public int getPostId() {return postId;}
 	public void setPostId(int postId) {this.postId = postId;}
@@ -29,7 +31,7 @@ public class SellPost {
 	public String getContent() {return content;}
 	public void setContent(String content) {this.content = content;}
 	
-	public boolean isComplete() {return complete;}
-	public void setComplete(boolean complete) {this.complete = complete;}
+	public String getComplete() {return complete;}
+	public void setComplete(String complete) {this.complete = complete;}
 	
 }
