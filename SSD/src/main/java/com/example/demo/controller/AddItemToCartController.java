@@ -3,6 +3,7 @@ package com.example.demo.controller;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.example.demo.domain.Cart;
+import com.example.demo.domain.MyCartResultMap;
 import com.example.demo.domain.UserInfo;
 import com.example.demo.service.ShoppingService;
 import com.example.demo.service.UserService;
@@ -48,13 +50,34 @@ public class AddItemToCartController {
 				
 		}
 		
+		ModelAndView mav = new ModelAndView();
+		
 		if(same == 0) {		//cart에 같은 아이템 없는 경우에만 추가
 			Cart newCart = new Cart(userInfo.getUserId(), itemId);	//cart 생성
 			shoppingService.insertCart(newCart);
+			
+			List<MyCartResultMap> myCartItemList = userService.getCartItemList(userInfo.getUserId());
+			mav.addObject("myCartItemList", myCartItemList);
+			mav.addObject("myCartSize", myCartItemList.size()); //찜한 개수 보내기
+			mav.setViewName("shopping/shoppingCart");
+			mav.addObject("same", 0);
+			return mav;
+
 		}
 		
 		
-		return "redirect:/shop/mypageCart.do";
+		List<MyCartResultMap> myCartItemList = userService.getCartItemList(userInfo.getUserId());
+		mav.addObject("myCartItemList", myCartItemList);
+		mav.addObject("myCartSize", myCartItemList.size()); //찜한 개수 보내기
+		mav.setViewName("shopping/shoppingCart");
+		mav.addObject("same", 1);
+		
+		return mav;		//cart에 이미 있는 아이템을 넣은 경우
+		
 	}
+	
+	
+	
+	
 
 }

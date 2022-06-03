@@ -28,9 +28,12 @@
 			<c:forEach var="myPurchaseItem" items="${myPurchaseItemList}">
 		        <div class="col" style="padding-right:50px">
 		          <div class="card shadow-sm"> 
+		         	 <a href="<c:url value='/shop/viewItem.do'>
+      					<c:param name='shoppingItemId' value='${myPurchaseItem.itemId}'/></c:url>">
 		            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
 		            	<image href="/static/images/${myPurchaseItem.image}.jpg" width="100%" height="100%" />
 		            </svg>
+		            </a>
 		            <div class="card-body">
 		              <p class="card-text">구매 상품: ${myPurchaseItem.name}</p>
 		              <p>가격: ${myPurchaseItem.price}</p>

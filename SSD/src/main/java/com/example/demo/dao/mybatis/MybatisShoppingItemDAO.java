@@ -7,6 +7,7 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.example.demo.dao.ShoppingItemDAO;
 import com.example.demo.dao.mybatis.mapper.ShoppingItemMapper;
@@ -54,6 +55,7 @@ public class MybatisShoppingItemDAO implements ShoppingItemDAO {
 	}
 
 	@Override
+	@Transactional
 	public void updateQuantity(OrderInfo order) throws DataAccessException {
 		int itemId = order.getItemId();
 		int quantity = order.getQuantity();
