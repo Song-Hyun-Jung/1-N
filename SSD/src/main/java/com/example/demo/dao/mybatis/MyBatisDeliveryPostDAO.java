@@ -18,8 +18,8 @@ public class MyBatisDeliveryPostDAO implements DeliveryPostDAO{
 	@Autowired
 	private DeliveryPostMapper deliveryPostMapper;
 	
-	public void insertDeliveryPost(DeliveryPost post) throws DataAccessException{
-		deliveryPostMapper.insertDeliveryPost(post);
+	public int insertDeliveryPost(DeliveryPost post) throws DataAccessException{
+		return deliveryPostMapper.insertDeliveryPost(post);
 	}
 	
 	public void updateDeliveryPost(DeliveryPost post) throws DataAccessException{

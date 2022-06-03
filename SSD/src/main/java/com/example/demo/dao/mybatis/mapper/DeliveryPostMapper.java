@@ -11,7 +11,7 @@ import com.example.demo.domain.DeliveryPost;
 @Mapper
 public interface DeliveryPostMapper {
 	
-	void insertDeliveryPost(DeliveryPost post) throws DataAccessException; 
+	int insertDeliveryPost(DeliveryPost post) throws DataAccessException; 
 	
 	void updateDeliveryPost(DeliveryPost post);
 	

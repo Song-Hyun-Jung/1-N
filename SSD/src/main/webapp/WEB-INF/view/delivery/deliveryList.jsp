@@ -180,8 +180,13 @@
                     </thead>
                     <tbody>
                     <c:forEach var="deliveryPost" items="${deliveryPostList}">
-                      <tr>
-                        <td class="align-middle text-dark">${deliveryPost.title}</td>
+      					<tr>
+      					<td class="align-middle text-dark">
+      					
+      					<a href='<c:url value="/shop/viewDeliveryPost.do">
+            			<c:param name="deliveryPostId" value="${deliveryPost.postId}"/></c:url>'>
+                        ${deliveryPost.title}</a></td>
+                        
                         <td class="align-middle text-dark">${deliveryPost.nickname}</td>
                         <td class="align-middle text-dark">${deliveryPost.address}</td>
                         <td class="align-middle text-dark">${deliveryPost.foodName}</td>
@@ -194,7 +199,8 @@
                         </c:if>
                         
                         <td class="align-middle text-dark">${deliveryPost.writtenDate}</td>
-                      </tr>
+                        </tr>
+                     
                      </c:forEach>
                     </tbody>
                   </table>

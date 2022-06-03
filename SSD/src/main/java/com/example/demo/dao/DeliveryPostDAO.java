@@ -7,7 +7,7 @@ import com.example.demo.domain.DeliveryComment;
 import com.example.demo.domain.DeliveryPost; 
 
 public interface DeliveryPostDAO { 
-	void insertDeliveryPost(DeliveryPost post) throws DataAccessException; 
+	int insertDeliveryPost(DeliveryPost post) throws DataAccessException; 
 	
 	void updateDeliveryPost(DeliveryPost post) throws DataAccessException;
 	
