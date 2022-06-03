@@ -1,24 +1,14 @@
 package com.example.demo.controller;
 
-import javax.validation.constraints.AssertTrue;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Pattern;
-import javax.validation.constraints.Positive;
-
 public class OrderCommand {
 	
 	private String quantity;		//구매할 상품 개수
 	private int userId;		//구매자 id
 	private int itemId;		//구매할 상품 id
 	private String name;	//구매할 상품 이름
-	@Pattern(regexp="01[01679]-\\d{3,4}-\\d{4}")
 	private String phone;	//수신자 전화번호
-	@NotBlank
 	private String address; //수신자 주소
-	@NotBlank
 	private String payment; //결제정보
-	@AssertTrue
 	private boolean check;	//체크박스 여부
 	
 	public boolean isCheck() {
