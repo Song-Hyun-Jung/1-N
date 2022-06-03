@@ -10,6 +10,7 @@ public class DeliveryPost implements Serializable{
 	private int userId;
 	private String nickname;
 	private String title;
+	private String content;
 	private Date writtenDate;
 	private String address;
 	private String foodName;
@@ -32,6 +33,9 @@ public class DeliveryPost implements Serializable{
 	
 	public String getTitle() {return title;}
 	public void setTitle(String title) {this.title = title;}
+	
+	public String getContent() {return content;}
+	public void setContent(String content) {this.content = content;}
 	
 	public Date getWrittenDate() {return writtenDate;}
 	public void setWrittenDate(Date writtenDate) {this.writtenDate = writtenDate;}

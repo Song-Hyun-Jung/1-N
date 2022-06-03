@@ -25,10 +25,10 @@
 	
 	<insert id="insertDeliveryPost" parameterType="DeliveryPost"> 
 		<selectKey keyProperty="postId" resultType="int" order="BEFORE"> 
-			SELECT deliveryPostId _Seq.nextval AS postId FROM DUAL 
+			SELECT deliverypostId_Seq.nextval AS postId FROM DUAL 
 		</selectKey> 
 		INSERT INTO DELIVERYPOST (postId, deliveryCategoryId, userId, title, writtenDate, content, complete, participantList, foodName, address) 
-		VALUES (#{postId}, #{deliveryCategoryId}, #{userId}, #{title}, #{writtenDate}, #{content}, #{complete}, #{participantListNickname}, #{foodName}, #{address}) 
+		VALUES (#{postId}, #{deliveryCategoryId}, #{userId}, #{title}, #{writtenDate}, #{content}, #{complete}, #{participantList,jdbcType=VARCHAR}, #{foodName}, #{address}) 
 	</insert> 
 	
 	<update id="updateDeliveryPost" parameterType="DeliveryPost"> 
