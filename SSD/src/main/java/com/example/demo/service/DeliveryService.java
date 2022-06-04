@@ -12,8 +12,8 @@ public interface DeliveryService {
 	DeliveryPost getDeliveryPost(int postId);
 	List<DeliveryComment> getAllDeliveryComments(int postId);
 	
-	//참여자 추가 업데이트
-	int updateParticipantList(String chooseNickname, int postId);
+	//참여자 추가 업데이트, 참여자 선택 상태 변경
+	int updateParticipantList(String chooseNickname, int postId, int commentId);
 	
 	//댓글 등록
 	int insertDeliveryComment(DeliveryComment deliveryComment);

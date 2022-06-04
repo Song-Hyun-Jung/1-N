@@ -5,5 +5,5 @@ import com.example.demo.domain.DeliveryComment;
 
 public interface DeliveryCommentDAO {
 	int insertDeliveryComment(DeliveryComment deliveryComment) throws DataAccessException;
-	int updateChooseComment(int commentId)throws DataAccessException; //??? 참여자 선택인가요?
+	int updateChooseComment(int commentId)throws DataAccessException; 
 }
