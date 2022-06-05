@@ -33,8 +33,7 @@ public class AddItemToCartController {
 			@RequestParam("itemId") int itemId) throws Exception {
 		
 		ModelAndView mav = new ModelAndView();
-				
-		UserInfo userInfo = (UserInfo)session.getAttribute("loginMember");
+		UserInfo userInfo = (UserInfo)session.getAttribute("loginMember");	//session에서 현재 로그인한 userInfo객체 얻어옴
 		if (userInfo == null) {//로그인 상태가 아닌 경우
 			mav.addObject("msg", "로그인 상태가 아닙니다. 로그인을 먼저 해주세요");
 	        mav.addObject("url", "/shop/login.do");
@@ -52,8 +51,6 @@ public class AddItemToCartController {
 			}
 				
 		}
-		
-		//ModelAndView mav = new ModelAndView();
 		
 		if(same == 0) {		//cart에 같은 아이템 없는 경우에만 추가
 			Cart newCart = new Cart(userInfo.getUserId(), itemId);	//cart 생성
