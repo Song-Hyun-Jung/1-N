@@ -1,8 +1,11 @@
 package com.example.demo.service;
 import java.util.List;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
 
 import com.example.demo.dao.DeliveryCommentDAO;
 import com.example.demo.dao.DeliveryPostDAO;
@@ -10,6 +13,7 @@ import com.example.demo.domain.DeliveryComment;
 import com.example.demo.domain.DeliveryPost;
 
 @Service
+@Transactional
 public class DeliveryServiceImpl implements DeliveryService{
 	@Autowired
 	private DeliveryPostDAO deliveryPostDao;
@@ -28,10 +32,14 @@ public class DeliveryServiceImpl implements DeliveryService{
 	}
 	
 	
-	//참여자 추가 업데이트
+	//참여자 추가 업데이트, 참여자 선택 상태 변경
+	@Transactional
 	@Override
-	public int updateParticipantList(String chooseNickname, int postId) {
-		return deliveryPostDao.updateParticipantList(chooseNickname, postId);
+	public int updateParticipantList(String chooseNickname, int postId, int commentId) {
+		int commentResult = deliveryCommentDao.updateChooseComment(commentId);
+		int postResult = deliveryPostDao.updateParticipantList(chooseNickname, postId);
+		if(commentResult == 1 && postResult == 1) return 1; //둘다 성공일 경우 성공 결과 1
+		else return 0;
 	}
 	
 	//댓글등록

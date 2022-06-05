@@ -145,17 +145,25 @@
 	            <div class="d-flex flex-column comment-section">
 	                <div class="bg-white p-2">
 	                    <div class="d-flex flex-row user-info">
-	                       
+	                       		<c:url value="/shop/choosePart.do" var="chooseUrl">
+	                        			<c:param name="chooseNickname" value="${deliveryComment.nickname}" />
+	                        			<c:param name="deliveryPostId" value="${deliveryPost.postId}" />
+	                        			<c:param name="commentId" value="${deliveryComment.commentId }"/>
+	                      		</c:url>
 	                        	<span class="d-block font-weight-bold name" style="padding-right:15px">${deliveryComment.nickname}</span>
-	                        	<c:if test="${loginUser.nickname eq writtenUser.nickname}">
-	                        		<c:if test="${deliveryComment.choice eq 'n'}">
-	                        			<span><button type="button" class="btn btn-info btn-xs" 
-	                        					onClick="location.href='/shop/choosePart.do?chooseNickname=${deliveryComment.nickname}&deliveryPostId=${deliveryPost.postId}'">선택</button></span>
-	                        		</c:if>
-	                        		<c:if test="${deliveryComment.choice eq 'y'}">
-	                        			<span><button type="button" class="btn btn-info btn-xs" style="background-color: #FF0000;" disabled>선택됨</button></span>
-	                        		</c:if>
-	                        	
+	                        	<c:if test="${loginUser.nickname eq writtenUser.nickname and (deliveryPost.complete eq 'n')}">
+	                        		<c:choose>
+	                        			<c:when test="${fn:contains(deliveryPost.participantList, deliveryComment.nickname)}">
+		                        			<span><button type="button" class="btn btn-info btn-xs" style="background-color: #FF0000;" disabled>선택됨</button></span>
+		                        		</c:when>
+		                        		<c:when test="${deliveryComment.choice eq 'n'}">
+		                        			<span><button type="button" class="btn btn-info btn-xs" onClick="location.href='${chooseUrl}'">선택</button></span>
+		                        		</c:when>
+		                        		<c:when test="${deliveryComment.choice eq 'y'}">
+		                        			<span><button type="button" class="btn btn-info btn-xs" style="background-color: #FF0000;" disabled>선택됨</button></span>
+		                        		</c:when>
+		                        		
+	                        		</c:choose>
 	                        	</c:if>
 	                        </div>
 	                    

@@ -20,16 +20,24 @@ public class UpdatePostController {
 	@Autowired
 	private UserService userService;
 	
-		//commentId 추가해야함
+		
 		//참여자 선택
 		@RequestMapping("/shop/choosePart.do")
 		public String updateParticipantList(
-				@RequestParam("chooseNickname") String chooseNickname, @RequestParam("deliveryPostId") int deliveryPostId, HttpSession session) throws Exception{
+				@RequestParam("chooseNickname") String chooseNickname, 
+				@RequestParam("deliveryPostId") int deliveryPostId, 
+				@RequestParam("commentId") int commentId,
+				HttpSession session) throws Exception{
 			DeliveryPost deliveryPost = deliveryService.getDeliveryPost(deliveryPostId); //post정보 가져오기
 			String participantList = deliveryPost.getParticipantList();
-			String newParticipantList = participantList + ", " + chooseNickname;
 			
-			int updateResult = deliveryService.updateParticipantList(newParticipantList, deliveryPostId);
+			String newParticipantList = "";
+			if(participantList != null)
+				newParticipantList = participantList + ", " + chooseNickname;
+			else
+				newParticipantList = chooseNickname;
+			
+			int updateResult = deliveryService.updateParticipantList(newParticipantList, deliveryPostId, commentId);
 			System.out.println("참여자 선택 업데이트 결과: " + updateResult);
 			return "redirect:/shop/viewDeliveryPost.do?deliveryPostId=" + deliveryPostId;
 			
