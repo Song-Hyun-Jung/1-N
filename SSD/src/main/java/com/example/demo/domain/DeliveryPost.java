@@ -17,7 +17,7 @@ public class DeliveryPost implements Serializable{
 	private String complete;		//완료 여부
 	//private ArrayList<UserInfo> participantList;	//참여자 리스트
 	private String participantList;
-	//private String participantListNickname;		//참여자 닉네임 문자열
+	private String chooseNickname;		//참여자 닉네임
 	
 	public int getPostId() {return postId;}
 	public void setPostId(int postId) {this.postId = postId;}
@@ -56,18 +56,14 @@ public class DeliveryPost implements Serializable{
 	
 	public String getParticipantList() { return participantList; }
 	public void setParticipantList(String participantList) { this.participantList = participantList; }
-	
-	
-	/*
-	public String getParticipantListNickname() {
-		String nicknames = "";
-		for(UserInfo u : participantList) {
-			nicknames += u.getNickname();			
-		}
-		return nicknames;
+	public String getChooseNickname() {
+		return chooseNickname;
 	}
-	public void setParticipantListNickname(String participantListNickname) { this.participantListNickname = participantListNickname;}
-	*/
+	public void setChooseNickname(String chooseNickname) {
+		this.chooseNickname = chooseNickname;
+	}
+	
+	
 	
 	
 }
