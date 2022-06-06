@@ -37,7 +37,7 @@
 		WHERE postId = #{postId} 
 	</update> 
 	
-	<update id="updateParticipantList" parameterType="DeliveryPost"> 
+	<update id="updateParticipantList" parameterType="map"> 
 		UPDATE DELIVERYPOST 
 		SET participantList=#{chooseNickname} 
 		WHERE postId = #{postId}
