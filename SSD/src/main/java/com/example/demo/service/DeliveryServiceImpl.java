@@ -45,7 +45,7 @@ public class DeliveryServiceImpl implements DeliveryService{
 		int postResult = deliveryPostDao.updateParticipantList(chooseNickname, postId);
 		if(commentResult == 1 && postResult == 1) return 1; //둘다 성공일 경우 성공 결과 1
 		else return 0;
-	}
+	} 
 	
 	//댓글등록
 	@Override
