@@ -47,7 +47,7 @@ public class UpdatePostController {
 			
 		}
 		
-		
+		//배달음식 나누기 완료 여부 update
 		@RequestMapping("/shop/updateDelivery.do")
 		public String updateCompleteD( @RequestParam("deliveryPostId") int deliveryPostId) throws Exception{
 			DeliveryPost deliveryPost = deliveryService.getDeliveryPost(deliveryPostId); //post정보 가져오기
