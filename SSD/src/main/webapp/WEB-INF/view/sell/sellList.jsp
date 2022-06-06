@@ -1,11 +1,11 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
 <link rel="stylesheet" href="css/theme.css">
-<meta charset="EUC-KR">
-<title>����� �� �ŷ�</title>
+<meta charset="UTF-8">
+<title>자취생 간 거래</title>
 </head>
 
  <body class="bg-light">
@@ -27,7 +27,7 @@
                   <div class="d-flex justify-content-between align-items-center
                     mb-3">
                     <div>
-                      <h4 class="mb-0">�����б��</h4>
+                      <h4 class="mb-0">디지털기기</h4>
                     </div>
                   </div>
                 </div>
@@ -43,7 +43,7 @@
                   <div class="d-flex justify-content-between align-items-center
                     mb-3">
                     <div>
-                      <h4 class="mb-0">��Ȱ����</h4>
+                      <h4 class="mb-0">생활가전</h4>
                     </div>
                   </div>
                 </div>
@@ -59,7 +59,7 @@
                   <div class="d-flex justify-content-between align-items-center
                     mb-3">
                     <div>
-                      <h4 class="mb-0">����/���׸���</h4>
+                      <h4 class="mb-0">가구/인테리어</h4>
                     </div>
                   </div>
                 </div>
@@ -75,7 +75,7 @@
                   <div class="d-flex justify-content-between align-items-center
                     mb-3">
                     <div>
-                      <h4 class="mb-0">����/���</h4>
+                      <h4 class="mb-0">게임/취미</h4>
                     </div>
                   </div>
                 </div>
@@ -91,7 +91,7 @@
                   <div class="d-flex justify-content-between align-items-center
                     mb-3">
                     <div>
-                      <h4 class="mb-0">�м�/��Ƽ/�̿�</h4>
+                      <h4 class="mb-0">패션/뷰티/미용</h4>
                     </div>
                   </div>
                 </div>
@@ -107,7 +107,7 @@
                   <div class="d-flex justify-content-between align-items-center
                     mb-3">
                     <div>
-                      <h4 class="mb-0">�ݷ�������ǰ</h4>
+                      <h4 class="mb-0">반려동물용품</h4>
                     </div>
                   </div>
                 </div>
@@ -123,7 +123,7 @@
                   <div class="d-flex justify-content-between align-items-center
                     mb-3">
                     <div>
-                      <h4 class="mb-0">����/Ƽ��/����</h4>
+                      <h4 class="mb-0">도서/티켓/음반</h4>
                     </div>
                   </div>
                 </div>
@@ -139,21 +139,22 @@
                   <div class="d-flex justify-content-between align-items-center
                     mb-3">
                     <div>
-                      <h4 class="mb-0">��Ÿ �߰���ǰ</h4>
+                      <h4 class="mb-0">기타 중고물품</h4>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
             
-       
+       <!-- 여기까지 카테고리 -->
             
 		<p>
-          <div class="d-flex justify-content-between align-items-center"">
+          <div class="d-flex justify-content-between align-items-center""> 
             <div></div>
-          	<div> <a href="#" class="btn btn-white">�� �ۼ� ��ư</a> </div>
+          	<div> <a href="#" class="btn btn-white">글 작성 버튼</a> </div>
           </div>
           
+         <!-- 글 배치 -->
           <!-- row  -->
           <div class="row mt-6">
             <div class="col-md-12 col-12">
@@ -164,38 +165,38 @@
                   <table class="table text-nowrap mb-0">
                     <thead class="table-light">
                       <tr>
-                        <th>����(ǰ��)</th>
-                        <th>�ۼ���</th>
-                        <th>�ϷῩ��</th>
-                        <th>�ۼ���</th>
+                        <th>제목(품명)</th>
+                        <th>작성자</th>
+                        <th>완료여부</th>
+                        <th>작성일</th>
                       </tr>
                     </thead>
                     <tbody>
                       <tr>
-                        <td class="align-middle text-dark">����1</td>
-                        <td class="align-middle text-dark">�ۼ���1</td>
-                        <td class="align-middle text-dark">�ϷῩ��1</td>
-                        <td class="align-middle text-dark">�ۼ���1</td>
+                        <td class="align-middle text-dark">제목1</td>
+                        <td class="align-middle text-dark">작성자1</td>
+                        <td class="align-middle text-dark">완료여부1</td>
+                        <td class="align-middle text-dark">작성일1</td>
                       </tr>
                       
                       <tr>
-                        <td class="align-middle text-dark">����2</td>
-                        <td class="align-middle text-dark">�ۼ���2</td>
-                        <td class="align-middle text-dark">�ϷῩ��2</td>
-                        <td class="align-middle text-dark">�ۼ���2</td>
+                        <td class="align-middle text-dark">제목2</td>
+                        <td class="align-middle text-dark">작성자2</td>
+                        <td class="align-middle text-dark">완료여부2</td>
+                        <td class="align-middle text-dark">작성일2</td>
                       </tr>
                       
                       <tr>
-                        <td class="align-middle text-dark">����3</td>
-                        <td class="align-middle text-dark">�ۼ���3</td>
-                        <td class="align-middle text-dark">�ϷῩ��3</td>
-                        <td class="align-middle text-dark">�ۼ���3</td>
+                        <td class="align-middle text-dark">제목3</td>
+                        <td class="align-middle text-dark">작성자3</td>
+                        <td class="align-middle text-dark">완료여부3</td>
+                        <td class="align-middle text-dark">작성일3</td>
                       </tr>
 
                     </tbody>
                   </table>
                 </div>
-                <!-- card footer  -->
+                <!-- card footer 삭제 -->
                 <div class="card-footer bg-white text-center">
                   <a href="#" class="link-primary">View All</a>
 

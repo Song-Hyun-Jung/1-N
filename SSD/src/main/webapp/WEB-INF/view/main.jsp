@@ -54,7 +54,7 @@
         <rect width="100%" height="100%" fill="#777"/>
         <image href="/static/mainImages/delivery2.jpg" height="100%" width="100%"/>
         </svg>
-
+ 
         <div class="container">
           <div class="carousel-caption text-dark">
             <p><a class="btn btn-lg btn-primary" href='<c:url value="/shop/deliveryMain.do"/>'>배달음식 나눠먹기 &raquo;</a></p>

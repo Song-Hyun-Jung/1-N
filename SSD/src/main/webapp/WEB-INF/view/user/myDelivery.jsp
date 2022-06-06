@@ -34,7 +34,7 @@
 <body>
 <%@ include file="../top.jsp" %>
 	<nav class="navbar navbar-default"> <!-- 네비게이션 -->
-		<div class="navbar-header" style="margin-top:20px"> 	<!-- 네비게이션 상단 부분 -->
+		<div class="navbar-header" style="margin-top:20px"> 	
 			<a class="myPageNav" href="/shop/mypageView.do">마이페이지</a>
 			<a class="myPageNav" href="/shop/mypagePurchase.do">구매내역</a>
 			<a class="myPageNav" href="/shop/mypageCart.do">찜한 상품</a>
