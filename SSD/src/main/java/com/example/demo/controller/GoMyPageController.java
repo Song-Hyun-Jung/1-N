@@ -21,6 +21,7 @@ public class GoMyPageController {
 	@Autowired
 	UserService userService;
 	
+	
 	@RequestMapping("/shop/mypageView.do")
 	public ModelAndView myPageView(HttpServletRequest request, HttpSession session, @ModelAttribute("updateUserCommand") UpdateUserCommand updateUserCommand) throws Exception{
 		UserInfo userInfo = (UserInfo)session.getAttribute("loginMember");
@@ -32,5 +33,16 @@ public class GoMyPageController {
 		return mav;
 	}
 	
-	
+	/*
+	@RequestMapping("/shop/mypageView.do")
+	public ModelAndView myPageView(HttpServletRequest request, HttpSession session, @ModelAttribute("updateUserCommand") UpdateUserCommand updateUserCommand) throws Exception{
+		UserInfo userInfo = (UserInfo)session.getAttribute("loginMember");
+
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("thyme/mypageMenu");
+		mav.addObject("userInfo", userInfo);
+		System.out.println(userInfo.getEmail());
+		return mav;
+	}
+	*/
 }
