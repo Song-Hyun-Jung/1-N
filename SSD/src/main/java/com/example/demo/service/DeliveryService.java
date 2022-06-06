@@ -17,4 +17,7 @@ public interface DeliveryService {
 	
 	//댓글 등록
 	int insertDeliveryComment(DeliveryComment deliveryComment);
+	
+	//완료여부 update
+	void updateDeliveryPost(DeliveryPost post);
 }

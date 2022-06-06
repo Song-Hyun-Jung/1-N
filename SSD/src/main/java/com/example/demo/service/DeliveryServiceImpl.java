@@ -31,6 +31,11 @@ public class DeliveryServiceImpl implements DeliveryService{
 		return deliveryPostDao.getAllDeliveryComments(postId);
 	}
 	
+	@Override
+	public void updateDeliveryPost(DeliveryPost deliveryPost) {
+		deliveryPostDao.updateDeliveryPost(deliveryPost);
+	}
+	
 	
 	//참여자 추가 업데이트, 참여자 선택 상태 변경
 	@Transactional

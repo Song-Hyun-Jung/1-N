@@ -84,8 +84,8 @@
 	        
     		<h2>배달음식 상세보기</h2>
     		
-    		<form action="" method="POST" name="deliveryDetail">
-    		    
+    		<form action="/shop/updateDelivery.do" method="POST" name="deliveryDetail">
+    		    <input type="hidden" name="deliveryPostId" value="${deliveryPost.postId}" />
     		    <div class="row col-md-12 col-sm-12">
 	    		    <div class="form-group has-error col-md-9 col-sm-9" >
 	    		        <label for="title">글 제목</label>
@@ -120,7 +120,7 @@
 	           			 	 <label for="address">완료 여부</label>
 	           			 	 <c:if test="${deliveryPost.complete eq 'y'}"><input type="text" class="form-control no-gray" name="complete" value="완료" readonly style="font-size:medium"/></c:if>
 							 <c:if test="${deliveryPost.complete eq 'n'}"><input type="text" class="form-control no-gray" name="complete" value="미완료" readonly style="font-size:medium"/></c:if>
-		   		        	 
+		   		        	 <br><c:if test="${loginUser.nickname eq writtenUser.nickname}"><button type="submit" class="customButton" style="font-size:medium"> 완료여부 변경 </button></c:if>
 	           			</div>
 	           			
 	           			 <div class="form-group  col-md-12 col-sm-12">
@@ -130,8 +130,7 @@
 	           			
 	           		</div>
 	           		<div class="form-group">
-				    		  <c:if test="${loginUser.nickname eq writtenUser.nickname}"><button type="submit" class="customButton" style="font-size:medium"> 수정 </button></c:if>
-				    		  <button class="customButton" style="font-size:medium" type="button" onClick="location.href='/shop/deliveryMain.do'"> 목록으로 돌아가기 </button>
+				    		  <br><br><button class="customButton" style="font-size:medium" type="button" onClick="location.href='/shop/deliveryMain.do'"> 목록으로 돌아가기 </button>
 				     </div>
 	    	     </div>
     		</form>	

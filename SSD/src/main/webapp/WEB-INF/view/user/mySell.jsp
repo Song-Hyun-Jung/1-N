@@ -60,8 +60,8 @@
 																<c:param name="sellPostId" value="${mySellPost.postId}" />
 													 </c:url>">${mySellPost.title}</a></td>
 						<td>
-							<c:if test="${mySellPost.complete == true}">완료</c:if>
-							<c:if test="${mySellPost.complete == false}">미완료</c:if>
+							<c:if test="${mySellPost.complete == 'y'}">완료</c:if>
+							<c:if test="${mySellPost.complete == 'n'}">미완료</c:if>
 						</td>
 						<td><fmt:formatDate pattern="yyyy-MM-dd HH:mm:ss" value="${mySellPost.writtenDate}"/></td>		
 					</tr>

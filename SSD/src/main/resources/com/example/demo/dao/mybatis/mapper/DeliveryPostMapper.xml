@@ -33,9 +33,7 @@
 	
 	<update id="updateDeliveryPost" parameterType="DeliveryPost"> 
 		UPDATE DELIVERYPOST 
-		SET title=#{title} 
-		content= #{content} 
-		complete=#{complete} 
+		SET complete=#{complete} 
 		WHERE postId = #{postId} 
 	</update> 
 	
