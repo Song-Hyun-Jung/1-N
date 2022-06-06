@@ -60,8 +60,8 @@
 																<c:param name="deliveryPostId" value="${myDeliveryPost.postId}" />
 													 </c:url>"> ${myDeliveryPost.title}</a></td>
 						<td>
-							<c:if test="${myDeliveryPost.complete == true}">완료</c:if>
-							<c:if test="${myDeliveryPost.complete == false}">미완료</c:if>
+							<c:if test="${myDeliveryPost.complete == 'y'}">완료</c:if>
+							<c:if test="${myDeliveryPost.complete == 'n'}">미완료</c:if>
 						</td>
 						<td><fmt:formatDate pattern="yyyy-MM-dd HH:mm:ss" value="${myDeliveryPost.writtenDate}"/></td>		
 					</tr>
