@@ -31,10 +31,8 @@
 	</insert> 
 	
 	<update id="updateSellPost" parameterType="SellPost"> 
-		UPDATE COMMENTS 
-		SET title=#{title} 
-		content= #{content} 
-		complete=#{complete} 
+		UPDATE SELLPOST
+		SET complete=#{complete} 
 		WHERE postId = #{postId} 
 	</update>
 	

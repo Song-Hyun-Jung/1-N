@@ -79,12 +79,14 @@
 </head>
 <body>
 <%@ include file="../top.jsp" %>
+<form action="/shop/updateSell.do" method="POST" name="sellDetail">
+<input type="hidden" name="sellPostId" value="${sellPost.postId}" />
 <div class="container">
 	<div class="row">
 	    <div class="col-md-8 col-md-offset-2 justify-content-center">
 	        
     		<h2>회원간 거래 상세보기</h2>
- 	    
+ 	    	
     		    <div class="row col-md-12 col-sm-12">
 	    		    <div class="form-group has-error col-md-9 col-sm-9" >
 	    		        <label for="title">글 제목</label>
@@ -100,6 +102,7 @@
 	           	 	<label for="address">완료 여부</label>
 	           		 	 <c:if test="${sellPost.complete eq 'Y' or sellPost.complete eq 'y'}"><input type="text" class="form-control no-gray" name="complete" value="완료" readonly style="font-size:medium"/></c:if>
 						 <c:if test="${sellPost.complete eq 'N' or sellPost.complete eq 'n'}"><input type="text" class="form-control no-gray" name="complete" value="미완료" readonly style="font-size:medium"/></c:if>    	 
+	           			 <br><c:if test="${loginUser.nickname eq writtenUser.nickname}"><button type="submit" class="customButton" style="font-size:medium"> 완료여부 변경 </button></c:if>
 	           	</div>
 				<div class = "form-group col-md-6 col-sm-6">
 					<label for="date">작성일자<span class="require"></span></label>
@@ -119,13 +122,12 @@
 	           			
 	           		</div>
 	           		<div class="form-group">
-				    		  <c:if test="${loginUser.nickname eq writtenUser.nickname}"><button type="submit" class="customButton"> 수정 </button></c:if>
-				    		  <button class="customButton" type="button"> 목록으로 돌아가기 </button>
+				    		  <br><br><button class="customButton" type="button"> 목록으로 돌아가기 </button>
 				     </div>
 	    	     </div>
 		</div>
 	</div>
-
+</form>
 <hr>
 
 <!-- 댓글 보기 -->
