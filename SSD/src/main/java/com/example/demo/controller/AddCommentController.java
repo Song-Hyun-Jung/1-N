@@ -49,13 +49,18 @@ public class AddCommentController {
 		return "redirect:/shop/viewDeliveryPost.do?deliveryPostId=" + addDCommentCommand.getDeliveryPostId();
 	}
 	
-	//배달음식 댓글 등록
+	//이웃간 거래 댓글 등록
 		@RequestMapping("/shop/insertSComment.do")
-		public String insertSellComment(HttpSession session, AddSCommentCommand addSCommentCommand) {
+		public String insertSellComment(HttpSession session, AddSCommentCommand addSCommentCommand, Model model) {
 			System.out.println("댓글등록-postId: " + addSCommentCommand.getSellPostId() + "댓글 내용: " + addSCommentCommand.getComments());
-			
+	
 			//현재 로그인중인 회원 가져오기
 			UserInfo loginUser = (UserInfo)session.getAttribute("loginMember");
+			if (loginUser == null) {//로그인 상태가 아닌 경우
+				model.addAttribute("msg", "로그인 상태가 아닙니다. 로그인을 먼저 해주세요");
+		        model.addAttribute("url", "/shop/login.do");
+		        return "alert/error";
+			}
 					
 			SellComment sellComment = new SellComment();
 			sellComment.setUserId(loginUser.getUserId());

@@ -158,7 +158,7 @@
 	                     <div class="d-flex flex-column justify-content-start ml-2"><span class="d-block font-weight-bold name">${loginUser.nickname}</span></div>
 	                </div>
 	                <div class="bg-light p-2">
-	                    <div class="d-flex flex-row align-items-start"><textarea class="form-control ml-1 shadow-none textarea" name="comments"></textarea></div>
+	                    <div class="d-flex flex-row align-items-start"><textarea class="form-control ml-1 shadow-none textarea" name="comments" required></textarea></div>
 	                    <div class="mt-2 text-right" style="padding-top:10px"><button class="customButton" type="submit">댓글 등록</button></div>
 	                </div>
 	                <input type="hidden" name="sellPostId" value="${sellPost.postId}"/>
