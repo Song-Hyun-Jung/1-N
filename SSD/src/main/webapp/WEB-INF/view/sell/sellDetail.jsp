@@ -75,7 +75,7 @@
 			font-size: medium;
 		}
 	</style>
-
+	<title>이웃 커뮤니티 상세보기</title>
 </head>
 <body>
 <%@ include file="../top.jsp" %>

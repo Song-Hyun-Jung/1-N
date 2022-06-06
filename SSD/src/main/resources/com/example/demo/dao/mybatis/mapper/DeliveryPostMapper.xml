@@ -4,7 +4,7 @@
 	<cache />
 
 	<select id="getAllDeliveryPost" resultType="DeliveryPost"> 
-		SELECT d.postId, d.deliveryCategoryId, d.userId, d.title, d.writtenDate, d.address, d.foodName, d.complete, d.participantList, u.nickname 
+		SELECT d.content, d.postId, d.deliveryCategoryId, d.userId, d.title, d.writtenDate, d.address, d.foodName, d.complete, d.participantList, u.nickname 
 		FROM DELIVERYPOST d, USERINFO u 
 		WHERE d.userId = u.userId
 		ORDER BY postId DESC 
@@ -18,7 +18,7 @@
 	</select>
 	
 	<select id="getDeliveryPost" parameterType="int" resultType="DeliveryPost"> 
-		SELECT d.postId, d.deliveryCategoryId, d.userId, d.title, d.writtenDate, d.address, d.foodName, d.complete, d.participantList, u.nickname
+		SELECT d.content, d.postId, d.deliveryCategoryId, d.userId, d.title, d.writtenDate, d.address, d.foodName, d.complete, d.participantList, u.nickname
 		FROM DELIVERYPOST d, USERINFO u 
 		WHERE postId=#{postId} and d.userId = u.userId
 	</select> 
