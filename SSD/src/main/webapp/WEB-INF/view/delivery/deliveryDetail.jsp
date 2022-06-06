@@ -74,6 +74,7 @@
 			font-size: medium;
 		}
 	</style>
+	<title>배달음식 상세보기</title>
 </head>
 <body>
 <%@ include file="../top.jsp" %>
@@ -95,8 +96,14 @@
 	    		        <input type="text" class="form-control no-gray" name="writer" value="${writtenUser.nickname}" readonly style="font-size:medium"/>
     		   		 </div>
     		    </div>
-    		   
-    		
+    		   	<div class="form-group col-md-10 col-sm-6"> 
+	    			<div class="row">
+	    				<div class="form-group  col-md-12 col-sm-12"> 
+			    	        <label for="content">글 내용</label>
+			    	       <textarea class="form-control no-gray ml-1 shadow-none textarea" rows="4" name="content" readonly style="font-size:medium">${deliveryPost.content}</textarea>
+		    	        </div>
+		    	     </div>
+    			</div>
 	    		<div class="form-group  col-md-6 col-sm-6"> 
 	    			<div class="row">
 	    				<div class="form-group  col-md-12 col-sm-12"> 
