@@ -45,9 +45,7 @@
 
         <div class="container">
           <div class="carousel-caption text-start text-dark">
-            <h1>쇼핑몰</h1>
-            <p>좋은 식품들을 싼 가격에 만나볼 수 있는 공동구매 쇼핑몰</p>
-            <p><a class="btn btn-lg btn-primary" href='<c:url value="/shop/shoppingMain.do"/>'>View details &raquo;</a></p>
+            <p><a class="btn btn-lg btn-primary" href='<c:url value="/shop/shoppingMain.do"/>'>쇼핑몰 &raquo;</a></p>
           </div>
         </div>
       </div>
@@ -59,9 +57,7 @@
 
         <div class="container">
           <div class="carousel-caption text-dark">
-            <h1>배달음식 나눠먹기</h1>
-            <p>동네 이웃들과 맛있는 배달음식을 함께 주문해요</p>
-            <p><a class="btn btn-lg btn-primary" href='<c:url value="/shop/deliveryMain.do"/>'>View details &raquo;</a></p>
+            <p><a class="btn btn-lg btn-primary" href='<c:url value="/shop/deliveryMain.do"/>'>배달음식 나눠먹기 &raquo;</a></p>
           </div>
         </div>
       </div>
