@@ -12,4 +12,6 @@ public interface SellService {
 	
 		//댓글 등록
 		int insertSellComment(SellComment sellComment);
+		
+		void updateSellPost(SellPost sellpost);
 }

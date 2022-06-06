@@ -70,11 +70,11 @@
     		    <div class="row col-md-12 col-sm-12">
 	    		    <div class="form-group has-error col-md-9 col-sm-9" >
 	    		        <label for="title">글 제목<span class="require"></span></label>
-	    		        <input type="text" class="form-control" name="title" />
+	    		        <input type="text" class="form-control" name="title" value="${deliveryPost.title}" />
 	    		    </div>
 	    		    <div class="form-group has-error col-md-3 col-sm-3" >
 	    		        <label for="writer">작성자<span class="require"></span></label>
-	    		        <input type="text" class="form-control no-gray" name="writer" readonly />
+	    		        <input type="text" class="form-control no-gray" name="writer" value="${writtenUser.nickname}" readonly />
     		   		 </div>
     		   		 <div class = "form-group col-md-6 col-sm-6">
 					      <label for="category">음식 카테고리</label>	 
@@ -105,15 +105,15 @@
 	    			<div class="row">
 	    				<div class="form-group  col-md-12 col-sm-12"> 
 			    	        <label for="foodName">음식명</label>
-			    	        <input type="text" class="form-control col-md-6 col-sm-6" name="foodName" />
+			    	        <input type="text" class="form-control col-md-6 col-sm-6" name="foodName" value="${deliveryPost.title}" readonly/>
 		    	        </div>
 		    	        <div class="form-group  col-md-12 col-sm-12"> 
 			    	        <label for="divide">나눌 인원</label>
-			    	        <input type="text" class="form-control col-md-6 col-sm-6" name="divide" />
+			    	        <input type="text" class="form-control col-md-6 col-sm-6" name="divide"  value="${deliveryPost.title}" readonly/>
 		    	        </div>
 		    	        <div class="form-group  col-md-12 col-sm-12"> 
 			    	         <label for="address">대략적 주소</label>
-		   		        	 <input type="text" class="form-control" name="address" />
+		   		        	 <input type="text" class="form-control" name="address" value="${deliveryPost.title}" readonly/>
 	           			</div>
 	           			
 	           			 <div class="form-group  col-md-12 col-sm-12">
@@ -130,7 +130,7 @@
 	           			
 	           			 <div class="form-group  col-md-12 col-sm-12"> 
 			    	         <label for="participants">참여자</label>
-		   		        	 <input type="text" class="form-control" name="participants" />
+		   		        	 <input type="text" class="form-control" name="participants" readonly/>
 	           			</div>
 	           			
 	           		</div>
