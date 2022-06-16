@@ -25,7 +25,7 @@
 	
 	<insert id="insertSellPost" parameterType="SellPost"> 
 		<selectKey keyProperty="postId" resultType="int" order="BEFORE"> 
-			SELECT postId_no_Seq.nextval AS postId FROM DUAL 
+			SELECT sellpostId_Seq.nextval AS postId FROM DUAL 
 		</selectKey> 
 		INSERT INTO SELLPOST (postId, sellCategoryId, userId, title, writtenDate, content, complete) 
 		VALUES (#{postId}, #{sellCategoryId}, #{userId}, #{title}, #{writtenDate}, #{content}, #{complete}) 

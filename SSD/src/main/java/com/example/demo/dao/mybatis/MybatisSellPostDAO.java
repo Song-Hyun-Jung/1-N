@@ -17,8 +17,8 @@ public class MybatisSellPostDAO implements SellPostDAO {
 	@Autowired
 	private SellPostMapper sellPostMapper;
 	
-	public void insertSellPost(SellPost post) throws DataAccessException{
-		sellPostMapper.insertSellPost(post);
+	public int insertSellPost(SellPost post) throws DataAccessException{
+		return sellPostMapper.insertSellPost(post);
 	}
 	
 	public void updateSellPost(SellPost post) throws DataAccessException{

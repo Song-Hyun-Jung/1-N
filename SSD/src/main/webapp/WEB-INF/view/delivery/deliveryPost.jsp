@@ -121,10 +121,6 @@ function checkAll() {
 								<option value="8">도시락</option>
 						   </select>
 					</div>
-					<!--  <div class = "form-group col-md-6 col-sm-6">
-						<label for="date">작성일자<span class="require"></span></label>
-	    		        <input type="text" class="form-control no-gray" name="date" readonly />
-					</div> -->
     		    </div>
     		   
     		

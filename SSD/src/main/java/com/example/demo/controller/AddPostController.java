@@ -14,14 +14,19 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.demo.domain.DeliveryPost;
+import com.example.demo.domain.SellPost;
 import com.example.demo.domain.UserInfo;
 import com.example.demo.service.DeliveryServiceImpl;
+import com.example.demo.service.SellServiceImpl;
 import com.example.demo.service.UserService;
 
 @Controller
 public class AddPostController {
 	@Autowired
 	private DeliveryServiceImpl deliveryService;
+	
+	@Autowired
+	private SellServiceImpl sellService;
 	
 	//배달음식 나누기 글쓰기 폼 이동
 	@RequestMapping("/shop/deliveryForm.do")
@@ -69,4 +74,48 @@ public class AddPostController {
 		
 		return "redirect:/shop/deliveryMain.do";
 	}
+	
+	//이웃 커뮤니티 거래 글쓰기 폼 이동
+		@RequestMapping("/shop/sellForm.do")
+		public String sellForm(
+				HttpSession session,
+				ModelMap model) throws Exception {
+			//현재 로그인중인 회원 가져오기
+			UserInfo loginUser = (UserInfo)session.getAttribute("loginMember");
+			if (loginUser == null) {//로그인 상태가 아닌 경우
+				model.addAttribute("msg", "로그인 상태가 아닙니다. 로그인을 먼저 해주세요");
+				model.addAttribute("url", "/shop/login.do");
+			    return "alert/error";
+			}
+			return "/sell/sellPost";
+		}
+		
+		//배달음식 나누기 글쓰기
+		@RequestMapping("/shop/insertSell.do")
+		public String insertSell(
+				HttpSession session,
+				SellPostCommand sellPostCommand,
+				Model model) throws Exception {
+			//현재 로그인중인 회원 가져오기
+			UserInfo loginUser = (UserInfo)session.getAttribute("loginMember");
+			if (loginUser == null) {//로그인 상태가 아닌 경우
+				model.addAttribute("msg", "로그인 상태가 아닙니다. 로그인을 먼저 해주세요");
+		        model.addAttribute("url", "/shop/login.do");
+		        return "alert/error";
+			}
+			
+			SellPost sellPost = new SellPost();
+			sellPost.setSellCategoryId(sellPostCommand.getSellCategoryId());
+			sellPost.setUserId(loginUser.getUserId());
+			sellPost.setNickname(loginUser.getNickname());
+			sellPost.setTitle(sellPostCommand.getTitle());
+			sellPost.setContent(sellPostCommand.getContent());
+			Date now = new Date();
+			sellPost.setWrittenDate(now);
+			sellPost.setComplete("n");
+			
+			sellService.insertSellPost(sellPost);
+			
+			return "redirect:/shop/sellMain.do";
+		}
 }

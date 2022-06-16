@@ -8,7 +8,7 @@ import com.example.demo.domain.SellPost;
 
 public interface SellPostDAO { 
 	
-	void insertSellPost(SellPost post) throws DataAccessException; 
+	int insertSellPost(SellPost post) throws DataAccessException; 
 	
 	void updateSellPost(SellPost post) throws DataAccessException; 
 	
