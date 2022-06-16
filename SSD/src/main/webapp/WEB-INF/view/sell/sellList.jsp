@@ -1,11 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" href="css/theme.css">
+<link rel="stylesheet" href="/static/style/theme.css">
 <meta charset="UTF-8">
-<title>자취생 간 거래</title>
+<title>이웃 커뮤니티 거래</title>
+<style>
+	th,td{
+		 text-align:center;
+	}
+</style>
 </head>
 
  <body class="bg-light">
@@ -18,18 +25,22 @@
             <div class="col-lg-12 col-md-12 col-12">
 
             </div>
+            
+            <a href='<c:url value="/shop/sellMain.do"/>'><h1 align="center">이웃 커뮤니티 거래</h1></a>
+            <br/><br/><br/><br/><br/><br/><br/>
+            
             <div class="col-xl-3 col-lg-6 col-md-12 col-12 mt-6">
               <!-- card -->
               <div class="card ">
                 <!-- card body -->
-                <div class="card-body">
+                <div class="card-body"><a href="/shop/categorySell.do?sellCategoryId=3"> <!-- 하단 delivery로 되어있음! -->
                   <!-- heading -->
                   <div class="d-flex justify-content-between align-items-center
                     mb-3">
                     <div>
-                      <h4 class="mb-0">디지털기기</h4>
+                      <h4 class="mb-0">한식</h4>
                     </div>
-                  </div>
+                  </div></a>
                 </div>
               </div>
             </div>
@@ -38,14 +49,14 @@
               <!-- card -->
               <div class="card ">
                 <!-- card body -->
-                <div class="card-body">
+                <div class="card-body"><a href="/shop/categoryDelivery.do?deliveryCategoryId=2">
                   <!-- heading -->
                   <div class="d-flex justify-content-between align-items-center
                     mb-3">
                     <div>
-                      <h4 class="mb-0">생활가전</h4>
+                      <h4 class="mb-0">중식</h4>
                     </div>
-                  </div>
+                  </div></a>
                 </div>
               </div>
             </div>
@@ -54,14 +65,14 @@
               <!-- card -->
               <div class="card ">
                 <!-- card body -->
-                <div class="card-body">
+                <div class="card-body"><a href="/shop/categoryDelivery.do?deliveryCategoryId=1">
                   <!-- heading -->
                   <div class="d-flex justify-content-between align-items-center
                     mb-3">
                     <div>
-                      <h4 class="mb-0">가구/인테리어</h4>
+                      <h4 class="mb-0">일식</h4>
                     </div>
-                  </div>
+                  </div></a>
                 </div>
               </div>
             </div>
@@ -70,14 +81,14 @@
               <!-- card -->
               <div class="card ">
                 <!-- card body -->
-                <div class="card-body">
+                <div class="card-body"><a href="/shop/categoryDelivery.do?deliveryCategoryId=7">
                   <!-- heading -->
                   <div class="d-flex justify-content-between align-items-center
                     mb-3">
                     <div>
-                      <h4 class="mb-0">게임/취미</h4>
+                      <h4 class="mb-0">패스트푸드</h4>
                     </div>
-                  </div>
+                  </div></a>
                 </div>
               </div>
             </div>
@@ -86,14 +97,14 @@
               <!-- card -->
               <div class="card ">
                 <!-- card body -->
-                <div class="card-body">
+                <div class="card-body"><a href="/shop/categoryDelivery.do?deliveryCategoryId=5">
                   <!-- heading -->
                   <div class="d-flex justify-content-between align-items-center
                     mb-3">
                     <div>
-                      <h4 class="mb-0">패션/뷰티/미용</h4>
+                      <h4 class="mb-0">고기</h4>
                     </div>
-                  </div>
+                  </div></a>
                 </div>
               </div>
             </div>
@@ -102,14 +113,14 @@
               <!-- card -->
               <div class="card ">
                 <!-- card body -->
-                <div class="card-body">
+                <div class="card-body"><a href="/shop/categoryDelivery.do?deliveryCategoryId=6">
                   <!-- heading -->
                   <div class="d-flex justify-content-between align-items-center
                     mb-3">
                     <div>
-                      <h4 class="mb-0">반려동물용품</h4>
+                      <h4 class="mb-0">아시안</h4>
                     </div>
-                  </div>
+                  </div></a>
                 </div>
               </div>
             </div>
@@ -118,14 +129,14 @@
               <!-- card -->
               <div class="card ">
                 <!-- card body -->
-                <div class="card-body">
+                <div class="card-body"><a href="/shop/categoryDelivery.do?deliveryCategoryId=4">
                   <!-- heading -->
                   <div class="d-flex justify-content-between align-items-center
                     mb-3">
                     <div>
-                      <h4 class="mb-0">도서/티켓/음반</h4>
+                      <h4 class="mb-0">디저트</h4>
                     </div>
-                  </div>
+                  </div></a>
                 </div>
               </div>
             </div>
@@ -134,27 +145,26 @@
               <!-- card -->
               <div class="card ">
                 <!-- card body -->
-                <div class="card-body">
+                <div class="card-body"><a href="/shop/categoryDelivery.do?deliveryCategoryId=8">
                   <!-- heading -->
                   <div class="d-flex justify-content-between align-items-center
                     mb-3">
                     <div>
-                      <h4 class="mb-0">기타 중고물품</h4>
+                      <h4 class="mb-0">도시락</h4>
                     </div>
-                  </div>
+                  </div></a>
                 </div>
               </div>
             </div>
             
-       <!-- 여기까지 카테고리 -->
+       
             
 		<p>
-          <div class="d-flex justify-content-between align-items-center""> 
+          <div class="d-flex justify-content-between align-items-center"">
             <div></div>
-          	<div> <a href="#" class="btn btn-white">글 작성 버튼</a> </div>
+          	<div> <a href="/shop/sellForm.do" class="btn btn-white">글 작성 버튼</a> </div>
           </div>
           
-         <!-- 글 배치 -->
           <!-- row  -->
           <div class="row mt-6">
             <div class="col-md-12 col-12">
@@ -165,40 +175,38 @@
                   <table class="table text-nowrap mb-0">
                     <thead class="table-light">
                       <tr>
-                        <th>제목(품명)</th>
+                        <th>제목</th>
                         <th>작성자</th>
                         <th>완료여부</th>
                         <th>작성일</th>
                       </tr>
                     </thead>
                     <tbody>
-                      <tr>
-                        <td class="align-middle text-dark">제목1</td>
-                        <td class="align-middle text-dark">작성자1</td>
-                        <td class="align-middle text-dark">완료여부1</td>
-                        <td class="align-middle text-dark">작성일1</td>
-                      </tr>
-                      
-                      <tr>
-                        <td class="align-middle text-dark">제목2</td>
-                        <td class="align-middle text-dark">작성자2</td>
-                        <td class="align-middle text-dark">완료여부2</td>
-                        <td class="align-middle text-dark">작성일2</td>
-                      </tr>
-                      
-                      <tr>
-                        <td class="align-middle text-dark">제목3</td>
-                        <td class="align-middle text-dark">작성자3</td>
-                        <td class="align-middle text-dark">완료여부3</td>
-                        <td class="align-middle text-dark">작성일3</td>
-                      </tr>
-
+                    <c:forEach var="sellPost" items="${sellPostList}">
+      					<tr>
+      					<td class="align-middle text-dark">
+      					
+      					<a href='<c:url value="/shop/viewSellPost.do">
+            			<c:param name="sellPostId" value="${sellPost.postId}"/></c:url>'>
+                        ${sellPost.title}</a></td>
+                        
+                        <td class="align-middle text-dark">${sellPost.nickname}</td>
+	
+	                    <c:if test="${sellPost.complete eq 'y'}">
+                        <td class="align-middle text-dark">O</td>
+                        </c:if>
+                        <c:if test="${sellPost.complete eq 'n'}">
+                        <td class="align-middle text-dark">X</td>
+                        </c:if>
+                        
+                        <td class="align-middle text-dark">${sellPost.writtenDate}</td>
+                        </tr>
+                     
+                     </c:forEach>
                     </tbody>
                   </table>
                 </div>
-                <!-- card footer 삭제 -->
-                <div class="card-footer bg-white text-center">
-                  <a href="#" class="link-primary">View All</a>
+          
 
                 </div>
               </div>
@@ -208,7 +216,7 @@
         </div>
       </div>
     </div>
-</div>
+
 
 
 </body>

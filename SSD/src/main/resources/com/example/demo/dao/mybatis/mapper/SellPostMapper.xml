@@ -4,10 +4,11 @@
 	<cache />
 
 	<select id="getAllSellPost" resultType="SellPost"> 
-		SELECT * 
-		FROM SELLPOST 
-		ORDER BY postId DESC 
-	</select> 
+		SELECT s.content, s.postId, s.sellCategoryId, s.userId, s.title, s.writtenDate, s.complete, u.nickname 
+		FROM SELLPOST s, USERINFO u 
+		WHERE s.userId = u.userId
+		ORDER BY writtenDate DESC 
+	</select>
 	
 	<select id="getSellPost" parameterType="int" resultType="SellPost"> 
 		SELECT *

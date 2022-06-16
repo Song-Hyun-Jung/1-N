@@ -12,6 +12,7 @@ public class SellPost implements Serializable{
 	private Date writtenDate;
 	private String content;
 	private String complete;		//완료 여부
+	private String nickname; //작성자 닉네임
 	
 	public int getPostId() {return postId;}
 	public void setPostId(int postId) {this.postId = postId;}
@@ -33,5 +34,9 @@ public class SellPost implements Serializable{
 	
 	public String getComplete() {return complete;}
 	public void setComplete(String complete) {this.complete = complete;}
+	
+	public String getNickname() { return nickname; }
+	public void setNickname(String nickname) { this.nickname = nickname; }
+	
 	
 }
