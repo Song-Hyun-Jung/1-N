@@ -10,6 +10,13 @@
 			<a class="myPageNav" href="/shop/mypageDelivery.do">작성한 배달 커뮤니티 글</a>
 			<a class="myPageNav" href="/shop/mypageSell.do">작성한 이웃 커뮤니티 글</a>
 	</div>
-		
+	<div>
+		<p>이름: <span th:text="${session.loginMember.name}">이름</span></p>
+		<p>닉네임: <span th:text="${session.loginMember.Nickname}">닉네임</span></p>
+		<p>비밀번호: <span th:text="${session.loginMember.password}">비밀번호</span></p>
+		<p>전화번호: <span th:text="${session.loginMember.phone}">전화번호</span></p>
+		<p>주소: <span th:text="${session.loginMember.address}">주소</span></p>
+		<p>결제정보: <span th:text="${session.loginMember.payment}">결제정보</span></p>
+	</div>
 </body>
 </html>
