@@ -7,8 +7,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 
+import com.example.demo.dao.DeliveryCategoryDAO;
 import com.example.demo.dao.DeliveryCommentDAO;
 import com.example.demo.dao.DeliveryPostDAO;
+import com.example.demo.domain.DeliveryCategory;
 import com.example.demo.domain.DeliveryComment;
 import com.example.demo.domain.DeliveryPost;
 
@@ -19,6 +21,8 @@ public class DeliveryServiceImpl implements DeliveryService{
 	private DeliveryPostDAO deliveryPostDao;
 	@Autowired
 	private DeliveryCommentDAO deliveryCommentDao;
+	@Autowired
+	private DeliveryCategoryDAO deliveryCategoryDao;
 	
 	//글 상세정보 보기위해 글정보, 댓글들 가져오기
 	@Override
@@ -63,5 +67,12 @@ public class DeliveryServiceImpl implements DeliveryService{
 	
 	public int insertDeliveryPost(DeliveryPost deliveryPost) {
 		return deliveryPostDao.insertDeliveryPost(deliveryPost);
+	}
+
+	//배달 음식 카테고리
+	@Override
+	public List<DeliveryCategory> getDeliveryCategoryList() {
+		// TODO Auto-generated method stub
+		return deliveryCategoryDao.getDeliveryCategoryList();
 	}
 }

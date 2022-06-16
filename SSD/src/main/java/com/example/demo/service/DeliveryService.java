@@ -2,7 +2,10 @@ package com.example.demo.service;
 
 import java.util.List;
 
+import org.springframework.dao.DataAccessException;
+
 import com.example.demo.dao.DeliveryCommentDAO;
+import com.example.demo.domain.DeliveryCategory;
 import com.example.demo.domain.DeliveryComment;
 import com.example.demo.domain.DeliveryPost;
 
@@ -20,4 +23,7 @@ public interface DeliveryService {
 	
 	//완료여부 update
 	void updateDeliveryPost(DeliveryPost post);
+	
+	//배달 음식 카테고리
+	List<DeliveryCategory> getDeliveryCategoryList();
 }

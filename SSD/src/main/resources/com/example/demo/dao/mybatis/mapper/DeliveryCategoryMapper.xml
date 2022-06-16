@@ -13,6 +13,7 @@
   <select id="getDeliveryCategoryList" resultType="DeliveryCategory">
     SELECT *
     FROM DELIVERYCATEGORY
+    ORDER BY deliveryCategoryId ASC
   </select>
 
 </mapper>

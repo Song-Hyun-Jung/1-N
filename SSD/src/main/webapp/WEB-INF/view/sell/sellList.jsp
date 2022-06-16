@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@ page language="java" contentType="text/html;"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
@@ -16,6 +16,7 @@
 </head>
 
  <body class="bg-light">
+ <%@ include file="../top.jsp" %>
     <div id="db-wrapper">
 
       <div id="page-content">
@@ -27,7 +28,7 @@
             </div>
             
             <a href='<c:url value="/shop/sellMain.do"/>'><h1 align="center">이웃 커뮤니티 거래</h1></a>
-            <br/><br/><br/><br/><br/><br/><br/>
+            <br/><br/><br/>
             
              <c:forEach var="sellCategory" items="${sellCategoryList}">
             <div class="col-xl-3 col-lg-6 col-md-12 col-12 mt-6">

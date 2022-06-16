@@ -45,12 +45,6 @@
 	   
   	</select>
 	
-	<select id="getSellCategoryList" resultType="SellCategory">
-	    SELECT *
-	    FROM SELLCATEGORY
-	    ORDER BY sellCategoryId DESC 
-  	</select>
-	
 	<resultMap id="collectionResultMap" type="SellPost"> 
 		<id column="postId" jdbcType="BIGINT" property="postId" /> 
 		<result column="sellCategoryId" jdbcType="BIGINT" property="sellCategoryId" /> 

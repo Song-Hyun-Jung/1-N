@@ -8,6 +8,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.example.demo.domain.DeliveryCategory;
 import com.example.demo.domain.DeliveryPost;
 import com.example.demo.domain.SellCategory;
 import com.example.demo.domain.SellPost;
@@ -28,7 +29,10 @@ public class GoPostListController {
 	public String deliveryList(
 			ModelMap model) throws Exception {
 		List<DeliveryPost> deliveryPostList = this.deliveryService.getAllDeliveryPost();
+		List<DeliveryCategory> deliveryCategoryList = this.deliveryService.getDeliveryCategoryList();
 		model.put("deliveryPostList", deliveryPostList);
+		model.put("deliveryCategoryList", deliveryCategoryList);
+
 		return "/delivery/deliveryList";
 	}
 	
