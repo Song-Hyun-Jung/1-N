@@ -34,9 +34,14 @@ public class SellServiceImpl implements SellService{
 		return SellCommentDao.insertSellComment(SellComment);
 	}
 	
-	//댓글등록
+	//complete
 	@Override
 	public void updateSellPost(SellPost sellPost) {
 		SellPostDao.updateSellPost(sellPost);
+	}
+	
+	//글 목록 가져오기
+	public List<SellPost> getAllSellPost(){
+		return SellPostDao.getAllSellPost();
 	}
 }

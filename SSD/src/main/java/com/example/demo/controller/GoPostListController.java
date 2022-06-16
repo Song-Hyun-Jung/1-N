@@ -6,9 +6,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.example.demo.domain.DeliveryPost;
+import com.example.demo.domain.SellPost;
 import com.example.demo.service.DeliveryServiceImpl;
+import com.example.demo.service.SellService;
 
 @Controller
 public class GoPostListController {
@@ -26,5 +29,19 @@ public class GoPostListController {
 		List<DeliveryPost> deliveryPostList = this.deliveryService.getAllDeliveryPost();
 		model.put("deliveryPostList", deliveryPostList);
 		return "/delivery/deliveryList";
+	}
+	
+	//이웃 커뮤니티 메인
+	@Autowired
+	SellService sellService;
+	
+	@RequestMapping("/shop/sellMain.do")
+	public ModelAndView sellList() throws Exception{
+		List<SellPost> sellPostList = sellService.getAllSellPost();
+		
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("sell/sellList");
+		mav.addObject("sellPostList", sellPostList);
+		return mav;
 	}
 }

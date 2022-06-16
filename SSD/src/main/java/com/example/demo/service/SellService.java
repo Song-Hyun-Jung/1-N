@@ -14,4 +14,7 @@ public interface SellService {
 		int insertSellComment(SellComment sellComment);
 		
 		void updateSellPost(SellPost sellpost);
+		
+		//글 목록 가져오기
+		List<SellPost> getAllSellPost();
 }
