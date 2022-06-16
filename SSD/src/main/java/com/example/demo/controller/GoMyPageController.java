@@ -33,6 +33,7 @@ public class GoMyPageController {
 		return mav;
 	}
 	
+	
 	/*
 	@RequestMapping("/shop/mypageView.do")
 	public ModelAndView myPageView(HttpServletRequest request, HttpSession session, @ModelAttribute("updateUserCommand") UpdateUserCommand updateUserCommand) throws Exception{
