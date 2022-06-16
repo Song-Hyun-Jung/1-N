@@ -10,7 +10,7 @@ import com.example.demo.domain.SellPost;
 
 @Mapper
 public interface SellPostMapper {
-	void insertSellPost(SellPost post); 
+	int insertSellPost(SellPost post); 
 	
 	void updateSellPost(SellPost post); 
 	

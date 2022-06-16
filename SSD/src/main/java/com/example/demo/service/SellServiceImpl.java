@@ -44,4 +44,9 @@ public class SellServiceImpl implements SellService{
 	public List<SellPost> getAllSellPost(){
 		return SellPostDao.getAllSellPost();
 	}
+	
+	//글 작성하기
+	public int insertSellPost(SellPost sellPost) {
+		return SellPostDao.insertSellPost(sellPost);
+	}
 }

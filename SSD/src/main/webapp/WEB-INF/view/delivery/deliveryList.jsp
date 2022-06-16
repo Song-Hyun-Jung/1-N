@@ -1,13 +1,13 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html;"
+    pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <!DOCTYPE html>
 <html>
 <head>
 <link rel="stylesheet" href="/static/style/theme.css">
-<meta charset="EUC-KR">
-<title>¹è´ÞÀ½½Ä ³ª´©±â</title>
+<meta charset="UTF-8">
+<title>ë°°ë‹¬ìŒì‹ ë‚˜ëˆ„ê¸°</title>
 </head>
 
  <body class="bg-light">
@@ -21,7 +21,7 @@
 
             </div>
             
-            <a href='<c:url value="/shop/deliveryMain.do"/>'><h1 align="center">¹è´ÞÀ½½Ä ³ª´©±â</h1></a>
+            <a href='<c:url value="/shop/deliveryMain.do"/>'><h1 align="center">ë°°ë‹¬ìŒì‹ ë‚˜ëˆ„ê¸°</h1></a>
             <br/><br/><br/><br/><br/><br/><br/>
             
             <div class="col-xl-3 col-lg-6 col-md-12 col-12 mt-6">
@@ -33,7 +33,7 @@
                   <div class="d-flex justify-content-between align-items-center
                     mb-3">
                     <div>
-                      <h4 class="mb-0">ÇÑ½Ä</h4>
+                      <h4 class="mb-0">í•œì‹</h4>
                     </div>
                   </div></a>
                 </div>
@@ -49,7 +49,7 @@
                   <div class="d-flex justify-content-between align-items-center
                     mb-3">
                     <div>
-                      <h4 class="mb-0">Áß½Ä</h4>
+                      <h4 class="mb-0">ì¤‘ì‹</h4>
                     </div>
                   </div></a>
                 </div>
@@ -65,7 +65,7 @@
                   <div class="d-flex justify-content-between align-items-center
                     mb-3">
                     <div>
-                      <h4 class="mb-0">ÀÏ½Ä</h4>
+                      <h4 class="mb-0">ì¼ì‹</h4>
                     </div>
                   </div></a>
                 </div>
@@ -81,7 +81,7 @@
                   <div class="d-flex justify-content-between align-items-center
                     mb-3">
                     <div>
-                      <h4 class="mb-0">ÆÐ½ºÆ®Çªµå</h4>
+                      <h4 class="mb-0">íŒ¨ìŠ¤íŠ¸í‘¸ë“œ</h4>
                     </div>
                   </div></a>
                 </div>
@@ -97,7 +97,7 @@
                   <div class="d-flex justify-content-between align-items-center
                     mb-3">
                     <div>
-                      <h4 class="mb-0">°í±â</h4>
+                      <h4 class="mb-0">ê³ ê¸°</h4>
                     </div>
                   </div></a>
                 </div>
@@ -113,7 +113,7 @@
                   <div class="d-flex justify-content-between align-items-center
                     mb-3">
                     <div>
-                      <h4 class="mb-0">¾Æ½Ã¾È</h4>
+                      <h4 class="mb-0">ì•„ì‹œì•ˆ</h4>
                     </div>
                   </div></a>
                 </div>
@@ -129,7 +129,7 @@
                   <div class="d-flex justify-content-between align-items-center
                     mb-3">
                     <div>
-                      <h4 class="mb-0">µðÀúÆ®</h4>
+                      <h4 class="mb-0">ë””ì €íŠ¸</h4>
                     </div>
                   </div></a>
                 </div>
@@ -145,7 +145,7 @@
                   <div class="d-flex justify-content-between align-items-center
                     mb-3">
                     <div>
-                      <h4 class="mb-0">µµ½Ã¶ô</h4>
+                      <h4 class="mb-0">ë„ì‹œë½</h4>
                     </div>
                   </div></a>
                 </div>
@@ -157,7 +157,7 @@
 		<p>
           <div class="d-flex justify-content-between align-items-center"">
             <div></div>
-          	<div> <a href="/shop/deliveryForm.do" class="btn btn-white">±Û ÀÛ¼º ¹öÆ°</a> </div>
+          	<div> <a href="/shop/deliveryForm.do" class="btn btn-white">ê¸€ ìž‘ì„± ë²„íŠ¼</a> </div>
           </div>
           
           <!-- row  -->
@@ -170,12 +170,12 @@
                   <table class="table text-nowrap mb-0">
                     <thead class="table-light">
                       <tr>
-                        <th>Á¦¸ñ</th>
-                        <th>ÀÛ¼ºÀÚ</th>
-                        <th>´ë·«Àû ÁÖ¼Ò</th>
-                        <th>À½½Ä¸í</th>
-                        <th>¿Ï·á¿©ºÎ</th>
-                        <th>ÀÛ¼ºÀÏ</th>
+                        <th>ì œëª©</th>
+                        <th>ìž‘ì„±ìž</th>
+                        <th>ëŒ€ëžµì  ì£¼ì†Œ</th>
+                        <th>ìŒì‹ëª…</th>
+                        <th>ì™„ë£Œì—¬ë¶€</th>
+                        <th>ìž‘ì„±ì¼</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -217,7 +217,6 @@
         </div>
       </div>
     </div>
-</div>
 
 
 </body>
