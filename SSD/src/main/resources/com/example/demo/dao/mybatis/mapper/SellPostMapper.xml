@@ -37,10 +37,18 @@
 		WHERE postId = #{postId} 
 	</update>
 	
-	<select id="getPostBySellCategory" parameterType="int" resultType="SellPost">
+	<select id="getSellPostByCategoryId" parameterType="int" resultType="SellPost">
+	    SELECT s.content, s.postId, s.sellCategoryId, s.userId, s.title, s.writtenDate, s.complete, u.nickname 
+		FROM SELLPOST s, USERINFO u
+	    WHERE sellCategoryId= #{sellCategorytId} and s.userId = u.userId
+	    ORDER BY writtenDate DESC 
+	   
+  	</select>
+	
+	<select id="getSellCategoryList" resultType="SellCategory">
 	    SELECT *
-	    FROM SELLPOST
-	    WHERE sellCategoryId= #{sellCategorytId}
+	    FROM SELLCATEGORY
+	    ORDER BY sellCategoryId DESC 
   	</select>
 	
 	<resultMap id="collectionResultMap" type="SellPost"> 
