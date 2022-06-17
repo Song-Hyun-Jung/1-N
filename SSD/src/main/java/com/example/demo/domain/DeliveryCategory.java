@@ -6,7 +6,7 @@ import java.io.Serializable;
 public class DeliveryCategory implements Serializable{
 
 	private int deliveryCategoryId;
-	private int name;
+	private String name;
 	
 	public int getDeliveryCategoryId() {
 		return deliveryCategoryId;
@@ -14,10 +14,10 @@ public class DeliveryCategory implements Serializable{
 	public void setDeliveryCategoryId(int deliveryCategoryId) {
 		this.deliveryCategoryId = deliveryCategoryId;
 	}
-	public int getName() {
+	public String getName() {
 		return name;
 	}
-	public void setName(int name) {
+	public void setName(String name) {
 		this.name = name;
 	}
 	

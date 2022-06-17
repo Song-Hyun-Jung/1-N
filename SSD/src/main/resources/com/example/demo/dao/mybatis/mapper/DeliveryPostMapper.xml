@@ -44,9 +44,11 @@
 	</update>
 	
 	<select id="getDeliveryPostByCategoryId" parameterType="int" resultType="DeliveryPost">
-    	SELECT *
-    	FROM DELIVERYPOST
-    	WHERE deliveryCategoryId= #{deliveryCategoryId} 
+    	SELECT d.content, d.postId, d.deliveryCategoryId, d.userId, d.title, d.writtenDate, d.address, d.foodName, d.complete, d.participantList, u.nickname 
+    	FROM DELIVERYPOST d, USERINFO u 
+    	WHERE deliveryCategoryId= #{deliveryCategoryId} and  d.userId = u.userId
+    	ORDER BY postId DESC  
+    	
   	</select> 
 	
 	<resultMap id="collectionResultMap" type="DeliveryPost"> 

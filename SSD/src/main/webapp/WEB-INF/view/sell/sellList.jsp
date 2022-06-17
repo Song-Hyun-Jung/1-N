@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@ page language="java" contentType="text/html;"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
@@ -9,13 +9,26 @@
 <meta charset="UTF-8">
 <title>이웃 커뮤니티 거래</title>
 <style>
-	th,td{
-		 text-align:center;
+	td{
+		 text-align:center !important;
+	}
+	th{
+		 text-align:center !important;
+	}
+	a{
+	  	text-decoration: none !important;
+	}
+	a:hover{
+		text-decoration: none !important;
+		color: blue !important;
+		font-size: medium !important;
+	
 	}
 </style>
 </head>
 
  <body class="bg-light">
+ <%@ include file="../top.jsp" %>
     <div id="db-wrapper">
 
       <div id="page-content">
@@ -27,137 +40,25 @@
             </div>
             
             <a href='<c:url value="/shop/sellMain.do"/>'><h1 align="center">이웃 커뮤니티 거래</h1></a>
-            <br/><br/><br/><br/><br/><br/><br/>
+            <br/><br/><br/>
             
+             <c:forEach var="sellCategory" items="${sellCategoryList}">
             <div class="col-xl-3 col-lg-6 col-md-12 col-12 mt-6">
               <!-- card -->
               <div class="card ">
                 <!-- card body -->
-                <div class="card-body"><a href="/shop/categorySell.do?sellCategoryId=3"> <!-- 하단 delivery로 되어있음! -->
+                <div class="card-body"><a href="/shop/categorySell.do?sellCategoryId=${sellCategory.sellCategoryId }"> <!-- 하단 delivery로 되어있음! -->
                   <!-- heading -->
                   <div class="d-flex justify-content-between align-items-center
                     mb-3">
                     <div>
-                      <h4 class="mb-0">한식</h4>
+                      <h4 class="mb-0">${sellCategory.name }</h4>
                     </div>
                   </div></a>
                 </div>
               </div>
             </div>
-            
-            <div class="col-xl-3 col-lg-6 col-md-12 col-12 mt-6">
-              <!-- card -->
-              <div class="card ">
-                <!-- card body -->
-                <div class="card-body"><a href="/shop/categoryDelivery.do?deliveryCategoryId=2">
-                  <!-- heading -->
-                  <div class="d-flex justify-content-between align-items-center
-                    mb-3">
-                    <div>
-                      <h4 class="mb-0">중식</h4>
-                    </div>
-                  </div></a>
-                </div>
-              </div>
-            </div>
-            
-            <div class="col-xl-3 col-lg-6 col-md-12 col-12 mt-6">
-              <!-- card -->
-              <div class="card ">
-                <!-- card body -->
-                <div class="card-body"><a href="/shop/categoryDelivery.do?deliveryCategoryId=1">
-                  <!-- heading -->
-                  <div class="d-flex justify-content-between align-items-center
-                    mb-3">
-                    <div>
-                      <h4 class="mb-0">일식</h4>
-                    </div>
-                  </div></a>
-                </div>
-              </div>
-            </div>
-            
-            <div class="col-xl-3 col-lg-6 col-md-12 col-12 mt-6">
-              <!-- card -->
-              <div class="card ">
-                <!-- card body -->
-                <div class="card-body"><a href="/shop/categoryDelivery.do?deliveryCategoryId=7">
-                  <!-- heading -->
-                  <div class="d-flex justify-content-between align-items-center
-                    mb-3">
-                    <div>
-                      <h4 class="mb-0">패스트푸드</h4>
-                    </div>
-                  </div></a>
-                </div>
-              </div>
-            </div>
-            
-            <div class="col-xl-3 col-lg-6 col-md-12 col-12 mt-6">
-              <!-- card -->
-              <div class="card ">
-                <!-- card body -->
-                <div class="card-body"><a href="/shop/categoryDelivery.do?deliveryCategoryId=5">
-                  <!-- heading -->
-                  <div class="d-flex justify-content-between align-items-center
-                    mb-3">
-                    <div>
-                      <h4 class="mb-0">고기</h4>
-                    </div>
-                  </div></a>
-                </div>
-              </div>
-            </div>
-            
-            <div class="col-xl-3 col-lg-6 col-md-12 col-12 mt-6">
-              <!-- card -->
-              <div class="card ">
-                <!-- card body -->
-                <div class="card-body"><a href="/shop/categoryDelivery.do?deliveryCategoryId=6">
-                  <!-- heading -->
-                  <div class="d-flex justify-content-between align-items-center
-                    mb-3">
-                    <div>
-                      <h4 class="mb-0">아시안</h4>
-                    </div>
-                  </div></a>
-                </div>
-              </div>
-            </div>
-            
-            <div class="col-xl-3 col-lg-6 col-md-12 col-12 mt-6">
-              <!-- card -->
-              <div class="card ">
-                <!-- card body -->
-                <div class="card-body"><a href="/shop/categoryDelivery.do?deliveryCategoryId=4">
-                  <!-- heading -->
-                  <div class="d-flex justify-content-between align-items-center
-                    mb-3">
-                    <div>
-                      <h4 class="mb-0">디저트</h4>
-                    </div>
-                  </div></a>
-                </div>
-              </div>
-            </div>
-            
-            <div class="col-xl-3 col-lg-6 col-md-12 col-12 mt-6">
-              <!-- card -->
-              <div class="card ">
-                <!-- card body -->
-                <div class="card-body"><a href="/shop/categoryDelivery.do?deliveryCategoryId=8">
-                  <!-- heading -->
-                  <div class="d-flex justify-content-between align-items-center
-                    mb-3">
-                    <div>
-                      <h4 class="mb-0">도시락</h4>
-                    </div>
-                  </div></a>
-                </div>
-              </div>
-            </div>
-            
-       
+            </c:forEach>
             
 		<p>
           <div class="d-flex justify-content-between align-items-center"">

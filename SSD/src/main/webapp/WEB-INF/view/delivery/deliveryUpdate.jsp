@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@ page language="java" contentType="text/html;"
     pageEncoding="UTF-8"%>
 
 <!DOCTYPE html>
@@ -59,6 +59,7 @@
 
 </head>
 <body>
+<%@ include file="../top.jsp" %>
 <div class="container">
 	<div class="row">
 	    <div class="col-md-8 col-md-offset-2">

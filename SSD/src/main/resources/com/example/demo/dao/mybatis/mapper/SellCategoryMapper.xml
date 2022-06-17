@@ -13,6 +13,7 @@
   <select id="getSellCategoryList" resultType="SellCategory">
     SELECT *
     FROM SELLCATEGORY
+    ORDER BY sellCategoryId ASC
   </select>
 
 </mapper>
