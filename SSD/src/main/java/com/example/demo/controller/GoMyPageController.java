@@ -35,6 +35,7 @@ public class GoMyPageController {
 	
 	
 	/*
+	 //타임리프로 구현한 페이지로 이동하기 위한 컨트롤러
 	@RequestMapping("/shop/mypageView.do")
 	public ModelAndView myPageView(HttpServletRequest request, HttpSession session, @ModelAttribute("updateUserCommand") UpdateUserCommand updateUserCommand) throws Exception{
 		UserInfo userInfo = (UserInfo)session.getAttribute("loginMember");

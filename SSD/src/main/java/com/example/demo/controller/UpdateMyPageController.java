@@ -37,8 +37,6 @@ public class UpdateMyPageController {
 		if(result.hasErrors()) {
 			System.out.println(result);
 			
-			//mav.addObject("updateUserCommand", updateUserCommand);
-			
 			return "/user/myPage";
 		}
 		
