@@ -8,11 +8,22 @@
 <link rel="stylesheet" href="/static/style/theme.css">
 <meta charset="UTF-8">
 <title>배달음식 나누기</title>
- <%@ include file="../top.jsp" %>
+<style>
+	a{
+	  	text-decoration: none !important;
+	}
+	a:hover{
+		text-decoration: none !important;
+		color: blue !important;
+		font-size: medium !important;
+	
+	}
+</style>
+
 </head>
 
  <body class="bg-light">
-
+	 <%@ include file="../top.jsp" %>
     <div id="db-wrapper">
 
       <div id="page-content">

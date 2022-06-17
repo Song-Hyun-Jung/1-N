@@ -9,8 +9,20 @@
 <meta charset="UTF-8">
 <title>이웃 커뮤니티 거래</title>
 <style>
-	th,td{
-		 text-align:center;
+	td{
+		 text-align:center !important;
+	}
+	th{
+		 text-align:center !important;
+	}
+	a{
+	  	text-decoration: none !important;
+	}
+	a:hover{
+		text-decoration: none !important;
+		color: blue !important;
+		font-size: medium !important;
+	
 	}
 </style>
 </head>
