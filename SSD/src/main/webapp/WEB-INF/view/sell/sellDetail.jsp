@@ -122,7 +122,7 @@
 	           			
 	           		</div>
 	           		<div class="form-group">
-				    		  <br><br><button class="customButton" type="button"> 목록으로 돌아가기 </button>
+				    		  <br><br><button class="customButton" style="font-size:medium" type="button" onClick="location.href='/shop/sellMain.do'"> 목록으로 돌아가기 </button>
 				     </div>
 	    	     </div>
 		</div>
