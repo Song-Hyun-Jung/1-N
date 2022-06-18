@@ -75,6 +75,9 @@
       color:#333f57;
       transition:all .3s ease-out 0s
       }
+      a{
+      	text-decoration: none !important;
+      }
     </style>
     
     

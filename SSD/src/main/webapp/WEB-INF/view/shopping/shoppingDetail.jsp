@@ -25,7 +25,11 @@
     <link rel="stylesheet" href="/static/style/shoppingDetail,shoppingPurchase/css/owl.carousel.min.css" type="text/css">
     <link rel="stylesheet" href="/static/style/shoppingDetail,shoppingPurchase/css/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="/static/style/shoppingDetail,shoppingPurchase/css/style.css" type="text/css">
-
+	<style>
+		a{
+			text-decoration:none !important;
+		}
+	</style>
 </head>
 
 <body>
